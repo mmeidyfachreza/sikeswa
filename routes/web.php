@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin.health.tau');
 });
 Route::get('/tes','DashboardController@quick_access');
 
@@ -26,6 +26,7 @@ Route::group(['middleware'=>'admin'], function () {
     Route::resource('siswa', 'StudentController');
     Route::resource('kesehatan', 'HealthController');
     Route::get('health/student/{id}', 'HealthController@StudentFindHealth')->name('student.find.health');
+    Route::get('health/create/{id}', 'HealthController@create')->name('kesehatan2.create');
     Route::post('health/student', 'HealthController@StudentSearch')->name('student.search');
     Route::post('users/update', 'HomeController@tested');
 });

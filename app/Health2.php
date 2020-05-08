@@ -2,9 +2,10 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
-class Health extends Model
+class Health2 extends Model
 {
     protected $fillable=[
         'date',
@@ -35,4 +36,9 @@ class Health extends Model
     {
         return $this->belongsTo('App\Student','student_id');
     }
+
+    public function setDateAttribute($value)
+{
+    $this->attributes['date'] =  Carbon::parse($value);
+}
 }
