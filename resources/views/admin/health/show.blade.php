@@ -13,7 +13,7 @@
                       <div class="card-body">
                           <div class="row" >
                               <div class="col-lg-2">
-                                  <img class="card-img-top" src="{{secure_asset('/uploads/avatars/'.$pengukuran->siswa->avatar)}}" alt="Card image">
+                                  <img class="card-img-top" src="{{asset('/uploads/avatars/'.$pengukuran->siswa->avatar)}}" alt="Card image">
                           </div>
                               <div class="col-lg-10 table-responsive">
                                   <table class="table table-striped" style="width:100%">

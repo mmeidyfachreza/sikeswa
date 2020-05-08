@@ -13,7 +13,7 @@
                       <div class="card-body">
                         <div class="row" >
                           <div class="col-lg-2">
-                            <img class="card-img-top" src="{{secure_asset('/uploads/avatars/'.$siswa->avatar)}}" alt="Card image">
+                            <img class="card-img-top" src="{{asset('/uploads/avatars/'.$siswa->avatar)}}" alt="Card image">
                       </div>
 
                           <div class="col-lg-7">
@@ -400,39 +400,39 @@
 
                       <!-- Modal body -->
                       <div class="modal-body">
-                        <img class="card-img-top" src="{{secure_asset('/images/18.jpg')}}" alt="Card image">
+                        <img class="card-img-top" src="{{asset('/images/18.jpg')}}" alt="Card image">
                         <p>&nbsp;</p>
-                        <img class="card-img-top" src="{{secure_asset('/images/19.jpg')}}" alt="Card image">
+                        <img class="card-img-top" src="{{asset('/images/19.jpg')}}" alt="Card image">
                         <p>&nbsp;</p>
-                        <img class="card-img-top" src="{{secure_asset('/images/21.jpg')}}" alt="Card image">
+                        <img class="card-img-top" src="{{asset('/images/21.jpg')}}" alt="Card image">
                         <p>&nbsp;</p>
-                        <img class="card-img-top" src="{{secure_asset('/images/22.jpg')}}" alt="Card image">
+                        <img class="card-img-top" src="{{asset('/images/22.jpg')}}" alt="Card image">
                         <p>&nbsp;</p>
-                        <img class="card-img-top" src="{{secure_asset('/images/36.jpg')}}" alt="Card image">
+                        <img class="card-img-top" src="{{asset('/images/36.jpg')}}" alt="Card image">
                         <p>&nbsp;</p>
-                        <img class="card-img-top" src="{{secure_asset('/images/37.jpg')}}" alt="Card image">
+                        <img class="card-img-top" src="{{asset('/images/37.jpg')}}" alt="Card image">
                         <p>&nbsp;</p>
-                        <img class="card-img-top" src="{{secure_asset('/images/38.jpg')}}" alt="Card image">
+                        <img class="card-img-top" src="{{asset('/images/38.jpg')}}" alt="Card image">
                         <p>&nbsp;</p>
-                        <img class="card-img-top" src="{{secure_asset('/images/39.jpg')}}" alt="Card image">
+                        <img class="card-img-top" src="{{asset('/images/39.jpg')}}" alt="Card image">
                         <p>&nbsp;</p>
-                        <img class="card-img-top" src="{{secure_asset('/images/40.jpg')}}" alt="Card image">
+                        <img class="card-img-top" src="{{asset('/images/40.jpg')}}" alt="Card image">
                         <p>&nbsp;</p>
-                        <img class="card-img-top" src="{{secure_asset('/images/41.jpg')}}" alt="Card image">
+                        <img class="card-img-top" src="{{asset('/images/41.jpg')}}" alt="Card image">
                         <p>&nbsp;</p>
-                        <img class="card-img-top" src="{{secure_asset('/images/1.png')}}" alt="Card image">
+                        <img class="card-img-top" src="{{asset('/images/1.png')}}" alt="Card image">
                         <p>&nbsp;</p>
-                        <img class="card-img-top" src="{{secure_asset('/images/2.png')}}" alt="Card image">
+                        <img class="card-img-top" src="{{asset('/images/2.png')}}" alt="Card image">
                         <p>&nbsp;</p>
-                        <img class="card-img-top" src="{{secure_asset('/images/3.png')}}" alt="Card image">
+                        <img class="card-img-top" src="{{asset('/images/3.png')}}" alt="Card image">
                         <p>&nbsp;</p>
-                        <img class="card-img-top" src="{{secure_asset('/images/4.png')}}" alt="Card image">
+                        <img class="card-img-top" src="{{asset('/images/4.png')}}" alt="Card image">
                         <p>&nbsp;</p>
-                        <img class="card-img-top" src="{{secure_asset('/images/5.png')}}" alt="Card image">
+                        <img class="card-img-top" src="{{asset('/images/5.png')}}" alt="Card image">
                         <p>&nbsp;</p>
-                        <img class="card-img-top" src="{{secure_asset('/images/7.png')}}" alt="Card image">
+                        <img class="card-img-top" src="{{asset('/images/7.png')}}" alt="Card image">
                         <p>&nbsp;</p>
-                        <img class="card-img-top" src="{{secure_asset('/images/8.png')}}" alt="Card image">
+                        <img class="card-img-top" src="{{asset('/images/8.png')}}" alt="Card image">
                         <p>&nbsp;</p>
                   </div>
 

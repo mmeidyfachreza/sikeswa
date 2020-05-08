@@ -8,7 +8,7 @@
   <div style="
   margin: 0px 2rem;
   ">
-  <img src="{{secure_asset('/images/uks.jpg')}}" style="z-index: -1;
+  <img src="{{asset('/images/uks.jpg')}}" style="z-index: -1;
   position: absolute;
   width: 115px;">
   <p style="margin-top:0pt; margin-bottom:0pt; text-align:center; line-height:115%; font-size:14pt;">

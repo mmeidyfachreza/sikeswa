@@ -18,7 +18,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-2">
-                                <img class="card-img-top" src="{{secure_asset('/uploads/avatars/'.$student->avatar)}}"
+                                <img class="card-img-top" src="{{asset('/uploads/avatars/'.$student->avatar)}}"
                                     alt="Card image">
                             </div>
 

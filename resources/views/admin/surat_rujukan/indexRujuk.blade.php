@@ -92,7 +92,7 @@
 
           <!-- Modal body -->
           <div class="modal-body">
-                <img class="card-img-top" src="{{secure_asset('/images/suratrujuk.jpg')}}" alt="Card image">
+                <img class="card-img-top" src="{{asset('/images/suratrujuk.jpg')}}" alt="Card image">
             <p>&nbsp;</p>
           </div>
 
