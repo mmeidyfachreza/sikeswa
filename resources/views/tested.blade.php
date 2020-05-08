@@ -72,7 +72,7 @@
             <div class="card m-b-30">
                 <div class="card-body row">
                     <div class="col-4">
-                        <a href=""><img src="{{asset('uploads/avatars/'.$item->avatar)}}" alt="" class=" w-80"></a>
+                        <a href=""><img src="{{secure_asset('uploads/avatars/'.$item->avatar)}}" alt="" class=" w-80"></a>
                     </div>
                     <div class="col-8 card-title align-self-center mb-0">
                         <h5>{{$item->name}}</h5>
@@ -111,7 +111,7 @@
 @endsection
 
 @section('custom-script')
-    {{-- <script src="{{asset('template/vendor/bootstrap-3-typeahead/bootstrap3-typeahead.min.js')}}"></script> --}}
+    {{-- <script src="{{secure_asset('template/vendor/bootstrap-3-typeahead/bootstrap3-typeahead.min.js')}}"></script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
 @endsection
 

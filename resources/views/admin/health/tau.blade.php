@@ -8,33 +8,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
     <!-- Bootstrap CSS-->
-    <link rel="stylesheet" href="{{asset('template/vendor/bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('template/vendor/bootstrap/css/bootstrap.min.css')}}">
     <!-- Font Awesome CSS-->
-    <link rel="stylesheet" href="{{asset('template/vendor/font-awesome/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('template/vendor/font-awesome/css/font-awesome.min.css')}}">
     <!-- Fontastic Custom icon font-->
-    <link rel="stylesheet" href="{{asset('template/css/fontastic.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('template/css/fontastic.css')}}">
     <!-- Google fonts - Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
     <!-- Bootstrap Select CSS-->
-    <link rel="stylesheet" href="{{asset('template/vendor/bootstrap-select/css/bootstrap-select.min.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('template/vendor/bootstrap-select/css/bootstrap-select.min.css')}}">
     <!-- Bootstrap Touchspin CSS-->
-    <link rel="stylesheet" href="{{asset('template/vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('template/vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css')}}">
     <!-- Bootstrap Datepicker CSS-->
-    <link rel="stylesheet" href="{{asset('template/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('template/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.css')}}">
     <!-- Bootstrap Tags input CSS-->
-    <link rel="stylesheet" href="{{asset('template/vendor/bootstrap-tagsinput/bootstrap-tagsinput.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('template/vendor/bootstrap-tagsinput/bootstrap-tagsinput.css')}}">
     <!-- No UI Slider-->
-    <link rel="stylesheet" href="{{asset('template/vendor/nouislider/nouislider.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('template/vendor/nouislider/nouislider.css')}}">
     <!-- jQuery Circle-->
-    <link rel="stylesheet" href="{{asset('template/css/grasp_mobile_progress_circle-1.0.0.min.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('template/css/grasp_mobile_progress_circle-1.0.0.min.css')}}">
     <!-- Custom Scrollbar-->
-    <link rel="stylesheet" href="{{asset('template/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('template/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css')}}">
     <!-- theme stylesheet-->
-    <link rel="stylesheet" href="{{asset('template/css/style.default.premium.css')}}" id="theme-stylesheet">
+    <link rel="stylesheet" href="{{secure_asset('template/css/style.default.premium.css')}}" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="{{asset('template/css/custom.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('template/css/custom.css')}}">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="{{asset('template/img/favicon.ico')}}">
+    <link rel="shortcut icon" href="{{secure_asset('template/img/favicon.ico')}}">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -632,30 +632,30 @@
       </footer>
     </div>
     <!-- JavaScript files-->
-    <script src="{{asset('template/vendor/jquery/jquery.min.js')}}"></script>
-    <script src="{{asset('template/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('template/js/grasp_mobile_progress_circle-1.0.0.min.js')}}"></script>
-    <script src="{{asset('template/vendor/jquery.cookie/jquery.cookie.js')}}"> </script>
-    <script src="{{asset('template/vendor/chart.js/Chart.min.js')}}"></script>
-    <script src="{{asset('template/vendor/jquery-validation/jquery.validate.min.js')}}"></script>
-    <script src="{{asset('template/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js')}}"></script>
+    <script src="{{secure_asset('template/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{secure_asset('template/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{secure_asset('template/js/grasp_mobile_progress_circle-1.0.0.min.js')}}"></script>
+    <script src="{{secure_asset('template/vendor/jquery.cookie/jquery.cookie.js')}}"> </script>
+    <script src="{{secure_asset('template/vendor/chart.js/Chart.min.js')}}"></script>
+    <script src="{{secure_asset('template/vendor/jquery-validation/jquery.validate.min.js')}}"></script>
+    <script src="{{secure_asset('template/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js')}}"></script>
     <!-- Bootstrap Select-->
-    <script src="{{asset('template/vendor/bootstrap-select/js/bootstrap-select.min.js')}}"></script>
+    <script src="{{secure_asset('template/vendor/bootstrap-select/js/bootstrap-select.min.js')}}"></script>
     <!-- Bootstrap Touchspin-->
-    <script src="{{asset('template/vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js')}}"></script>
+    <script src="{{secure_asset('template/vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js')}}"></script>
     <!-- Bootstrap No UI Slider-->
-    <script src="{{asset('template/vendor/nouislider/nouislider.min.js')}}"></script>
+    <script src="{{secure_asset('template/vendor/nouislider/nouislider.min.js')}}"></script>
     <!-- Bootstrap DatePicker-->
-    <script src="{{asset('template/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"></script>
+    <script src="{{secure_asset('template/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"></script>
     <!-- Bootstrap Tags Input-->
-    <script src="{{asset('template/vendor/bootstrap-tagsinput/bootstrap-tagsinput.min.js')}}"></script>
+    <script src="{{secure_asset('template/vendor/bootstrap-tagsinput/bootstrap-tagsinput.min.js')}}"></script>
     <!-- Jasny Bootstrap - Input Masks-->
-    <script src="{{asset('template/vendor/jasny-bootstrap/js/jasny-bootstrap.min.js')}}"> </script>
+    <script src="{{secure_asset('template/vendor/jasny-bootstrap/js/jasny-bootstrap.min.js')}}"> </script>
     <!-- MultiSelect-->
-    <script src="{{asset('template/vendor/multiselect/js/jquery.multi-select.js')}}"> </script>
+    <script src="{{secure_asset('template/vendor/multiselect/js/jquery.multi-select.js')}}"> </script>
     <!-- Forms init-->
-    <script src="{{asset('template/js/forms-advanced.js')}}"></script>
+    <script src="{{secure_asset('template/js/forms-advanced.js')}}"></script>
     <!-- Main File-->
-    <script src="{{asset('template/js/front.js')}}"></script>
+    <script src="{{secure_asset('template/js/front.js')}}"></script>
   </body>
 </html>

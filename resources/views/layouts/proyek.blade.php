@@ -11,12 +11,12 @@
 
     <title>SIKESWA</title>
 
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
     <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css"
         rel="stylesheet" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js">
     </script>
-    <link rel="stylesheet" href="{{asset('css/hasil_combine.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/hasil_combine.css')}}">
     <!-- Favicon-->
     <link rel="shortcut icon" href="img/favicon.ico">
 
@@ -35,15 +35,15 @@
                 <div class="sidenav-header d-flex align-items-center justify-content-center">
                     <!-- User Info-->
                     @guest
-                    <div class="sidenav-header-inner text-center"><img src="{{asset('/images/hitam.jpg')}}" alt="person"
+                    <div class="sidenav-header-inner text-center"><img src="{{secure_asset('/images/hitam.jpg')}}" alt="person"
                             class="img-fluid ">
-                        {{-- <div class="sidenav-header-inner text-center"><img src="{{asset('/uploads/avatars/bontang.png')}}"
+                        {{-- <div class="sidenav-header-inner text-center"><img src="{{secure_asset('/uploads/avatars/bontang.png')}}"
                         alt="person" class="img-fluid "> --}}
                         <h2 class="h5">SIKESWA</h2><span>BONTANG</span>
                     </div>
                     @else
                     <div class="sidenav-header-inner text-center"><img
-                            src="{{asset('/uploads/avatars/'.Auth::user()->avatar)}}" alt="person" class="img-fluid ">
+                            src="{{secure_asset('/uploads/avatars/'.Auth::user()->avatar)}}" alt="person" class="img-fluid ">
                         <h2 class="h5">{{Auth::user()->name}}</h2>
                         @if (Auth::user())
                         @if (Auth::user()->status=="ADMIN"||Auth::user()->status=="GURU")
@@ -125,9 +125,9 @@
             </footer>
         </div>
     </div>
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ secure_asset('js/app.js') }}"></script>
     S
-    <script src="{{ asset('js/hasil_combine.js') }}"></script>
+    <script src="{{ secure_asset('js/hasil_combine.js') }}"></script>
     @yield('script')
 </body>
 

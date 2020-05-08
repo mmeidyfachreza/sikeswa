@@ -4,7 +4,7 @@
       <div class="container-fluid">
         <!-- Page Header-->
 
-        <img style="height:400px" class="card-img-top" src="{{asset('/images/a.jpg')}}" alt="Card image">
+        <img style="height:400px" class="card-img-top" src="{{secure_asset('/images/a.jpg')}}" alt="Card image">
         <div class="card">
             <div class="card-header">
               <h4 >SD NEGERI 001 BONTANG UTARA</h4>

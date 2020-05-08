@@ -9,8 +9,8 @@
         <meta name="robots" content="all,follow">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
-        <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
-        <link rel="stylesheet" href="{{secure_asset('css/hasil_combine.css')}}">
+        <link href="{{ secure_secure_asset('css/app.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="{{secure_secure_asset('css/hasil_combine.css')}}">
         <!-- Favicon-->
         <link rel="shortcut icon" href="img/favicon.ico">
         <!-- Tweaks for older IEs--><!--[if lt IE 9]>
@@ -26,11 +26,11 @@
                   <div class="sidenav-header d-flex align-items-center justify-content-center">
                     <!-- User Info-->
                     @guest
-                    <div class="sidenav-header-inner text-center"><img src="{{asset('/uploads/avatars/bontang.png')}}" alt="person" class="img-fluid ">
+                    <div class="sidenav-header-inner text-center"><img src="{{secure_asset('/uploads/avatars/bontang.png')}}" alt="person" class="img-fluid ">
                       <h2 class="h5">SIDOKPIN</h2><span>BONTANG</span>
                 </div>
                         @else
-                        <div class="sidenav-header-inner text-center"><img src="{{asset('/uploads/avatars/default.jpg')}}" alt="person" class="img-fluid ">
+                        <div class="sidenav-header-inner text-center"><img src="{{secure_asset('/uploads/avatars/default.jpg')}}" alt="person" class="img-fluid ">
                           <h2 class="h5">{{Auth::user()->name}}</h2><span>Admin</span>
                     </div>
                     @endguest
@@ -103,7 +103,7 @@
             </footer>
           </div>
     </div>
-        <script src="{{ secure_asset('js/app.js') }}"></script>
-        <script src="{{ secure_asset('js/hasil_combine.js') }}"></script>
+        <script src="{{ secure_secure_asset('js/app.js') }}"></script>
+        <script src="{{ secure_secure_asset('js/hasil_combine.js') }}"></script>
   </body>
 </html>

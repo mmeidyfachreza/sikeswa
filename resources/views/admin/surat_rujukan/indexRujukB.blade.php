@@ -3,7 +3,7 @@
 <section class="forms">
       <div class="container-fluid">
         <!-- Page Header-->
-    <header> 
+    <header>
           <h1 class="h3 display">Surat Rujukan Balik            </h1>
     </header>
     @if ($errors->any())
@@ -22,23 +22,23 @@
           <div class="card">
                 <div class="card-header">
                   <h4 >Siswa</h4>
-              
+
             </div>
-            
+
             <div class="card-body" >
                   <div id="tes" class="form-group">
                     <label>Pilih Siswa</label>
-                <input list="listsiswa" class="form-control myClass" placeholder="Masukan nama siswa" autocomplete="off" name="siswa">    
+                <input list="listsiswa" class="form-control myClass" placeholder="Masukan nama siswa" autocomplete="off" name="siswa">
                 <datalist id="listsiswa">
                       @foreach ($semuasiswa as $item)
-                  <option data-value="{{$item->id}}" value="{{$item->nama}}"></option>    
+                  <option data-value="{{$item->id}}" value="{{$item->nama}}"></option>
                   @endforeach
-                </datalist>  
-                
+                </datalist>
+
               </div>
               <div class="form-group">
                     <label>Dokter Pengirim:</label>
-                <input class="form-control" placeholder="Masukan nama Dokter" required name="petugas">    
+                <input class="form-control" placeholder="Masukan nama Dokter" required name="petugas">
               </div>
               <div class="form-group">
                     <label>Telah kami lakukan pengobatan/ tindakan media</label>
@@ -52,36 +52,36 @@
                       Lihat Format Surat
                     </button>
               </div>
-              
+
             </div>
           </div>
         </form>
-        
+
       </div>
-      
+
     </div>
   </div>
    <div class="modal fade" id="myModal">
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
-              
+
               <!-- Modal Header -->
           <div class="modal-header">
                 <h4 class="modal-title">Surat</h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
-          
+
           <!-- Modal body -->
           <div class="modal-body">
-                <img class="card-img-top" src="{{asset('/images/suratrujukb.jpg')}}" alt="Card image">
+                <img class="card-img-top" src="{{secure_asset('/images/suratrujukb.jpg')}}" alt="Card image">
             <p>&nbsp;</p>
           </div>
-          
+
           <!-- Modal footer -->
           <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
-          
+
         </div>
       </div>
     </div>
@@ -90,15 +90,15 @@
 @section('script')
 <script>
   $(document).ready(function() {
-        
-        // var data = {}; 
-    // $("#listsiswa option").each(function(i,el) {  
+
+        // var data = {};
+    // $("#listsiswa option").each(function(i,el) {
           //   data[$(el).data("value")] = $(el).val();
       // });
       // `data` : object of `data-value` : `value`
       // console.log(data, $("#listsiswa option").val());
-      
-      
+
+
       $('#submit').click(function()
       {
             var value = $('#tes').find('.myClass').val();

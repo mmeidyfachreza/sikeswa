@@ -68,7 +68,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Foto saat ini</label>
-                                <img src="{{asset('/uploads/avatars/'.$user->avatar)}}" alt="belum pernah upload foto"
+                                <img src="{{secure_asset('/uploads/avatars/'.$user->avatar)}}" alt="belum pernah upload foto"
                                     style="width:155px; height:255px; display:block; border-radius:10%;">
                             </div>
                             <div class="form-group">

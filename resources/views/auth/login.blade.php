@@ -7,13 +7,13 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>{{ config('app.name') }}</title>
         <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}"></script>
-        <link rel="stylesheet" type="text/css" href="{{ asset('template_login/css/vendor/animate/animate.css')}}">
+        <script src="{{ secure_asset('js/app.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ secure_asset('template_login/css/vendor/animate/animate.css')}}">
         <!-- Styles -->
-        <link href="{{ asset('template_login/css/app.css') }}" rel="stylesheet">
+        <link href="{{ secure_asset('template_login/css/app.css') }}" rel="stylesheet">
 
-        <link rel="stylesheet" type="text/css" href="{{ asset('template_login/css/vendor/util.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('template_login/css/vendor/main.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ secure_asset('template_login/css/vendor/util.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ secure_asset('template_login/css/vendor/main.css') }}">
 
 
 
@@ -24,7 +24,7 @@
     		<div class="container-login100">
     			<div class="wrap-login100">
     				<div class="login100-pic js-tilt" data-tilt>
-    					<img src="{{asset('images/putih.jpg')}}" alt="IMG">
+    					<img src="{{secure_asset('images/putih.jpg')}}" alt="IMG">
 				</div>
     				<form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
     					@csrf

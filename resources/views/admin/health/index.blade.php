@@ -60,9 +60,9 @@
                       <div class="col-lg-2">
 
                         @if (isset($siswa))
-                    <img class="card-img-top" src="{{asset('/uploads/avatars/'.$siswa->avatar)}}" alt="Card image">
+                    <img class="card-img-top" src="{{secure_asset('/uploads/avatars/'.$siswa->avatar)}}" alt="Card image">
                     @else
-                    <img class="card-img-top" src="{{asset('/uploads/avatars/default.jpg')}}" alt="Card image">
+                    <img class="card-img-top" src="{{secure_asset('/uploads/avatars/default.jpg')}}" alt="Card image">
                     @endif
 
                   </div>

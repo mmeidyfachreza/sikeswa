@@ -7,8 +7,8 @@
         <title>Laravel</title>
 
         <!-- Fonts -->
-        
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+        <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
         <!-- Styles -->
         <style>
             html, body {
@@ -99,7 +99,7 @@
                         <h2>Card Header and Footer</h2>
                         <div class="card">
                           <div class="card-header">Header</div>
-                          <div class="card-body">Content</div> 
+                          <div class="card-body">Content</div>
                           <div class="card-footer">Footer</div>
                         </div>
                       </div>

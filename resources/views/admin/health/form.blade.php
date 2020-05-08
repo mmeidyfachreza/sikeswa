@@ -2,15 +2,15 @@
 
 @section('link')
 <!-- Bootstrap Select CSS-->
-<link rel="stylesheet" href="{{asset('template/vendor/bootstrap-select/css/bootstrap-select.min.css')}}">
+<link rel="stylesheet" href="{{secure_asset('template/vendor/bootstrap-select/css/bootstrap-select.min.css')}}">
 <!-- Bootstrap Touchspin CSS-->
-<link rel="stylesheet" href="{{asset('template/vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css')}}">
+<link rel="stylesheet" href="{{secure_asset('template/vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css')}}">
 <!-- Bootstrap Datepicker CSS-->
-<link rel="stylesheet" href="{{asset('template/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.css')}}">
+<link rel="stylesheet" href="{{secure_asset('template/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.css')}}">
 <!-- Bootstrap Tags input CSS-->
-<link rel="stylesheet" href="{{asset('template/vendor/bootstrap-tagsinput/bootstrap-tagsinput.css')}}">
+<link rel="stylesheet" href="{{secure_asset('template/vendor/bootstrap-tagsinput/bootstrap-tagsinput.css')}}">
 <!-- No UI Slider-->
-<link rel="stylesheet" href="{{asset('template/vendor/nouislider/nouislider.css')}}">
+<link rel="stylesheet" href="{{secure_asset('template/vendor/nouislider/nouislider.css')}}">
 <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
 @endsection
 
@@ -50,7 +50,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="media align-items-center"><span
-                        style="background-image: url({{asset('uploads/avatars/'.$student->avatar)}})"
+                        style="background-image: url({{secure_asset('uploads/avatars/'.$student->avatar)}})"
                         class="avatar avatar-xl mr-3"></span>
                     <div class="media-body overflow-hidden">
                         <h5 class="card-text mb-0">{{$student->name}}</h5>
@@ -294,21 +294,21 @@
 
 @section('script')
 <!-- Bootstrap Select-->
-<script src="{{asset('template/vendor/bootstrap-select/js/bootstrap-select.min.js')}}"></script>
+<script src="{{secure_asset('template/vendor/bootstrap-select/js/bootstrap-select.min.js')}}"></script>
 <!-- Bootstrap Touchspin-->
-<script src="{{asset('template/vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js')}}"></script>
+<script src="{{secure_asset('template/vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js')}}"></script>
 <!-- Bootstrap No UI Slider-->
-<script src="{{asset('template/vendor/nouislider/nouislider.min.js')}}"></script>
+<script src="{{secure_asset('template/vendor/nouislider/nouislider.min.js')}}"></script>
 <!-- Bootstrap DatePicker-->
-<script src="{{asset('template/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"></script>
+<script src="{{secure_asset('template/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"></script>
 <!-- Bootstrap Tags Input-->
-<script src="{{asset('template/vendor/bootstrap-tagsinput/bootstrap-tagsinput.min.js')}}"></script>
+<script src="{{secure_asset('template/vendor/bootstrap-tagsinput/bootstrap-tagsinput.min.js')}}"></script>
 <!-- Jasny Bootstrap - Input Masks-->
-<script src="{{asset('template/vendor/jasny-bootstrap/js/jasny-bootstrap.min.js')}}"> </script>
+<script src="{{secure_asset('template/vendor/jasny-bootstrap/js/jasny-bootstrap.min.js')}}"> </script>
 <!-- MultiSelect-->
-<script src="{{asset('template/vendor/multiselect/js/jquery.multi-select.js')}}"> </script>
+<script src="{{secure_asset('template/vendor/multiselect/js/jquery.multi-select.js')}}"> </script>
 <!-- Forms init-->
-<script src="{{asset('template/js/forms-advanced.js')}}"></script>
+<script src="{{secure_asset('template/js/forms-advanced.js')}}"></script>
 @endsection
 
 @section('custom-script')

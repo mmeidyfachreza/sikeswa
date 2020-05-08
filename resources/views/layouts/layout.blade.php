@@ -9,27 +9,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
     <!-- Bootstrap CSS-->
-    <link rel="stylesheet" href="{{asset('template/vendor/bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('template/vendor/bootstrap/css/bootstrap.min.css')}}">
     <!-- Font Awesome CSS-->
-    <link rel="stylesheet" href="{{asset('template/vendor/font-awesome/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('template/vendor/font-awesome/css/font-awesome.min.css')}}">
     <!-- Fontastic Custom icon font-->
-    <link rel="stylesheet" href="{{asset('template/css/fontastic.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('template/css/fontastic.css')}}">
     <!-- Google fonts - Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
 
     @yield('link')
 
     <!-- jQuery Circle-->
-    <link rel="stylesheet" href="{{asset('template/css/grasp_mobile_progress_circle-1.0.0.min.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('template/css/grasp_mobile_progress_circle-1.0.0.min.css')}}">
     <!-- Custom Scrollbar-->
     <link rel="stylesheet"
-        href="{{asset('template/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css')}}">
+        href="{{secure_asset('template/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css')}}">
     <!-- theme stylesheet-->
-    <link rel="stylesheet" href="{{asset('template/css/style.default.premium.css')}}" id="theme-stylesheet">
+    <link rel="stylesheet" href="{{secure_asset('template/css/style.default.premium.css')}}" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="{{asset('template/css/custom.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('template/css/custom.css')}}">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="{{asset('template/img/favicon.ico')}}">
+    <link rel="shortcut icon" href="{{secure_asset('template/img/favicon.ico')}}">
 
 
     @yield('custom-style')
@@ -46,7 +46,7 @@
             <div class="sidenav-header d-flex align-items-center justify-content-center">
                 <!-- User Info-->
                 <div class="sidenav-header-inner text-center"><a href="pages-profile.html"><img
-                            src="{{asset('template/img/avatar-7.jpg')}}" alt="person"
+                            src="{{secure_asset('template/img/avatar-7.jpg')}}" alt="person"
                             class="img-fluid rounded-circle"></a>
                     <h2 class="h5">{{Auth::user()->name}}</h2><span>Web Developer</span>
                 </div>
@@ -201,21 +201,21 @@
         </footer>
     </div>
     <!-- JavaScript files-->
-    <script src="{{asset('template/vendor/jquery/jquery.min.js')}}"></script>
-    <script src="{{asset('template/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('template/js/grasp_mobile_progress_circle-1.0.0.min.js')}}"></script>
-    <script src="{{asset('template/vendor/jquery.cookie/jquery.cookie.js')}}"> </script>
-    <script src="{{asset('template/vendor/chart.js/Chart.min.js')}}"></script>
-    <script src="{{asset('template/vendor/jquery-validation/jquery.validate.min.js')}}"></script>
-    <script src="{{asset('template/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js')}}">
+    <script src="{{secure_asset('template/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{secure_asset('template/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{secure_asset('template/js/grasp_mobile_progress_circle-1.0.0.min.js')}}"></script>
+    <script src="{{secure_asset('template/vendor/jquery.cookie/jquery.cookie.js')}}"> </script>
+    <script src="{{secure_asset('template/vendor/chart.js/Chart.min.js')}}"></script>
+    <script src="{{secure_asset('template/vendor/jquery-validation/jquery.validate.min.js')}}"></script>
+    <script src="{{secure_asset('template/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js')}}">
     </script>
-    <script src="{{asset('template/js/charts-home.js')}}"></script>
+    <script src="{{secure_asset('template/js/charts-home.js')}}"></script>
     <!-- Notifications-->
-    <script src="{{asset('template/vendor/messenger-hubspot/build/js/messenger.min.js')}}"> </script>
-    <script src="{{asset('template/vendor/messenger-hubspot/build/js/messenger-theme-flat.js')}}"> </script>
+    <script src="{{secure_asset('template/vendor/messenger-hubspot/build/js/messenger.min.js')}}"> </script>
+    <script src="{{secure_asset('template/vendor/messenger-hubspot/build/js/messenger-theme-flat.js')}}"> </script>
     <!-- Main File-->
     @yield('script')
-    <script src="{{asset('template/js/front.js')}}"></script>
+    <script src="{{secure_asset('template/js/front.js')}}"></script>
     @yield('custom-script')
 </body>
 

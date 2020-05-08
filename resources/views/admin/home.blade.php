@@ -157,5 +157,5 @@
 @endsection
 
 @section('script')
-<script src="{{asset('template/js/home-premium.js')}}"> </script>
+<script src="{{secure_asset('template/js/home-premium.js')}}"> </script>
 @endsection

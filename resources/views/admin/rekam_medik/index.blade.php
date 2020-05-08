@@ -1,9 +1,9 @@
-@extends('admin.layout')    
+@extends('admin.layout')
 @section('content')
 <section class="forms">
       <div class="container-fluid">
         <!-- Page Header-->
-      <header> 
+      <header>
           <h1 class="h3 display">Rekam Medis            </h1>
       </header>
       <div class="siswa">
@@ -21,7 +21,7 @@
                 <div class="card">
                     <div class="card-header">
                       <h4 style="float:left">Siswa</h4>
-                    <div style="float:right">   
+                    <div style="float:right">
                       <button id="submit" type="submit" class="btn btn-primary btn-sm">Cek Data</button>
                     </div>
                   </div>
@@ -36,21 +36,21 @@
                       <input list="listsiswa" class="form-control myClass" autocomplete="off" name="siswa">
                       <datalist id="listsiswa">
                           @foreach ($semuasiswa as $item)
-                        <option data-value="{{$item->id}}" value="{{$item->nama}}"></option>    
+                        <option data-value="{{$item->id}}" value="{{$item->nama}}"></option>
                         @endforeach
                       </datalist>
-                     
+
                       {{-- <select name="siswa" class="custom-select">
                           <option value='' selected>Pilih</option>
                         @foreach ($semuasiswa as $item)
-                        <option value="{{$item->id}}">{{$item->nama}}</option>    
+                        <option value="{{$item->id}}">{{$item->nama}}</option>
                         @endforeach
                       </select> --}}
                     </div>
                   </div>
                 </div>
               </form>
-              
+
             </div>
             <div class="col-lg-8">
                 <div class="card bg-light">
@@ -58,17 +58,17 @@
                 <div class="card-body">
                     <div class="row" >
                       <div class="col-lg-2">
-                        
+
                         @if (isset($siswa))
-                      <img class="card-img-top" src="{{asset('/uploads/avatars/'.$siswa->avatar)}}" alt="Card image">
+                      <img class="card-img-top" src="{{secure_asset('/uploads/avatars/'.$siswa->avatar)}}" alt="Card image">
                       @else
-                      <img class="card-img-top" src="{{asset('/uploads/avatars/default.jpg')}}" alt="Card image">
-                      @endif    
-                      
+                      <img class="card-img-top" src="{{secure_asset('/uploads/avatars/default.jpg')}}" alt="Card image">
+                      @endif
+
                     </div>
                     <div class="col-lg-10 table-responsive">
                         <table class="table table-default" style="width:100%">
-                        <tbody>  
+                        <tbody>
                             @if (isset($siswa))
                           <tr>
                               <th class="pt-0 pb-0">Nama</th>
@@ -89,18 +89,18 @@
                           <tr>
                               <th class="pt-0 pb-0">Umur</th>
                             <td class="pt-0 pb-0">{{$umur ?? ""}}</td>
-                          </tr>    
+                          </tr>
                           @else
-                          
+
                           @endif
-                          
-                          
+
+
                         </tbody>
                       </table>
-                      
+
                     </div>
                   </div>
-                </div> 
+                </div>
               </div>
             </div>
           </div>
@@ -111,21 +111,21 @@
             </div>
       @endif
       <div class="row">
-          
+
           <div class="col-lg-12">
               <div class="card">
                   <div class="card-header">
                     <h4 style="float:left">Data Rekam Medik</h4>
                   <div style="float:right">
                       @if (isset($siswa) && Auth::user()->status=="ADMIN")
-                      <a href="{{route('rekammedik.add',$siswa->id)}}" class="btn btn-primary btn-sm">Tambah</a>    
+                      <a href="{{route('rekammedik.add',$siswa->id)}}" class="btn btn-primary btn-sm">Tambah</a>
                       @else
-                          
+
                       @endif
-                      
+
                   </div>
                 </div>
-                
+
                 <div class="card-body" >
                     <div class="table-responsive">
                       <table class="table table-striped table-sm">
@@ -147,13 +147,13 @@
                                     @if (Auth::user()->status=='ADMIN')
                                   <a href="{{route('rekammedik.destroy',$item->id)}}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                   <a href="{{route('rekammedik.edit',$item->id)}}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                                  <a href="{{route('rekammedik.show',$item->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i></a>  
+                                  <a href="{{route('rekammedik.show',$item->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i></a>
                                   @else
-                                  <a href="{{route('rekammedik.show',$item->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i></a> 
+                                  <a href="{{route('rekammedik.show',$item->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i></a>
                                   @endif
-                                    
+
                                 </td>
-                            </tr>    
+                            </tr>
                         @endforeach
                         @endif
                       </tbody>
@@ -169,8 +169,8 @@
 @section('script')
     <script>
       $(document).ready(function() {
-        // var data = {}; 
-      // $("#listsiswa option").each(function(i,el) {  
+        // var data = {};
+      // $("#listsiswa option").each(function(i,el) {
         //   data[$(el).data("value")] = $(el).val();
       // });
       // `data` : object of `data-value` : `value`

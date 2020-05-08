@@ -13,7 +13,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-2">
-                                <img class="card-img-top" src="{{asset('/uploads/avatars/'.$imunisasi->siswa->avatar)}}"
+                                <img class="card-img-top" src="{{secure_asset('/uploads/avatars/'.$imunisasi->siswa->avatar)}}"
                                     alt="Card image">
                             </div>
 

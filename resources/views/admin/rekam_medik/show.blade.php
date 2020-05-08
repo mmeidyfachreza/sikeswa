@@ -3,7 +3,7 @@
 <section class="forms">
         <div class="container-fluid">
             <!-- Page Header-->
-            <header> 
+            <header>
                 <h1 class="h3 display">Rekam Medik            </h1>
         </header>
             <div class="row">
@@ -13,11 +13,11 @@
                         <div class="card-body">
                             <div class="row" >
                                 <div class="col-lg-2">
-                                    <img class="card-img-top" src="{{asset('/uploads/avatars/'.$rekammedik->siswa->avatar)}}" alt="Card image">
+                                    <img class="card-img-top" src="{{secure_asset('/uploads/avatars/'.$rekammedik->siswa->avatar)}}" alt="Card image">
                             </div>
                                 <div class="col-lg-10 table-responsive">
                                     <table class="table table-striped" style="width:100%">
-                                        <tbody>  
+                                        <tbody>
                                             <tr>
                                                 <th class="pt-0 pb-0">Nama</th>
                                                 <td class="pt-0 pb-0">{{$rekammedik->siswa->nama}}</td>
@@ -73,14 +73,14 @@
                                             <tr>
                                                 <th class="pt-0 pb-0">Umur</th>
                                                 <td class="pt-0 pb-0">{{$umur ?? ""}}</td>
-                                        </tr>    
+                                        </tr>
                                     </tbody>
                                 </table>
                                     <a href="{{route('rekammedik.index')}}" class="btn btn-primary">Kembali</a>
-                                
+
                             </div>
                         </div>
-                    </div> 
+                    </div>
                 </div>
             </div>
         </div>
@@ -90,13 +90,13 @@
         </div>
             @endif
             <div class="row">
-                
+
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
                             <h4 style="float:left">Detail Data Rekam Medik</h4>
                     </div>
-                        
+
                         <div class="card-body" >
                             <p style="color: black;font-weight: bold;">Petugas Pelaksana : {{$rekammedik->user->name}}</p>
                             <p style="color: black;font-weight: bold;">Tgl Pemeriksaan : {{$rekammedik->tgl_pemeriksaan}}</p>
@@ -115,7 +115,7 @@
                                 <p>sebutkan : <span>{{$rekammedik->ket_kelainan}}</span></p>
                                 <p>Riwayat penyakit lainnya : <span>{{$rekammedik->lainnya}}</span></p>
                                 <p>sebutkan : <span>{{$rekammedik->ket_lainnya}}</span></p>
-                                
+
                                 <p class="judul">B.	Riwayat Imunisasi (Khusus Peserta didik SD/MI)</p>
                                 <p>Memiliki catatan imunisasi  : <span>{{$rekammedik->imunisasi}}</span></p>
                                 <p>Saat bayi mendapat imunisasi  : <span>{{$rekammedik->imunisasi_bayi}}</span></p>
@@ -157,11 +157,11 @@
                                 <p>Perilaku prososial : <span>{{$rekammedik->per_prososial}}</span></p>
                                 <p class="judul">G.	Kesehatan Intelegensia</p>
                                 <p>Silahkan Download Untuk Melihat</p>
-                                
+
                                 @if ($rekammedik->uuid)
-                                <a class="btn btn-primary" href="{{ route('rekammedik.download', $rekammedik->uuid) }}"><i class="fas fa-file-download"></i></a>    
+                                <a class="btn btn-primary" href="{{ route('rekammedik.download', $rekammedik->uuid) }}"><i class="fas fa-file-download"></i></a>
                                 @else
-                                <p>Tidak Ada File Di Upload</p>    
+                                <p>Tidak Ada File Di Upload</p>
                                 @endif
                         </div>
                     </div>
