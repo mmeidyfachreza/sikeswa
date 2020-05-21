@@ -135,4 +135,11 @@ class HealthController extends Controller
     {
         //
     }
+
+    public function Search(Request $request)
+    {
+        $students = Student::search($request->name)->get();
+        $search = $request->name;
+        return view('admin.health.index_student',compact('students','search'));
+    }
 }

@@ -45,11 +45,20 @@
             <!-- Sidebar Header    -->
             <div class="sidenav-header d-flex align-items-center justify-content-center">
                 <!-- User Info-->
+                @guest
                 <div class="sidenav-header-inner text-center"><a href="pages-profile.html"><img
-                            src="{{asset('template/img/avatar-7.jpg')}}" alt="person"
-                            class="img-fluid rounded-circle"></a>
-                    <h2 class="h5">{{Auth::user()->name}}</h2><span>Web Developer</span>
-                </div>
+                    src="{{asset('/uploads/avatars/default.jpg')}}" alt="person"
+                    class="img-fluid rounded-circle"></a>
+            <h2 class="h5">Bontang</h2>
+        </div>
+                @else
+                <div class="sidenav-header-inner text-center"><a href="pages-profile.html"><img
+                    src="{{asset('/uploads/avatars/'.Auth::user()->avatar)}}" alt="person"
+                    class="img-fluid rounded-circle"></a>
+            <h2 class="h5">{{Auth::user()->name}}</h2><span>Web Developer</span>
+        </div>
+                @endguest
+
                 <!-- Small Brand information, appears on minimized sidebar-->
                 <div class="sidenav-header-logo"><a href="{{url('admin')}}" class="brand-small text-center">
                         <strong>B</strong><strong class="text-primary">U</strong></a></div>
@@ -94,7 +103,7 @@
                         <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars">
                                 </i></a><a href="index.html" class="navbar-brand">
                                 <div class="brand-text d-none d-md-inline-block"><span> </span><strong
-                                        class="text-primary">SIKESWA SDN 001 BU</strong></div>
+                                        class="text-primary">SIKESWA</strong></div>
                             </a></div>
                         <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
                             <!-- Notifications dropdown-->

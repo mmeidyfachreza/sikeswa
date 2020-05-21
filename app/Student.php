@@ -32,4 +32,9 @@ class Student extends Model
     {
         return $this->hasMany('App\Health');
     }
+
+    public function scopeSearch($query,$name)
+    {
+        return $query->where('name','LIKE','%'.$name.'%');
+    }
 }

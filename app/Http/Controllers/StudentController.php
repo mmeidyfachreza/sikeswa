@@ -102,4 +102,9 @@ class StudentController extends Controller
         $student->delete();
         return redirect()->route('siswa.index')->with('success','Berhasil menghapus data');
     }
+
+    public function search(Request $request)
+    {
+        return view('admin.health.index_student',compact('students'));
+    }
 }
