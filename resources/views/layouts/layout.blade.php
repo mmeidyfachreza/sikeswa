@@ -103,7 +103,7 @@
                         <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars">
                                 </i></a><a href="index.html" class="navbar-brand">
                                 <div class="brand-text d-none d-md-inline-block"><span> </span><strong
-                                        class="text-primary">SIKESWA</strong></div>
+                                        class="text-primary">SDN 001 BONTANG UTARA</strong></div>
                             </a></div>
                         <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
                             <!-- Notifications dropdown-->
