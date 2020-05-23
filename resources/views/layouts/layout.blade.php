@@ -11,7 +11,8 @@
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="{{asset('template/vendor/bootstrap/css/bootstrap.min.css')}}">
     <!-- Font Awesome CSS-->
-    <link rel="stylesheet" href="{{asset('template/vendor/font-awesome/css/font-awesome.min.css')}}">
+    <script src="https://kit.fontawesome.com/ce07c321e4.js" crossorigin="anonymous"></script>
+    {{-- <link rel="stylesheet" href="{{asset('template/vendor/font-awesome/css/font-awesome.min.css')}}"> --}}
     <!-- Fontastic Custom icon font-->
     <link rel="stylesheet" href="{{asset('template/css/fontastic.css')}}">
     <!-- Google fonts - Roboto -->
@@ -60,24 +61,24 @@
                 @endguest
 
                 <!-- Small Brand information, appears on minimized sidebar-->
-                <div class="sidenav-header-logo"><a href="{{url('admin')}}" class="brand-small text-center">
+                <div class="sidenav-header-logo"><a href="{{url('/')}}" class="brand-small text-center">
                         <strong>B</strong><strong class="text-primary">U</strong></a></div>
             </div>
             <!-- Sidebar Navigation Menus-->
             <div class="main-menu">
                 <h5 class="sidenav-heading">Main</h5>
                 <ul id="side-main-menu" class="side-menu list-unstyled">
-                    <li><a href="{{url('admin')}}"> <i class="icon-home"></i>Beranda </a></li>
-                    <li><a href="{{url('kesehatan')}}"> <i class="icon-home"></i>Kesehatan </a></li>
-                    <li><a href="{{url('imunisasi')}}"> <i class="icon-home"></i>Imunisasi </a></li>
-                    <li><a href="{{url('rekammedik')}}"> <i class="icon-home"></i>Kesehatan </a></li>
+                    <li><a href="{{url('admin')}}"> <i class="fas fa-home"></i>Beranda </a></li>
+                    <li><a href="{{url('kesehatan')}}"> <i class="fas fa-file-medical-alt"></i>Kesehatan </a></li>
+                    <li><a href="{{url('imunisasi')}}"> <i class="fas fa-syringe"></i>Imunisasi </a></li>
+                    <li><a href="{{url('rekammedik')}}"> <i class="fas fa-notes-medical"></i>Rekam Medik </a></li>
                     <li><a href="#formsDropdown" aria-expanded="false" data-toggle="collapse"> <i
-                                class="icon-form"></i>Data Master </a>
+                                class="fas fa-database"></i>Data Master </a>
                         <ul id="formsDropdown" class="collapse list-unstyled ">
-                            <li><a href="{{route('user.index')}}"><i class="far fa-envelope"></i>Pengguna</a></li>
-                            <li><a href="{{route('siswa.index')}}"><i class="far fa-envelope"></i>Siswa</a></li>
-                            <li><a href="{{route('user.index')}}"><i class="far fa-envelope"></i>Kelas Siswa</a></li>
-                            <li><a href="{{route('user.index')}}"><i class="far fa-envelope"></i>Kategori Pengguna</a>
+                            <li><a href="{{route('user.index')}}"><i class="fas fa-users"></i>Pengguna</a></li>
+                            <li><a href="{{route('siswa.index')}}"><i class="fas fa-user-graduate"></i>Siswa</a></li>
+                            <li><a href="{{route('user.index')}}"><i class="fas fa-sign"></i>Kelas Siswa</a></li>
+                            <li><a href="{{route('user.index')}}"><i class="fas fa-cogs"></i>Kategori Pengguna</a>
                             </li>
                             <li><a href="{{route('user.index')}}"><i class="far fa-envelope"></i>Kondisi Kesehatan</a>
                             </li>

@@ -14,7 +14,8 @@ class ImmunizationController extends Controller
      */
     public function index()
     {
-        //
+        $immunizations = Immunization::all();
+        return view('admin.immunization.index',compact('immunizations'));
     }
 
     /**
@@ -24,7 +25,7 @@ class ImmunizationController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.immunization.form');
     }
 
     /**
@@ -35,7 +36,8 @@ class ImmunizationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Immunization::create($request->all());
+        return redirect()->route('imunisasi.index')->with('success','Berhasil menambah data');
     }
 
     /**
@@ -44,9 +46,10 @@ class ImmunizationController extends Controller
      * @param  \App\Immunization  $immunization
      * @return \Illuminate\Http\Response
      */
-    public function show(Immunization $immunization)
+    public function show($id)
     {
-        //
+       $immunization = Immunization::findOrFail($id);
+       return view('admin.immunization.show',compact('immunization'));
     }
 
     /**
@@ -55,9 +58,10 @@ class ImmunizationController extends Controller
      * @param  \App\Immunization  $immunization
      * @return \Illuminate\Http\Response
      */
-    public function edit(Immunization $immunization)
+    public function edit($id)
     {
-        //
+        $immunization = Immunization::findOrFail($id);
+        return view('admin.immunization.show',compact('immunization'));
     }
 
     /**
@@ -67,9 +71,10 @@ class ImmunizationController extends Controller
      * @param  \App\Immunization  $immunization
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Immunization $immunization)
+    public function update(Request $request, $id)
     {
-        //
+        Immunization::update($request->all());
+        return redirect()->route('imunisasi.index')->with('success','Berhasil merubah data');
     }
 
     /**
@@ -78,8 +83,9 @@ class ImmunizationController extends Controller
      * @param  \App\Immunization  $immunization
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Immunization $immunization)
+    public function destroy($id)
     {
-        //
+        Immunization::findOrFind($id);
+        return redirect()->route('imunisasi.index')->with('success','Berhasil menghapus data');
     }
 }

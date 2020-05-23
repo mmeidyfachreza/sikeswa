@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <ul class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active">Siswa </li>
+            <li class="breadcrumb-item active">imunisasi </li>
         </ul>
     </div>
 </div>
@@ -14,7 +14,7 @@
     <div class="container-fluid">
         <!-- Page Header-->
         <header>
-            <h1 class="h3 display">Siswa </h1>
+            <h1 class="h3 display">List Data imunisasi </h1>
         </header>
         @if ($errors->any())
         <div class="alert alert-danger">
@@ -34,9 +34,11 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 style="float:left"></h4>
+                        <h4 style="float:left">
+                            {{$student->name}}
+                        </h4>
                         <div style="float:right">
-                            <a href="{{route('siswa.create')}}" class="btn btn-primary btn-sm">Tambah</a>
+                            <a href="{{route('imunisasi2.create',$student->id)}}" class="btn btn-primary btn-sm">Tambah</a>
                         </div>
                     </div>
                     <div class="card-body">
@@ -45,36 +47,33 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Nama</th>
-                                        <th>NIS</th>
-                                        <th>Kelas</th>
+                                        <th>Tanggal Pelaksanaan</th>
+                                        <th>Usia</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $x=1;?>
-                                    @foreach ($students as $item)
+                                    @foreach ($records as $item)
                                     <tr>
                                         <th scope="row">{{$x++}}</th>
-                                        <td>{{$item->name}}</td>
-                                        <td>{{$item->nis}}</td>
-                                        <td>{{$item->classroom->name ?? ""}}</td>
+                                        <td>{{date('d-m-Y',strtotime($item->date))}}</td>
+                                        <td>{{$item->age_year}} Tahun {{$item->age_year}} Bulan</td>
                                         <td>
-                                            <form action="{{ route('siswa.destroy',$item->id) }}" method="POST">
+                                            <form action="{{ route('imunisasi.destroy',$item->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" onclick="return confirm('Apakah anda yakin?')"
                                                     class="btn btn-danger btn-sm"><i
                                                         class="fa fa-trash"></i></button>
 
-                                                <a href="{{route('siswa.edit',$item->id)}}"
+                                                <a href="{{route('imunisasi.edit',$item->id)}}"
                                                     class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                                                <a href="{{route('siswa.show',$item->id)}}"
+                                                <a href="{{route('imunisasi.show',$item->id)}}"
                                                     class="btn btn-primary btn-sm"><i class="fa fa-eye"></i></a>
                                             </form>
                                         </td>
                                     </tr>
-
                                     @endforeach
                                 </tbody>
                             </table>

@@ -55,7 +55,7 @@
                                                 @method('DELETE')
                                                 <button type="submit" onclick="return confirm('Apakah anda yakin?')"
                                                     class="btn btn-danger btn-sm"><i
-                                                        class="far fa-trash-alt"></i></button>
+                                                        class="fa fa-trash"></i></button>
 
                                                 <a href="{{route('kesehatan.edit',$item->id)}}"
                                                     class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>

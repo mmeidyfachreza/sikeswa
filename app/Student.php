@@ -33,6 +33,11 @@ class Student extends Model
         return $this->hasMany('App\Health');
     }
 
+    public function Immune_history()
+    {
+        return $this->hasMany('App\ImmunizationHistory');
+    }
+
     public function scopeSearch($query,$name)
     {
         return $query->where('name','LIKE','%'.$name.'%');

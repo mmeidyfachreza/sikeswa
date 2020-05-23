@@ -136,7 +136,7 @@ class HealthController extends Controller
         //
     }
 
-    public function Search(Request $request)
+    public function SearchStudent(Request $request)
     {
         $students = Student::search($request->name)->get();
         $search = $request->name;

@@ -62,6 +62,10 @@ class CreateHealth2sTable extends Migration
      */
     public function down()
     {
+        Schema::table('health2s', function (Blueprint $table) {
+            $table->dropForeign(['immunization_histories_id']);
+            $table->dropForeign(['immunization_id']);
+        });
         Schema::dropIfExists('health2s');
     }
 }

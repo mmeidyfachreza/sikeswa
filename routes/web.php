@@ -25,8 +25,16 @@ Route::group(['middleware'=>'admin'], function () {
     Route::resource('user', 'UserController');
     Route::resource('siswa', 'StudentController');
     Route::resource('kesehatan', 'HealthController');
-    Route::get('health/student/{id}', 'HealthController@StudentFindHealth')->name('student.find.health');
-    Route::get('health/create/{id}', 'HealthController@create')->name('kesehatan2.create');
-    Route::post('health/student', 'HealthController@Search')->name('student.search');
+    Route::resource('imunisasi', 'ImmunizationHistoryController');
+
+    Route::get('kesehatan/student/{id}', 'HealthController@StudentFindHealth')->name('student.find.health');
+    Route::get('kesehatan/create/{id}', 'HealthController@create')->name('kesehatan2.create');
+
+    Route::get('imunisasi/student/{id}', 'ImmunizationHistoryController@StudentFindImmune')->name('student.find.immune');
+    Route::get('imunisasi/create/{id}', 'ImmunizationHistoryController@create')->name('imunisasi2.create');
+
+    Route::post('kesehatan/cari_siswa', 'HealthController@SearchStudent')->name('student.search.health');
+    Route::post('imunisasi/cari_siswa', 'ImmunizationHistoryController@SearchStudent')->name('student.search.immune');
+
     Route::post('users/update', 'HomeController@tested');
 });
