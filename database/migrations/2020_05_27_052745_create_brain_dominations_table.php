@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMeasurementsTable extends Migration
+class CreateBrainDominationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateMeasurementsTable extends Migration
      */
     public function up()
     {
-        Schema::create('measurements', function (Blueprint $table) {
+        Schema::create('brain_dominations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('min_value');
-            $table->integer('max_value');
-            $table->enum('type',['TB', 'BB', 'IMT']);
-            $table->string('description');
+            $table->string('question',150);
+            $table->string('type',15)->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateMeasurementsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('measurements');
+        Schema::dropIfExists('brain_dominations');
     }
 }

@@ -6,30 +6,27 @@ use Illuminate\Database\Eloquent\Model;
 
 class Health extends Model
 {
-    protected $fillable=[
+    protected $fillable = [
         'date',
         'student_id',
         'height',
         'weight',
         'bmi',
-        'age',
-
-        'tooth_cond',
-        'hair_cond',
-        'nail_cond',
-        'ear_cond',
-        'skin_cond',
-
-        'height_stat',
-        'weight_stat',
-        'bmi_stat',
-
-        'tooth_stat',
-        'hair_stat',
-        'nail_stat',
-        'ear_stat',
-        'skin_stat',
+        'age_year',
+        'age_month',
     ];
+
+    public function condition()
+    {
+        return $this->belongsToMany('App\Condition')
+                    ->withTimestamps();
+    }
+
+    public function measurement()
+    {
+        return $this->belongsToMany('App\Measurement')
+                    ->withTimestamps();
+    }
 
     public function student()
     {

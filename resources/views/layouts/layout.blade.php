@@ -69,9 +69,9 @@
                 <h5 class="sidenav-heading">Main</h5>
                 <ul id="side-main-menu" class="side-menu list-unstyled">
                     <li><a href="{{url('admin')}}"> <i class="fas fa-home"></i>Beranda </a></li>
-                    <li><a href="{{url('kesehatan')}}"> <i class="fas fa-file-medical-alt"></i>Kesehatan </a></li>
-                    <li><a href="{{url('imunisasi')}}"> <i class="fas fa-syringe"></i>Imunisasi </a></li>
-                    <li><a href="{{url('rekammedik')}}"> <i class="fas fa-notes-medical"></i>Rekam Medik </a></li>
+                    <li><a href="{{route('kesehatan.index')}}"> <i class="fas fa-file-medical-alt"></i>Kesehatan </a></li>
+                    <li><a href="{{route('imunisasi.index')}}"> <i class="fas fa-syringe"></i>Imunisasi </a></li>
+                    <li><a href="{{route('rekam-medik.index')}}"> <i class="fas fa-notes-medical"></i>Rekam Medik </a></li>
                     <li><a href="#formsDropdown" aria-expanded="false" data-toggle="collapse"> <i
                                 class="fas fa-database"></i>Data Master </a>
                         <ul id="formsDropdown" class="collapse list-unstyled ">
@@ -82,9 +82,7 @@
                             </li>
                             <li><a href="{{route('user.index')}}"><i class="far fa-envelope"></i>Kondisi Kesehatan</a>
                             </li>
-                            <li><a href="{{route('user.index')}}"><i class="far fa-envelope"></i>Hasil Kesehatan</a>
-                            </li>
-                            <li><a href="{{route('user.index')}}"><i class="far fa-envelope"></i>Hasil Pengukuran</a>
+                            <li><a href="{{route('status-gizi.index')}}"><i class="far fa-envelope"></i>Status Gizi</a>
                             </li>
                         </ul>
                     </li>
@@ -104,7 +102,7 @@
                         <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars">
                                 </i></a><a href="index.html" class="navbar-brand">
                                 <div class="brand-text d-none d-md-inline-block"><span> </span><strong
-                                        class="text-primary">SDN 001 BONTANG UTARA</strong></div>
+                                        class="text-primary">SIKESWA</strong></div>
                             </a></div>
                         <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
                             <!-- Notifications dropdown-->
@@ -201,7 +199,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6">
-                        <p>SIKESWA SDN 001 BU &copy; 2020</p>
+                        <p>SIKESWA&copy; 2020</p>
                     </div>
                     <div class="col-sm-6 text-right">
                         <p>Version 2</p>

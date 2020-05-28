@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateImmunizationHistoriesTable extends Migration
+class CreateHealthsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,16 @@ class CreateImmunizationHistoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('immunization_histories', function (Blueprint $table) {
+        Schema::create('healths', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->date('date');
-            $table->bigInteger('student_id')->unsigned();
+            $table->bigInteger('student_id')->unsigned()->nullable();
             $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
-            $table->integer('age_year');
+            $table->integer('age_year')->nullable();
             $table->integer('age_month');
+            $table->double('height');
+            $table->double('weight');
+            $table->double('bmi');
             $table->timestamps();
         });
     }
@@ -31,9 +34,6 @@ class CreateImmunizationHistoriesTable extends Migration
      */
     public function down()
     {
-        Schema::table('immunization_histories', function (Blueprint $table) {
-            $table->dropForeign(['student_id']);
-        });
-        Schema::dropIfExists('immunization_histories');
+        Schema::dropIfExists('healths');
     }
 }

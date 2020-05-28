@@ -19,14 +19,14 @@ class ImmunizationHistoryController extends Controller
     public function index()
     {
         $students = Student::all();
-        return view('admin.records.immunization.index_student',compact('students'));
+        return view('admin.immunization.index_student',compact('students'));
     }
 
     public function StudentFindImmune($id)
     {
         $records = ImmunizationHistory::where('student_id','=',$id)->get();
         $student = Student::findOrFail($id);
-        return view('admin.records.immunization.index3',compact('records','student'));
+        return view('admin.immunization.index3',compact('records','student'));
     }
 
     /**
@@ -38,7 +38,7 @@ class ImmunizationHistoryController extends Controller
     {
         $immunizations = Immunization::all();
         $student = Student::findOrFail($id);
-        return view('admin.records.immunization.form',compact('immunizations','student'));
+        return view('admin.immunization.form',compact('immunizations','student'));
     }
 
     /**
@@ -92,7 +92,7 @@ class ImmunizationHistoryController extends Controller
     {
         $record = ImmunizationHistory::findOrFail($id);
         $student = Student::findOrFail($record->student_id);
-        return view('admin.records.immunization.form',compact('record','student'));
+        return view('admin.immunization.form',compact('record','student'));
     }
 
     /**
@@ -105,6 +105,7 @@ class ImmunizationHistoryController extends Controller
     public function update(Request $request, $id)
     {
         $immune_hists = ImmunizationHistory::findOrFail($id);
+        $immune_hists->update($request->all());
         $immunizations = Immunization::all();
         foreach ($immunizations as $value) {
             $name = $value->name;
@@ -126,14 +127,15 @@ class ImmunizationHistoryController extends Controller
     public function destroy($id)
     {
         $history = ImmunizationHistory::findOrFail($id);
+        $student = Student::findOrFail($history->student_id);
         $history->delete();
-
+        return redirect()->route('student.find.immune',$student->id)->with(['success'=>'Berhasil menghapus data','data'=>$student]);
     }
 
-    public function SearchStudent(Request $request)
+    public function searchStudent(Request $request)
     {
         $students = Student::search($request->name)->get();
         $search = $request->name;
-        return view('admin.records.immunization.index_student',compact('students','search'));
+        return view('admin.immunization.index_student',compact('students','search'));
     }
 }

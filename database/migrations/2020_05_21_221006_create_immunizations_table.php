@@ -15,8 +15,8 @@ class CreateImmunizationsTable extends Migration
     {
         Schema::create('immunizations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('description')->nullable();
+            $table->string('name',20);
+            $table->string('description',50)->nullable();
             $table->timestamps();
         });
     }

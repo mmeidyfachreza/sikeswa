@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\HealthCondition;
+use App\Condition;
 
 class HealthConditionsTableSeeder extends Seeder
 {
@@ -41,7 +41,7 @@ class HealthConditionsTableSeeder extends Seeder
         ];
         foreach($lists as $key => $list){
             foreach ($list as $key2 => $value) {
-                HealthCondition::create([
+                Condition::create([
                     'description'=>$value,
                     'type'=>$key
                 ]);

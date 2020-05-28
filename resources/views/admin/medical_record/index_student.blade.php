@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <ul class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-            <li class="breadcrumb-item active">kesehatan</li>
+            <li class="breadcrumb-item active">Rekam Medik</li>
         </ul>
     </div>
 </div>
@@ -20,7 +20,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <form class="form-inline" action="{{route('student.search.immune')}}" method="POST">
+                        <form class="form-inline" action="{{route('student.search.record')}}" method="POST">
                             @csrf
                             <div class="form-group">
                                 <input id="inlineFormInput" style="width:200px" type="text" name="name" placeholder="Masukan Nama Siswa"
@@ -31,7 +31,7 @@
                             </div>
                             @isset($search)
                             <div class="form-group">
-                                <a href="{{route('kesehatan.index')}}" class="btn btn-danger">Ulang</a>
+                                <a href="{{route('rekam-medik.index')}}" class="btn btn-danger">Ulang</a>
                             </div>
                             @endisset
 
@@ -53,7 +53,7 @@
                                     @foreach ($students as $item)
                                     <tr>
                                         <th scope="row">{{$x++}}</th>
-                                        <td><a href="{{route('student.find.health',$item->id)}}">{{$item->name}}</a></td>
+                                        <td><a href="{{route('student.find.record',$item->id)}}">{{$item->name}}</a></td>
                                         <td>{{$item->nis}}</td>
                                         <td>{{$item->classroom->name ?? ''}}</td>
                                     </tr>

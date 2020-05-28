@@ -19,7 +19,7 @@ class CreateTableImmuneHists extends Migration
             $table->foreign('immunization_id')->references('id')->on('immunizations')->onUpdate('cascade')->onDelete('cascade');
             $table->bigInteger('immunization_histories_id')->unsigned();
             $table->foreign('immunization_histories_id')->references('id')->on('immunization_histories')->onUpdate('cascade')->onDelete('cascade');
-            $table->enum('status',[1,0])->default(0);
+            $table->enum('status',[1,0])->nullable();
             $table->timestamps();
         });
     }

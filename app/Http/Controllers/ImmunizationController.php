@@ -85,7 +85,7 @@ class ImmunizationController extends Controller
      */
     public function destroy($id)
     {
-        Immunization::findOrFind($id);
+        Immunization::findOrFail($id);
         return redirect()->route('imunisasi.index')->with('success','Berhasil menghapus data');
     }
 }

@@ -15,9 +15,9 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('phone_number');
+            $table->string('name',50);
+            $table->string('email',191)->unique();
+            $table->string('phone_number',15);
             $table->string('avatar')->default('default.jpg');
             $table->bigInteger('category_user_id')->unsigned()->nullable();
             $table->foreign('category_user_id')->references('id')->on('category_users')->onDelete('cascade');

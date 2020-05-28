@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <ul class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active">kesehatan </li>
+            <li class="breadcrumb-item active">Kesehatan </li>
         </ul>
     </div>
 </div>
@@ -14,22 +14,8 @@
     <div class="container-fluid">
         <!-- Page Header-->
         <header>
-            <h1 class="h3 display">List Data kesehatan </h1>
+            <h1 class="h3 display">List Data Kesehatan </h1>
         </header>
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
-        @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-        @endif
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
@@ -47,21 +33,19 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Tanggal Pelaksanaan</th>
-                                        <th>Usia</th>
+                                        <th>Tanggal</th>
                                         <th>Tinggi Badan</th>
                                         <th>Berat Badan</th>
-                                        <th>IMT</th>
+                                        <th>BMI</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $x=1;?>
-                                    @foreach ($records as $item)
+                                    @foreach ($healths as $item)
                                     <tr>
                                         <th scope="row">{{$x++}}</th>
-                                        <td>{{date('d-m-Y',strtotime($item->date))}}</td>
-                                        <td>{{$item->age_year}} Tahun {{$item->age_month}} Bulan</td>
+                                        <td>{{$item->date}}</td>
                                         <td>{{$item->height}}</td>
                                         <td>{{$item->weight}}</td>
                                         <td>{{$item->bmi}}</td>

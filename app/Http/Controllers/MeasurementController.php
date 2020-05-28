@@ -14,7 +14,8 @@ class MeasurementController extends Controller
      */
     public function index()
     {
-        //
+        $measurements = Measurement::all();
+        return view('admin.measurement.index',compact('measurements'));
     }
 
     /**
@@ -24,7 +25,8 @@ class MeasurementController extends Controller
      */
     public function create()
     {
-        //
+        $type = ['TB','BB','IMT'];
+        return view('admin.measurement.form',compact('type'));
     }
 
     /**
@@ -35,7 +37,8 @@ class MeasurementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Measurement::create($request->all());
+        return redirect()->route('status-gizi.index')->with('success','Berhasil menambah data');
     }
 
     /**
@@ -55,9 +58,11 @@ class MeasurementController extends Controller
      * @param  \App\Measurement  $measurement
      * @return \Illuminate\Http\Response
      */
-    public function edit(Measurement $measurement)
+    public function edit($id)
     {
-        //
+        $record = Measurement::findOrFail($id);
+        $type = ['TB','BB','IMT'];
+        return view('admin.measurement.form',compact('record','type'));
     }
 
     /**
@@ -67,9 +72,11 @@ class MeasurementController extends Controller
      * @param  \App\Measurement  $measurement
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Measurement $measurement)
+    public function update(Request $request, $id)
     {
-        //
+        $record = Measurement::findOrFail($id);
+        $record->update($request->all());
+        return redirect()->route('status-gizi.index')->with('success','Berhasil menambah data');
     }
 
     /**
@@ -78,8 +85,9 @@ class MeasurementController extends Controller
      * @param  \App\Measurement  $measurement
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Measurement $measurement)
+    public function destroy($id)
     {
-        //
+        Measurement::findOrFail($id)->delete();
+        return redirect()->route('status-gizi.index')->with('success','Berhasil menghapus data');
     }
 }

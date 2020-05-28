@@ -1,4 +1,3 @@
-
 @extends('layouts.layout')
 
 @section('content')
@@ -21,64 +20,93 @@
             <div class="card-body">
                 <div class="media align-items-center"><span
                         style="background-image: url({{asset('uploads/avatars/'.$student->avatar)}})"
-                        class="avatar avatar-xl mr-3"></span>
-                    <div class="media-body overflow-hidden">
-                        <h5 class="card-text mb-0">{{$student->name}}</h5>
-                        <p class="card-text text-uppercase">Kelas {{$student->classroom->name ?? ''}}</p>
-                        <p class="card-text">
+        class="avatar avatar-xl mr-3"></span>
+        <div class="media-body overflow-hidden">
+            <h5 class="card-text mb-0">{{$student->name}}</h5>
+            <p class="card-text text-uppercase">Kelas {{$student->classroom->name ?? ''}}</p>
+            <p class="card-text">
 
-                            blabla<br>bla
-                        </p>
-                    </div>
-                </div><a href="#" class="tile-link"></a>
-            </div>
-        </div> --}}
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                <li>Proses Gagal!!!</li>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
+                blabla<br>bla
+            </p>
         </div>
-        @endif
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                        @isset ($student)
+    </div><a href="#" class="tile-link"></a>
+    </div>
+    </div> --}}
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            <li>Proses Gagal!!!</li>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                @isset ($record)
+                <div class="card-header d-flex align-items-center">
+                    <h4>Ubah Imunisasi</h4>
+                </div>
+                <div class="card-body">
+                    <form enctype="multipart/form-data" action="{{route('imunisasi.update',$record->id)}}"
+                        method="POST">
+                        @method('PUT')
+                        @else
                         <div class="card-header d-flex align-items-center">
-                            <h4>Ubah Imunisasi</h4>
+                            <h4>Tambah imunisasi</h4>
                         </div>
                         <div class="card-body">
-                        <form enctype="multipart/form-data" action="{{route('imunisasi.update',$history->id)}}" method="POST">
-                            @method('PUT')
-                            @else
-                            <div class="card-header d-flex align-items-center">
-                                <h4>Tambah imunisasi</h4>
-                            </div>
-                            <div class="card-body">
-                            <form enctype="multipart/form-data" action="{{route('imunisasi.store')}}" method="POST">
+                            <form enctype="multipart/form-data" action="{{route('imunisasi.store',$student->id)}}"
+                                method="POST">
                                 @endisset
                                 @csrf
                                 <div class="form-group">
                                     <label>Tanggal Pelaksanaan</label>
-                                    <input type="date" name="date" class="form-control" value="{{old('date', date('Y-m-d',strtotime($history->date)) ?? '')}}"
-                                        required>
+                                    <input type="date" name="date" class="form-control" value="{{old('date', $record->date ?? ' ')}}" required>
                                 </div>
-                                @foreach ($immunizations as $item)
-                                <div class="form-group">
-                                    <label>{{$item->name}}</label>
-                                    <input name="{{$item->name}}" class="form-control">{{old('address', $history->address ?? ' ')}}
+                                <div class="row">
+                                    <div class="form-group col-lg-6">
+                                        <label>Usia (Tahun dan Bulan)</label>
+                                        <input type="number" max="99" min="1" name="age_year" class="form-control" value="{{old('age_year', $record->age_year ?? ' ')}}" placeholder="Usia Tahun">
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label>&nbsp</label>
+                                        <input type="number" max="12" min="1" name="age_month" class="form-control" value="{{old('age_month', $record->age_month ?? ' ')}}" placeholder="Usia Bulan, maksimal 12 bulan">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 form-control-label">Imunisasi <br><small
+                                            class="text-primary">Silahkan Dicentang</small></label>
+                                    <div class="col-sm-9">
+                                        @isset($record)
+                                @foreach ($record->immunization as $item)
+                                <div class="i-checks">
+                                    <input id="checkboxCustom{{$item->id}}" type="checkbox" name="{{$item->name}}" value="1"
+                                        class="form-control-custom" @if ($item->pivot->status) checked="" @endif>
+                                    <label for="checkboxCustom{{$item->id}}">{{$item->name}}</label>
                                 </div>
                                 @endforeach
+                                @else
+                                @foreach ($immunizations as $item)
+                                <div class="i-checks">
+                                    <input id="checkboxCustom{{$item->id}}1" type="checkbox" name="{{$item->name}}" value="1"
+                                        class="form-control-custom">
+                                    <label for="checkboxCustom{{$item->id}}1">{{$item->name}}</label>
+                                </div>
+                                @endforeach
+                                @endisset
+                                    </div>
+                                </div>
+                                <input type="hidden" name="student_id" value="{{$student->id}}">
                                 <br>
                                 <div class="form-group">
                                     <input type="submit" value="Simpan" class="btn btn-primary">
                                     <a href="{{URL::previous()}}" class="btn btn-danger">Batal</a>
                                 </div>
                             </form>
-                    </div>
+                        </div>
                 </div>
             </div>
         </div>

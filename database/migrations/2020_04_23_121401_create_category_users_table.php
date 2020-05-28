@@ -15,8 +15,8 @@ class CreateCategoryUsersTable extends Migration
     {
         Schema::create('category_users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('description')->nullable();
+            $table->string('name',15);
+            $table->string('description',50)->nullable();
             $table->timestamps();
         });
     }

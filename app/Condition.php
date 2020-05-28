@@ -4,13 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Measurement extends Model
+class Condition extends Model
 {
     protected $fillable = [
-        'min_value',
-        'max_value',
-        'type',
         'description',
+        'type',
+        'outcomes'
     ];
 
     public function health()

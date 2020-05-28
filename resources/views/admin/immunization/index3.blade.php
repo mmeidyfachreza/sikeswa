@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <ul class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active">kesehatan </li>
+            <li class="breadcrumb-item active">imunisasi </li>
         </ul>
     </div>
 </div>
@@ -14,7 +14,7 @@
     <div class="container-fluid">
         <!-- Page Header-->
         <header>
-            <h1 class="h3 display">List Data kesehatan </h1>
+            <h1 class="h3 display">List Data imunisasi </h1>
         </header>
         @if ($errors->any())
         <div class="alert alert-danger">
@@ -38,7 +38,7 @@
                             {{$student->name}}
                         </h4>
                         <div style="float:right">
-                            <a href="{{route('kesehatan2.create',$student->id)}}" class="btn btn-primary btn-sm">Tambah</a>
+                            <a href="{{route('imunisasi2.create',$student->id)}}" class="btn btn-primary btn-sm">Tambah</a>
                         </div>
                     </div>
                     <div class="card-body">
@@ -49,9 +49,6 @@
                                         <th>#</th>
                                         <th>Tanggal Pelaksanaan</th>
                                         <th>Usia</th>
-                                        <th>Tinggi Badan</th>
-                                        <th>Berat Badan</th>
-                                        <th>IMT</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -62,20 +59,17 @@
                                         <th scope="row">{{$x++}}</th>
                                         <td>{{date('d-m-Y',strtotime($item->date))}}</td>
                                         <td>{{$item->age_year}} Tahun {{$item->age_month}} Bulan</td>
-                                        <td>{{$item->height}}</td>
-                                        <td>{{$item->weight}}</td>
-                                        <td>{{$item->bmi}}</td>
                                         <td>
-                                            <form action="{{ route('kesehatan.destroy',$item->id) }}" method="POST">
+                                            <form action="{{ route('imunisasi.destroy',$item->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" onclick="return confirm('Apakah anda yakin?')"
                                                     class="btn btn-danger btn-sm"><i
                                                         class="fa fa-trash"></i></button>
 
-                                                <a href="{{route('kesehatan.edit',$item->id)}}"
+                                                <a href="{{route('imunisasi.edit',$item->id)}}"
                                                     class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                                                <a href="{{route('kesehatan.show',$item->id)}}"
+                                                <a href="{{route('imunisasi.show',$item->id)}}"
                                                     class="btn btn-primary btn-sm"><i class="fa fa-eye"></i></a>
                                             </form>
                                         </td>
