@@ -41,42 +41,16 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table" id="student-table">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
                                         <th>Nama</th>
                                         <th>NIS</th>
                                         <th>Kelas</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <?php $x=1;?>
-                                    @foreach ($students as $item)
-                                    <tr>
-                                        <th scope="row">{{$x++}}</th>
-                                        <td>{{$item->name}}</td>
-                                        <td>{{$item->nis}}</td>
-                                        <td>{{$item->classroom->name ?? ""}}</td>
-                                        <td>
-                                            <form action="{{ route('siswa.destroy',$item->id) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" onclick="return confirm('Apakah anda yakin?')"
-                                                    class="btn btn-danger btn-sm"><i
-                                                        class="fa fa-trash"></i></button>
-
-                                                <a href="{{route('siswa.edit',$item->id)}}"
-                                                    class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                                                <a href="{{route('siswa.show',$item->id)}}"
-                                                    class="btn btn-primary btn-sm"><i class="fa fa-eye"></i></a>
-                                            </form>
-                                        </td>
-                                    </tr>
-
-                                    @endforeach
-                                </tbody>
+                                
                             </table>
                         </div>
                     </div>
@@ -85,4 +59,46 @@
         </div>
     </div>
 </section>
+@endsection
+
+@section('custom-script')
+<script type="text/javascript">
+    $(document).ready(function() {
+        $.ajaxSetup({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+        });
+
+        var table = $('#student-table').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax:"{{ route('siswa.index') }}",
+            columns:[
+            {data: 'name', name: 'name'},
+            {data: 'nis', name: 'nis'},
+            {data: 'classroom', name: 'classroom'},
+            {data: 'action', name: 'action', searchable:false, orderable:false},
+            ]
+        });
+
+        $('body').on('click', '.deleteProduct', function () { 
+            var student_id = $(this).data("id");
+            confirm("Are You sure want to delete !");
+            var url = '{{ route("siswa.destroy", ":id") }}';
+            url = url.replace(':id', student_id );
+            $.ajax({
+                type: "DELETE",
+                url: url,
+                
+                success: function (data) {
+                    table.draw();
+                },
+                error: function (data) {
+                    console.log('Error:', data);
+                }
+            });
+        });
+    })
+</script>
 @endsection

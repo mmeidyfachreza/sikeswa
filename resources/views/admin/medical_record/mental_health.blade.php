@@ -1,3 +1,9 @@
+<div>
+    <label for="">Keterangan:</label>
+    <p>
+        Respon tidak benar = 0 | Respon Agak benar = 1 | Respon Benar = 2
+    </p>
+</div>
 <div class="table-responsive">
     <table class="table">
         <thead>
@@ -35,4 +41,32 @@
 
         </tbody>
     </table>
+</div>
+<br>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <td class="text-center">Emosional</td>
+                <td class="text-center">Perilaku</td>
+                <td class="text-center">Hiperaktivitas</td>
+                <td class="text-center">Teman Sebaya</td>
+                <td class="text-center">Kekuatan</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="a" class="text-center">2</td>
+                <td id="b" class="text-center">3</td>
+                <td id="c" class="text-center">2</td>
+                <td id="d" class="text-center">4</td>
+                <td id="e" class="text-center">2</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br>
+<div style="border: 1 solid black">
+    <label for="">Total Skor Kesulitan</label><br>
+    <label for="">Total Skor Kekuatan</label>
 </div>

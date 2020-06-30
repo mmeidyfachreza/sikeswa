@@ -8,6 +8,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="{{asset('template/vendor/bootstrap/css/bootstrap.min.css')}}">
     <!-- Font Awesome CSS-->
@@ -31,7 +32,7 @@
     <link rel="stylesheet" href="{{asset('template/css/custom.css')}}">
     <!-- Favicon-->
     <link rel="shortcut icon" href="{{asset('template/img/favicon.ico')}}">
-
+    <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
 
     @yield('custom-style')
     <!-- Tweaks for older IEs-->
@@ -150,7 +151,7 @@
                                         class="badge badge-info">10</span></a>
                                 <ul aria-labelledby="notifications" class="dropdown-menu">
                                     <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
-                                            <div class="msg-profile"> <img src="img/avatar-1.jpg" alt="..."
+                                            <div class="msg-profile"> <img src="{{asset('/uploads/avatars/default.jpg')}}" alt="..."
                                                     class="img-fluid rounded-circle"></div>
                                             <div class="msg-body">
                                                 <h3 class="h5">Jason Doe</h3><span>sent you a direct
@@ -158,7 +159,7 @@
                                             </div>
                                         </a></li>
                                     <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
-                                            <div class="msg-profile"> <img src="img/avatar-2.jpg" alt="..."
+                                            <div class="msg-profile"> <img src="{{asset('/uploads/avatars/default.jpg')}}" alt="..."
                                                     class="img-fluid rounded-circle"></div>
                                             <div class="msg-body">
                                                 <h3 class="h5">Frank Williams</h3><span>sent you a direct
@@ -166,7 +167,7 @@
                                             </div>
                                         </a></li>
                                     <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
-                                            <div class="msg-profile"> <img src="img/avatar-3.jpg" alt="..."
+                                            <div class="msg-profile"> <img src="{{asset('/uploads/avatars/default.jpg')}}" alt="..."
                                                     class="img-fluid rounded-circle"></div>
                                             <div class="msg-body">
                                                 <h3 class="h5">Ashley Wood</h3><span>sent you a direct
@@ -213,11 +214,14 @@
     <script src="{{asset('template/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('template/js/grasp_mobile_progress_circle-1.0.0.min.js')}}"></script>
     <script src="{{asset('template/vendor/jquery.cookie/jquery.cookie.js')}}"> </script>
-    <script src="{{asset('template/vendor/chart.js/Chart.min.js')}}"></script>
+    
     <script src="{{asset('template/vendor/jquery-validation/jquery.validate.min.js')}}"></script>
     <script src="{{asset('template/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js')}}">
     </script>
-    <script src="{{asset('template/js/charts-home.js')}}"></script>
+    
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    
+    
     <!-- Notifications-->
     <script src="{{asset('template/vendor/messenger-hubspot/build/js/messenger.min.js')}}"> </script>
     <script src="{{asset('template/vendor/messenger-hubspot/build/js/messenger-theme-flat.js')}}"> </script>

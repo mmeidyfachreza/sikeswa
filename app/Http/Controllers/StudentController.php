@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Classroom;
 use App\Student;
+use Crypt;
 use DateTime;
 use Illuminate\Http\Request;
 
@@ -16,8 +17,32 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Student::with('classroom')->get();
-        return view('admin.student.index',compact('students'));
+        if(request()->ajax()){
+            $data = Student::with('classroom')->get();
+            return datatables()->of($data)
+                    ->editColumn('name', function($data){
+                        $name = '<a href="'.route("student.find.health", $data->id).'">'.$data->name.'</a>';
+                        return $name;
+                    })
+                    ->editColumn('nis', function($data){
+                        return empty($data->nis) ? "Belum Diatur" : $data->nis;
+                    })
+                    ->addColumn('classroom', function($data){
+                        return empty($data->classroom->name) ? "Belum Diatur" : $data->classroom->name;
+                    })
+                    ->addColumn('action', function($data){
+                        $button = '<div class="btn-group" role="group" aria-label="Basic example">
+                        <a href="'.route("siswa.edit",$data->id).'"class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                        <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$data->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteProduct"><i
+                        class="fa fa-trash"></i></a>
+                        <a href="'.route("siswa.show",$data->id).'"class="btn btn-primary btn-sm"><i class="fa fa-eye"></i></a>
+                                    </div';
+                        return $button;
+                    })
+                    ->rawColumns(['action','name','classroom','nis'])
+                    ->make(true);
+        }
+        return view('admin.student.index');
     }
 
     /**
@@ -98,9 +123,8 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        $student=Student::find($id);
-        $student->delete();
-        return redirect()->route('siswa.index')->with('success','Berhasil menghapus data');
+        Student::find($id)->delete();
+        return response()->json(['success'=>'Siswa deleted successfully.']);
     }
 
     public function search(Request $request)

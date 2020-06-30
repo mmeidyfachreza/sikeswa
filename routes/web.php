@@ -14,7 +14,7 @@
 // Route::get('/', function () {
 //     return view('admin.health.tau');
 // });
-Route::get('/tes','DashboardController@quick_access');
+Route::get('/tes','DashboardController@tes');
 
 Route::get('/tes2', function () {
     return view('admin.medical_record.form');
@@ -33,6 +33,7 @@ Route::group(['middleware'=>'admin'], function () {
     Route::resource('status-gizi', 'MeasurementController');
     Route::resource('rekam-medik', 'MedicalRecordController');
 
+    Route::get('yajra', 'HealthController@yajra')->name('kesehatan.yajra');
     Route::get('kesehatan/student/{id}', 'HealthController@StudentFindHealth')->name('student.find.health');
     Route::get('kesehatan/create/{id}', 'HealthController@create')->name('kesehatan2.create');
 

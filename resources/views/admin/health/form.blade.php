@@ -200,7 +200,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Kondisi nail</label>
+                                        <label>Kondisi Kuku</label>
                                         <select name="nail" class="custom-select">
                                             @isset ($record)
                                             @foreach ($nail as $item)
