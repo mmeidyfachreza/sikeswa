@@ -9,6 +9,7 @@ use App\Http\Requests\StroreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use Intervention\Image\Facades\Image;
 use DataTables;
+use Illuminate\Support\Facades\File;
 
 class UserController extends Controller
 {
@@ -64,9 +65,11 @@ class UserController extends Controller
         if ($request->hasFile('avatar') && $request->has('avatar')) {
             $avatar = $request->file('avatar');
             $filename = time() . '.' . $avatar->getClientOriginalExtension();
+            
             Image::make($avatar)->resize(354,472)->save(public_path('/uploads/avatars/' . $filename));
-            $request->avatar =  $filename;
-            User::create($request->all());
+            $user = User::create($request->all());
+            $user->avatar = $filename;
+            $user->save();
             return redirect()->route('user.index')->with('success','Berhasil menambah data');
         }
         User::create($request->all());
@@ -108,6 +111,15 @@ class UserController extends Controller
     public function update(UpdateUserRequest $request,$id)
     {
         $user = User::findOrFail($id);
+        if ($request->hasFile('avatar')) {
+            # code...   
+            $pathToFile = public_path('uploads/avatars/' . $user->avatar);
+            File::delete($pathToFile);
+            $avatar = $request->file('avatar');
+            $filename = time() . '.' . $avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(354,472)->save(public_path('/uploads/avatars/' . $filename));
+            $user->avatar =  $filename;
+        }
         $user->update($request->all());
         return redirect()->route('user.index')->with('success','Berhasil merubah data');
     }
