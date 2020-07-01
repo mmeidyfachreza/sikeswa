@@ -22,6 +22,7 @@ class StudentController extends Controller
         if(request()->ajax()){
             $data = Student::with('classroom')->get();
             return datatables()->of($data)
+                    ->addIndexColumn()
                     ->editColumn('nis', function($data){
                         return empty($data->nis) ? "Belum Diatur" : $data->nis;
                     })

@@ -44,6 +44,7 @@
                             <table class="table" id="student-table">
                                 <thead>
                                     <tr>
+                                        <th>No</th>
                                         <th>Nama</th>
                                         <th>NIS</th>
                                         <th>Kelas</th>
@@ -75,6 +76,7 @@
             serverSide: true,
             ajax:"{{ route('siswa.index') }}",
             columns:[
+            {data: 'DT_RowIndex', name: 'DT_RowIndex', searchable:false, orderable:false},
             {data: 'name', name: 'name'},
             {data: 'nis', name: 'nis'},
             {data: 'classroom', name: 'classroom'},
