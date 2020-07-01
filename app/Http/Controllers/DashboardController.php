@@ -53,7 +53,7 @@ class DashboardController extends Controller
         // }
         $laki = array('laki' => DB::table('students')
         ->join('healths', 'students.id', '=', 'healths.student_id')
-        ->select(DB::raw('avg(healths.height) as avg'))
+    ->select(DB::raw('avg(healths.height) as avg'))
         ->where('students.gender','=','Laki-laki')
         ->groupBy(DB::raw("MONTH(healths.date)"))
         ->get()->toArray()) ;
@@ -62,7 +62,7 @@ class DashboardController extends Controller
         ->select(DB::raw('avg(healths.height) as avg'))
         ->where('students.gender','=','Perempuan')
         ->groupBy(DB::raw("MONTH(healths.date)"))
-        ->get());
+        ->get()->toArray());
         // $laki = DB::table('healths')
         //     ->where('gender','=','Laki-laki')
         //     ->select(DB::raw('avg(height) as laki, DATE(date) month'))
