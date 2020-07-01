@@ -21,7 +21,6 @@ class Student extends Model
         'guardian',
         'no_bpjs',
         'faskes_bpjs',
-        'avatar'
     ];
     public function classroom()
     {

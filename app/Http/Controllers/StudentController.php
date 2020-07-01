@@ -7,6 +7,8 @@ use App\Student;
 use Crypt;
 use DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Intervention\Image\Facades\Image;
 
 class StudentController extends Controller
 {
@@ -20,10 +22,6 @@ class StudentController extends Controller
         if(request()->ajax()){
             $data = Student::with('classroom')->get();
             return datatables()->of($data)
-                    ->editColumn('name', function($data){
-                        $name = '<a href="'.route("student.find.health", $data->id).'">'.$data->name.'</a>';
-                        return $name;
-                    })
                     ->editColumn('nis', function($data){
                         return empty($data->nis) ? "Belum Diatur" : $data->nis;
                     })
@@ -39,7 +37,7 @@ class StudentController extends Controller
                                     </div';
                         return $button;
                     })
-                    ->rawColumns(['action','name','classroom','nis'])
+                    ->rawColumns(['action','classroom','nis'])
                     ->make(true);
         }
         return view('admin.student.index');
@@ -66,6 +64,15 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->hasFile('avatar') && $request->has('avatar')) {
+            $avatar = $request->file('avatar');
+            $filename = time() . '.' . $avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(354,472)->save(public_path('/uploads/avatars/' . $filename));
+            $student = Student::create($request->all());
+            $student->avatar = $filename;
+            $student->save();
+            return redirect()->route('siswa.index')->with('success','Berhasil menambah data');
+        }
         Student::create($request->all());
         return redirect()->route('siswa.index')->with('success','Berhasil menambah data');
     }
@@ -111,6 +118,14 @@ class StudentController extends Controller
     public function update(Request $request, $id)
     {
         $student = Student::findOrFail($id);
+        if ($request->hasFile('avatar')) {
+            $pathToFile = public_path('uploads/avatars/' . $student->avatar);
+            File::delete($pathToFile);
+            $avatar = $request->file('avatar');
+            $filename = time() . '.' . $avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(354,472)->save(public_path('/uploads/avatars/' . $filename));
+            $student->avatar =  $filename;
+        }
         $student->update($request->all());
         return redirect()->route('siswa.index')->with('success','Berhasil merubah data');
     }
