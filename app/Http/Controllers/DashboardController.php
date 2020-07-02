@@ -74,6 +74,7 @@ class DashboardController extends Controller
         //     ->groupBy('month')
         //     ->get()->toArray();       
                 $data = array_merge($laki,$perempuan);
+                
         dd($perempuan);
     }
 

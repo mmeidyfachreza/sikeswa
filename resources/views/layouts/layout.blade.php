@@ -49,16 +49,16 @@
                 <!-- User Info-->
                 @guest
                 <div class="sidenav-header-inner text-center"><a href="pages-profile.html"><img
-                    src="{{asset('/uploads/avatars/default.jpg')}}" alt="person"
-                    class="img-fluid rounded-circle"></a>
-            <h2 class="h5">Bontang</h2>
-        </div>
+                            src="{{asset('/uploads/avatars/default.jpg')}}" alt="person"
+                            class="img-fluid rounded-circle"></a>
+                    <h2 class="h5">Bontang</h2>
+                </div>
                 @else
                 <div class="sidenav-header-inner text-center"><a href="pages-profile.html"><img
-                    src="{{asset('/uploads/avatars/'.Auth::user()->avatar)}}" alt="person"
-                    class="img-fluid rounded-circle"></a>
-            <h2 class="h5">{{Auth::user()->name}}</h2><span>{{Auth::user()->category_user->name}}</span>
-        </div>
+                            src="{{asset('/uploads/avatars/'.Auth::user()->avatar)}}" alt="person"
+                            class="img-fluid rounded-circle"></a>
+                    <h2 class="h5">{{Auth::user()->name}}</h2><span>{{Auth::user()->category_user->name}}</span>
+                </div>
                 @endguest
 
                 <!-- Small Brand information, appears on minimized sidebar-->
@@ -70,9 +70,22 @@
                 <h5 class="sidenav-heading">Main</h5>
                 <ul id="side-main-menu" class="side-menu list-unstyled">
                     <li><a href="{{url('admin')}}"> <i class="fas fa-home"></i>Beranda </a></li>
-                    <li><a href="{{route('kesehatan.index')}}"> <i class="fas fa-file-medical-alt"></i>Kesehatan </a></li>
+                    <li><a href="{{route('kesehatan.index')}}"> <i class="fas fa-file-medical-alt"></i>Kesehatan </a>
+                    </li>
                     <li><a href="{{route('imunisasi.index')}}"> <i class="fas fa-syringe"></i>Imunisasi </a></li>
-                    <li><a href="{{route('rekam-medik.index')}}"> <i class="fas fa-notes-medical"></i>Rekam Medik </a></li>
+                    <li><a href="{{route('rekam-medik.index')}}"> <i class="fas fa-notes-medical"></i>Rekam Medik </a>
+                    </li>
+                    <li><a href="#letterDropdown" aria-expanded="false" data-toggle="collapse"> <i
+                                class="fas fa-database"></i>Surat </a>
+                        <ul id="letterDropdown" class="collapse list-unstyled ">
+                            <li><a href="{{route('letter.index.srkas')}}"><i class="far fa-envelope"></i>Surat Rujukan</a>
+                            </li>
+                            <li><a href="{{route('letter.index.rujukblk')}}"><i class="far fa-envelope"></i>Surat Rujuk Balik</a>
+                            </li>
+                            <li><a href="{{route('letter.index.rujukuks')}}"><i class="far fa-envelope"></i>Surat Rujuk UKS</a>
+                            </li>
+                        </ul>
+                    </li>
                     <li><a href="#formsDropdown" aria-expanded="false" data-toggle="collapse"> <i
                                 class="fas fa-database"></i>Data Master </a>
                         <ul id="formsDropdown" class="collapse list-unstyled ">
@@ -81,10 +94,10 @@
                             <li><a href="{{route('user.index')}}"><i class="fas fa-sign"></i>Kelas Siswa</a></li>
                             <li><a href="{{route('user.index')}}"><i class="fas fa-cogs"></i>Kategori Pengguna</a>
                             </li>
-                            <li><a href="{{route('user.index')}}"><i class="far fa-envelope"></i>Kondisi Kesehatan</a>
+                            {{-- <li><a href="{{route('user.index')}}"><i class="far fa-envelope"></i>Kondisi Kesehatan</a>
                             </li>
                             <li><a href="{{route('status-gizi.index')}}"><i class="far fa-envelope"></i>Status Gizi</a>
-                            </li>
+                            </li> --}}
                         </ul>
                     </li>
                     <li> <a href="{{url('admin')}}"> <i class="icon-mail"></i>Demo
@@ -151,7 +164,8 @@
                                         class="badge badge-info">10</span></a>
                                 <ul aria-labelledby="notifications" class="dropdown-menu">
                                     <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
-                                            <div class="msg-profile"> <img src="{{asset('/uploads/avatars/default.jpg')}}" alt="..."
+                                            <div class="msg-profile"> <img
+                                                    src="{{asset('/uploads/avatars/default.jpg')}}" alt="..."
                                                     class="img-fluid rounded-circle"></div>
                                             <div class="msg-body">
                                                 <h3 class="h5">Jason Doe</h3><span>sent you a direct
@@ -159,7 +173,8 @@
                                             </div>
                                         </a></li>
                                     <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
-                                            <div class="msg-profile"> <img src="{{asset('/uploads/avatars/default.jpg')}}" alt="..."
+                                            <div class="msg-profile"> <img
+                                                    src="{{asset('/uploads/avatars/default.jpg')}}" alt="..."
                                                     class="img-fluid rounded-circle"></div>
                                             <div class="msg-body">
                                                 <h3 class="h5">Frank Williams</h3><span>sent you a direct
@@ -167,7 +182,8 @@
                                             </div>
                                         </a></li>
                                     <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
-                                            <div class="msg-profile"> <img src="{{asset('/uploads/avatars/default.jpg')}}" alt="..."
+                                            <div class="msg-profile"> <img
+                                                    src="{{asset('/uploads/avatars/default.jpg')}}" alt="..."
                                                     class="img-fluid rounded-circle"></div>
                                             <div class="msg-body">
                                                 <h3 class="h5">Ashley Wood</h3><span>sent you a direct
@@ -214,14 +230,14 @@
     <script src="{{asset('template/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('template/js/grasp_mobile_progress_circle-1.0.0.min.js')}}"></script>
     <script src="{{asset('template/vendor/jquery.cookie/jquery.cookie.js')}}"> </script>
-    
+
     <script src="{{asset('template/vendor/jquery-validation/jquery.validate.min.js')}}"></script>
     <script src="{{asset('template/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js')}}">
     </script>
-    
+
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-    
-    
+
+
     <!-- Notifications-->
     <script src="{{asset('template/vendor/messenger-hubspot/build/js/messenger.min.js')}}"> </script>
     <script src="{{asset('template/vendor/messenger-hubspot/build/js/messenger-theme-flat.js')}}"> </script>
