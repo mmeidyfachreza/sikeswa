@@ -121,3 +121,5 @@
 <script src="{{asset('template/js/charts-home.js')}}"></script>
 <script src="{{asset('template/js/home-premium.js')}}"> </script>
 @endsection
+
+

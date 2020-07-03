@@ -25,7 +25,7 @@ Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware'=>'admin'], function () {
-    Route::get('/','DashboardController@index');
+    Route::get('/admin','DashboardController@index');
     Route::resource('user', 'UserController');
     Route::resource('siswa', 'StudentController');
     Route::resource('kesehatan', 'HealthController');
