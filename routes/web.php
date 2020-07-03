@@ -17,7 +17,7 @@
 Route::get('/tes','DashboardController@tes');
 
 Route::get('/tes2', function () {
-    return view('admin.medical_record.form');
+    return view('guest.new');
 });
 
 Auth::routes();
@@ -32,6 +32,7 @@ Route::group(['middleware'=>'admin'], function () {
     Route::resource('imunisasi', 'ImmunizationHistoryController');
     Route::resource('status-gizi', 'MeasurementController');
     Route::resource('rekam-medik', 'MedicalRecordController');
+    Route::resource('kelas', 'ClassroomController');
 
     Route::get('surat/surat-rujukan-kesehatan-anak-sekolah', 'letterController@indexSRKAS')->name('letter.index.srkas');
     Route::post('surat/surat-rujukan-kesehatan-anak-sekolah', 'letterController@printSRKAS')->name('letter.print.srkas');

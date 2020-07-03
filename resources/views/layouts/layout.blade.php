@@ -76,7 +76,7 @@
                     <li><a href="{{route('rekam-medik.index')}}"> <i class="fas fa-notes-medical"></i>Rekam Medik </a>
                     </li>
                     <li><a href="#letterDropdown" aria-expanded="false" data-toggle="collapse"> <i
-                                class="fas fa-database"></i>Surat </a>
+                                class="far fa-envelope"></i>Surat </a>
                         <ul id="letterDropdown" class="collapse list-unstyled ">
                             <li><a href="{{route('letter.index.srkas')}}"><i class="far fa-envelope"></i>Surat Rujukan</a>
                             </li>
@@ -91,7 +91,7 @@
                         <ul id="formsDropdown" class="collapse list-unstyled ">
                             <li><a href="{{route('user.index')}}"><i class="fas fa-users"></i>Pengguna</a></li>
                             <li><a href="{{route('siswa.index')}}"><i class="fas fa-user-graduate"></i>Siswa</a></li>
-                            <li><a href="{{route('user.index')}}"><i class="fas fa-sign"></i>Kelas Siswa</a></li>
+                            <li><a href="{{route('kelas.index')}}"><i class="fas fa-sign"></i>Kelas Siswa</a></li>
                             <li><a href="{{route('user.index')}}"><i class="fas fa-cogs"></i>Kategori Pengguna</a>
                             </li>
                             {{-- <li><a href="{{route('user.index')}}"><i class="far fa-envelope"></i>Kondisi Kesehatan</a>

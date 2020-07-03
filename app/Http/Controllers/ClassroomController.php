@@ -14,7 +14,23 @@ class ClassroomController extends Controller
      */
     public function index()
     {
-        //
+        if(request()->ajax()){
+            $data = Classroom::all();
+            return datatables()->of($data)
+                    ->addIndexColumn()
+                    ->addColumn('action', function($data){
+                        $button = '<div class="btn-group" role="group" aria-label="Basic example">
+                        <a href="'.route("kelas.edit",$data->id).'"class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                        <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$data->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteProduct"><i
+                        class="fa fa-trash"></i></a>
+                        <a href="'.route("kelas.show",$data->id).'"class="btn btn-primary btn-sm"><i class="fa fa-eye"></i></a>
+                                    </div';
+                        return $button;
+                    })
+                    ->rawColumns(['action'])
+                    ->make(true);
+        }
+        return view('admin.classroom.index');
     }
 
     /**
@@ -24,7 +40,7 @@ class ClassroomController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.classroom.form');
     }
 
     /**
@@ -35,7 +51,8 @@ class ClassroomController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Classroom::create($request->all());
+        return redirect()->route('kelas.index')->with('success','Berhasil menambah data');
     }
 
     /**
@@ -44,9 +61,10 @@ class ClassroomController extends Controller
      * @param  \App\Classroom  $classroom
      * @return \Illuminate\Http\Response
      */
-    public function show(Classroom $classroom)
+    public function show($id)
     {
-        //
+        $classroom = Classroom::findOrFail($id);
+        return view('admin.classroom.show',compact('classroom'));
     }
 
     /**
@@ -55,9 +73,10 @@ class ClassroomController extends Controller
      * @param  \App\Classroom  $classroom
      * @return \Illuminate\Http\Response
      */
-    public function edit(Classroom $classroom)
+    public function edit($id)
     {
-        //
+        $classroom = Classroom::findOrFail($id);
+        return view('admin.classroom.form',compact('classroom'));
     }
 
     /**
@@ -67,9 +86,11 @@ class ClassroomController extends Controller
      * @param  \App\Classroom  $classroom
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Classroom $classroom)
+    public function update(Request $request, $id)
     {
-        //
+        $classroom = Classroom::findOrFail($id);
+        $classroom->update($request->all());
+        return redirect()->route('kelas.index')->with('success','Berhasil merubah data');
     }
 
     /**
@@ -78,8 +99,9 @@ class ClassroomController extends Controller
      * @param  \App\Classroom  $classroom
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Classroom $classroom)
+    public function destroy($id)
     {
-        //
+        Classroom::find($id)->delete();
+        return response()->json(['success'=>'Siswa deleted successfully.']);
     }
 }
