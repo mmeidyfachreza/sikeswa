@@ -26,6 +26,7 @@ Auth::routes();
 
 Route::group(['middleware'=>'admin'], function () {
     Route::get('/admin','DashboardController@index');
+    Route::get('/','DashboardController@index');
     Route::resource('user', 'UserController');
     Route::resource('siswa', 'StudentController');
     Route::resource('kesehatan', 'HealthController');
