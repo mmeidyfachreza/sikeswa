@@ -41,7 +41,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table" id="student-table">
+                            <table class="table" id="table">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -71,7 +71,7 @@
           }
         });
 
-        var table = $('#student-table').DataTable({
+        var table = $('#table').DataTable({
             processing: true,
             serverSide: true,
             ajax:"{{ route('siswa.index') }}",
@@ -85,10 +85,10 @@
         });
 
         $('body').on('click', '.deleteProduct', function () { 
-            var student_id = $(this).data("id");
-            confirm("Are You sure want to delete !");
+            var data_id = $(this).data("id");
+            confirm("Apakah anda yakin untuk menghapus!");
             var url = '{{ route("siswa.destroy", ":id") }}';
-            url = url.replace(':id', student_id );
+            url = url.replace(':id', data_id );
             $.ajax({
                 type: "DELETE",
                 url: url,

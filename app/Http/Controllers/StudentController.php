@@ -143,8 +143,8 @@ class StudentController extends Controller
         return response()->json(['success'=>'Siswa deleted successfully.']);
     }
 
-    public function search(Request $request)
-    {
-        return view('admin.health.index_student',compact('students'));
-    }
+    // public function search(Request $request)
+    // {
+    //     return view('admin.health.index_student',compact('students'));
+    // }
 }
