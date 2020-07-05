@@ -69,7 +69,7 @@
             <div class="main-menu">
                 <h5 class="sidenav-heading">Main</h5>
                 <ul id="side-main-menu" class="side-menu list-unstyled">
-                    <li><a href="{{url('admin')}}"> <i class="fas fa-home"></i>Beranda </a></li>
+                    <li><a href="{{url('/')}}"> <i class="fas fa-home"></i>Beranda </a></li>
                     <li><a href="{{route('kesehatan.index')}}"> <i class="fas fa-file-medical-alt"></i>Kesehatan </a>
                     </li>
                     <li><a href="{{route('imunisasi.index')}}"> <i class="fas fa-syringe"></i>Imunisasi </a></li>
@@ -100,9 +100,9 @@
                             </li> --}}
                         </ul>
                     </li>
-                    <li> <a href="{{url('admin')}}"> <i class="icon-mail"></i>Demo
+                    {{-- <li> <a href="{{url('admin')}}"> <i class="icon-mail"></i>Demo
                             <div class="badge badge-warning">6 New</div></a>
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
         </div>
