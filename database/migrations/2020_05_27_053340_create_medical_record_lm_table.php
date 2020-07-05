@@ -19,7 +19,7 @@ class CreateMedicalRecordLmTable extends Migration
             $table->foreign('medical_record_id')->references('id')->on('medical_records')->onUpdate('cascade')->onDelete('cascade');
             $table->bigInteger('learning_modalities_id')->unsigned();
             $table->foreign('learning_modalities_id')->references('id')->on('learning_modalities')->onUpdate('cascade')->onDelete('cascade');
-            $table->integer('score');
+            $table->integer('score')->nullable();
             $table->timestamps();
         });
     }

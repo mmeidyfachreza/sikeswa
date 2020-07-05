@@ -25,10 +25,25 @@ class MedicalRecord extends Model
                     ->withTimestamps();
     }
 
+    public function mentalHealth2()
+    {
+        return $this->belongsToMany('App\MentalHealth2','medical_record_mh2','medical_record_id','mental_healths2_id')
+                    ->withPivot('score')
+                    ->withTimestamps();
+    }
+
     public function brainDomination()
     {
         return $this->belongsToMany('App\BrainDomination','medical_record_bd')
                     ->withPivot('score')
+                    ->withTimestamps();
+    }
+
+    public function healthScreening()
+    {
+        return $this->belongsToMany('App\HealthScreening','medical_record_hs')
+                    ->withPivot('choice')
+                    ->withPivot('description')
                     ->withTimestamps();
     }
 

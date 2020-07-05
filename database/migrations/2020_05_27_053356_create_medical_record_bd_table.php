@@ -19,7 +19,7 @@ class CreateMedicalRecordBdTable extends Migration
             $table->foreign('medical_record_id')->references('id')->on('medical_records')->onUpdate('cascade')->onDelete('cascade');
             $table->bigInteger('brain_domination_id')->unsigned();
             $table->foreign('brain_domination_id')->references('id')->on('brain_dominations')->onUpdate('cascade')->onDelete('cascade');
-            $table->integer('score');
+            $table->integer('score')->nullable();
             $table->timestamps();
         });
     }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMedicalRecordMhTable extends Migration
+class CreateMedicalRecordMh2Table extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateMedicalRecordMhTable extends Migration
      */
     public function up()
     {
-        Schema::create('medical_record_mh', function (Blueprint $table) {
+        Schema::create('medical_record_mh2', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('medical_record_id')->unsigned();
             $table->foreign('medical_record_id')->references('id')->on('medical_records')->onUpdate('cascade')->onDelete('cascade');
-            $table->bigInteger('mental_health_id')->unsigned();
-            $table->foreign('mental_health_id')->references('id')->on('mental_healths')->onUpdate('cascade')->onDelete('cascade');
+            $table->bigInteger('mental_healths2_id')->unsigned();
+            $table->foreign('mental_healths2_id')->references('id')->on('mental_healths2')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('score')->nullable();
             $table->timestamps();
         });
@@ -31,10 +31,10 @@ class CreateMedicalRecordMhTable extends Migration
      */
     public function down()
     {
-        Schema::table('medical_record_mh', function (Blueprint $table) {
+        Schema::table('medical_record_mh2', function (Blueprint $table) {
             $table->dropForeign(['medical_record_id']);
-            $table->dropForeign(['mental_health_id']);
+            $table->dropForeign(['mental_healths2_id']);
         });
-        Schema::dropIfExists('medical_record_mh');
+        Schema::dropIfExists('medical_record_mh2');
     }
 }

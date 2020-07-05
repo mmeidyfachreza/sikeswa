@@ -1,7 +1,7 @@
 <div>
     <label for="">Keterangan:</label>
     <p>
-        Respon tidak benar = 0 | Respon Agak benar = 1 | Respon Benar = 2
+        Respon tidak benar = 0 | Respon Agak benar = 1 | Respon Benar = 2 ghfhf
     </p>
 </div>
 <div class="table-responsive">
@@ -17,24 +17,24 @@
         <tbody>
             <?php $x=1;?>
             @isset($record)
-            @foreach ($mentalHealths as $item)
+            @foreach ($mentalHealths2 as $item)
             <tr>
                 <td>{{$x}}</td>
                 <td>{{$item->question}}</td>
                 <td>{{$item->type}}</td>
 
-                <td><input type="number" name="mh[{{$x}}]" id="mh{{$x}}" style="width:50px" class="mental-health"
-                        value="{{old('mh['.$x++.']', $record->mentalHealth->find($item->id)->pivot->score ?? ' ')}}" min="0" max="2"></td>
+                <td><input type="number" name="mh2[{{$x}}]" id="mh2[{{$x}}]" style="width:50px"
+                        value="{{old('mh2['.$x++.']', $record->mentalHealth2->find($item->id)->pivot->score ?? ' ')}}"></td>
             </tr>
             @endforeach
             @else
-            @foreach ($mentalHealths as $item)
+            @foreach ($mentalHealths2 as $item)
             <tr>
-                <td>{{$x}}</td>
+                <td>{{$x++}}</td>
                 <td>{{$item->question}}</td>
                 <td>{{$item->type}}</td>
 
-                <td><input class="mental-health" type="number" id="mh{{$x++}}" value="0" name="mh[{{$x}}]" style="width:50px" min="0" max="2"></td>
+                <td><input type="number" name="mh2[{{$x}}]" style="width:50px"></td>
             </tr>
             @endforeach
             @endisset
@@ -56,20 +56,17 @@
         </thead>
         <tbody>
             <tr>
-                <td id="e" class="text-center">0</td>
-                <td id="c" class="text-center">0</td>
-                <td id="h" class="text-center">0</td>
-                <td id="p" class="text-center">0</td>
-                <td id="pr" class="text-center">0</td>
+                <td id="a" class="text-center">2</td>
+                <td id="b" class="text-center">3</td>
+                <td id="c" class="text-center">2</td>
+                <td id="d" class="text-center">4</td>
+                <td id="e" class="text-center">2</td>
             </tr>
         </tbody>
     </table>
 </div>
 <br>
 <div style="border: 1 solid black">
-    <label>Total Skor Kesulitan</label>
-    <p id="difficulty">0</p>
-    <br>
-    <label>Total Skor Kekuatan</label>
-    <p id="strength">0</p>
+    <label for="">Total Skor Kesulitan</label><br>
+    <label for="">Total Skor Kekuatan</label>
 </div>

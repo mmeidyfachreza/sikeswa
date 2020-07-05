@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\BrainDomination;
+use App\HealthScreening;
 use App\LearningModality;
 use App\MedicalRecord;
 use App\MentalHealth;
+use App\MentalHealth2;
 use App\Student;
 use Illuminate\Http\Request;
 
@@ -38,10 +40,11 @@ class MedicalRecordController extends Controller
     {
         $student = Student::findOrFail($id);
         $mentalHealths = MentalHealth::all();
+        $mentalHealths2 = MentalHealth2::all();
         $learningModalities = LearningModality::all();
         $brainDominations = BrainDomination::all();
 
-        return view('admin.medical_record.form',compact('student','mentalHealths','learningModalities','brainDominations'));
+        return view('admin.medical_record.form',compact('student','mentalHealths','mentalHealths2','learningModalities','brainDominations'));
     }
 
     /**
@@ -52,31 +55,47 @@ class MedicalRecordController extends Controller
      */
     public function store(Request $request)
     {
-
         $student = Student::findOrFail($request->student_id);
         $medicalRecord = MedicalRecord::create($request->all());
+        $a = HealthScreening::all();
         $mh = MentalHealth::all();
+        $mh2 = MentalHealth2::all();
         $lm = LearningModality::all();
         $bd = BrainDomination::all();
-        $x = 2;
+        $x = 1;
+        foreach ($a as $item) {
+            //collect all inserted record IDs
+            $a_id_array[$item->id] = [
+                'choice' => $request->a[$x],
+                'description' => $request->ket_a[$x++]
+            ];
+        }
+        $x = 1;
         foreach ($mh as $item) {
             //collect all inserted record IDs
             $mh_id_array[$item->id] = ['score' => $request->mh[$x++]];
         }
-        $x = 2;
+        $x = 1;
+        foreach ($mh2 as $item) {
+            //collect all inserted record IDs
+            $mh2_id_array[$item->id] = ['score' => $request->mh2[$x++]];
+        }
+        $x = 1;
         foreach ($lm as $item) {
             //collect all inserted record IDs
             $lm_id_array[$item->id] = ['score' => $request->lm[$x++]];
         }
-        $x = 2;
+        $x = 1;
         foreach ($bd as $item) {
             //collect all inserted record IDs
             $bd_id_array[$item->id] = ['score' => $request->bd[$x++]];
         }
 
         $medicalRecord->mentalHealth()->attach($mh_id_array);
+        $medicalRecord->mentalHealth2()->attach($mh2_id_array);
         $medicalRecord->learningModality()->attach($lm_id_array);
         $medicalRecord->brainDomination()->attach($bd_id_array);
+        $medicalRecord->healthScreening()->attach($a_id_array);
 
         return redirect()->route('student.find.record',$request->student_id)->with(['success'=>'Berhasil menambah data','data'=>$student]);
     }
@@ -100,19 +119,33 @@ class MedicalRecordController extends Controller
      */
     public function edit($id)
     {
-        $record = MedicalRecord::with('mentalHealth')->with('brainDomination')->with('learningModality')->findOrFail($id);
+        $record = MedicalRecord::with('mentalHealth')->with('mentalHealth2')->with('brainDomination')->with('learningModality')->with('healthScreening')->findOrFail($id);
         $student = Student::findOrFail($record->student_id);
 
         $mentalHealths = MentalHealth::all();
+        $mentalHealths2 = MentalHealth2::all();
         $learningModalities = LearningModality::all();
         $brainDominations = BrainDomination::all();
+
+        $choice1 = ['ya','tidak'];
+        $choice2 = ['ya','tidak','1 kali','lebih dari 1 kali'];
+        $choice3 = ['ya','tidak','tidak tahu'];
+        $choice4 = ['selalu','kadang-kadang','tidak pernah'];
+        $choice5 = ['ada','kadang-kadang','tidak ada'];
+
 
         return view('admin.medical_record.form',compact(
             'record',
             'student',
             'mentalHealths',
+            'mentalHealths2',
             'learningModalities',
             'brainDominations',
+            'choice1',
+            'choice2',
+            'choice3',
+            'choice4',
+            'choice5',
         ));
     }
 
@@ -128,28 +161,45 @@ class MedicalRecordController extends Controller
         $student = Student::findOrFail($request->student_id);
         $medicalRecord = MedicalRecord::findOrFail($id);
         $medicalRecord->update($request->all());
+        $a = HealthScreening::all();
         $mh = MentalHealth::all();
+        $mh2 = MentalHealth2::all();
         $lm = LearningModality::all();
         $bd = BrainDomination::all();
-        $x = 2;
+        $x = 1;
+        foreach ($a as $item) {
+            //collect all inserted record IDs
+            $a_id_array[$item->id] = [
+                'choice' => $request->a[$x],
+                'description' => $request->ket_a[$x++]
+            ];
+        }
+        $x = 1;
         foreach ($mh as $item) {
             //collect all inserted record IDs
             $mh_id_array[$item->id] = ['score' => $request->mh[$x++]];
         }
-        $x = 2;
+        $x = 1;
+        foreach ($mh2 as $item) {
+            //collect all inserted record IDs
+            $mh2_id_array[$item->id] = ['score' => $request->mh2[$x++]];
+        }
+        $x = 1;
         foreach ($lm as $item) {
             //collect all inserted record IDs
             $lm_id_array[$item->id] = ['score' => $request->lm[$x++]];
         }
-        $x = 2;
+        $x = 1;
         foreach ($bd as $item) {
             //collect all inserted record IDs
             $bd_id_array[$item->id] = ['score' => $request->bd[$x++]];
         }
 
         $medicalRecord->mentalHealth()->syncWithoutDetaching($mh_id_array);
+        $medicalRecord->mentalHealth2()->syncWithoutDetaching($mh2_id_array);
         $medicalRecord->learningModality()->syncWithoutDetaching($lm_id_array);
         $medicalRecord->brainDomination()->syncWithoutDetaching($bd_id_array);
+        $medicalRecord->healthScreening()->syncWithoutDetaching($a_id_array);
         return redirect()->route('student.find.record',$request->student_id)->with(['success'=>'Berhasil merubah data','data'=>$student]);
     }
 
@@ -161,7 +211,7 @@ class MedicalRecordController extends Controller
      */
     public function destroy($id)
     {
-        MedicalRecord::findOrFail($id);
+        MedicalRecord::findOrFail($id)->delete();
         return redirect()->route('rekam-medik.index')->with('success','Berhasil menghapus data');
     }
 
