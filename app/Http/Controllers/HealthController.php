@@ -7,6 +7,7 @@ use App\Health;
 use App\Measurement;
 use App\Student;
 use Illuminate\Http\Request;
+use DateTime;
 use Illuminate\Support\Facades\DB;
 
 class HealthController extends Controller
@@ -104,6 +105,12 @@ class HealthController extends Controller
         $weight = Measurement::where('type','=','BB')->get();
         $conditions = Condition::all();
         $student = Student::findOrFail($id);
+        $currentDateTime = new DateTime;
+            $dateTimeInTheFuture = new DateTime($student->born_date);
+            $dateInterval = $dateTimeInTheFuture->diff($currentDateTime);
+            $ageYear = $dateInterval->y;
+            $ageMonth = $dateInterval->m;
+            $totalbulan = 12 * $dateInterval->y + $dateInterval->m;
         return view('admin.health.form',compact(
             'conditions',
             'student',
@@ -114,7 +121,9 @@ class HealthController extends Controller
             'ear',
             'height',
             'weight',
-            'bmi'
+            'bmi',
+            'ageYear',
+            'ageMonth'
         ));
     }
 

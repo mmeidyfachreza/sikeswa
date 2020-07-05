@@ -106,9 +106,35 @@ class MedicalRecordController extends Controller
      * @param  \App\MedicalRecord  $medicalRecord
      * @return \Illuminate\Http\Response
      */
-    public function show(MedicalRecord $medicalRecord)
+    public function show($id)
     {
-        //
+        $show = MedicalRecord::with('mentalHealth')->with('mentalHealth2')->with('brainDomination')->with('learningModality')->with('healthScreening')->findOrFail($id);
+        $student = Student::findOrFail($show->student_id);
+
+        $mentalHealths = MentalHealth::all();
+        $mentalHealths2 = MentalHealth2::all();
+        $learningModalities = LearningModality::all();
+        $brainDominations = BrainDomination::all();
+
+        $choice1 = ['ya','tidak'];
+        $choice2 = ['ya','tidak','1 kali','lebih dari 1 kali'];
+        $choice3 = ['ya','tidak','tidak tahu'];
+        $choice4 = ['selalu','kadang-kadang','tidak pernah'];
+        $choice5 = ['ada','kadang-kadang','tidak ada'];
+
+        return view('admin.medical_record.form',compact(
+            'show',
+            'student',
+            'mentalHealths',
+            'mentalHealths2',
+            'learningModalities',
+            'brainDominations',
+            'choice1',
+            'choice2',
+            'choice3',
+            'choice4',
+            'choice5',
+        ));
     }
 
     /**

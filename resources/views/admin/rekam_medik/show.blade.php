@@ -95,7 +95,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h4 style="float:left">Detail Data Rekam Medik</h4>
-                    </div>
+                        </div>
 
                         <div class="card-body" >
                             <p style="color: black;font-weight: bold;">Petugas Pelaksana : {{$rekammedik->user->name}}</p>

@@ -41,6 +41,57 @@
     @endif
     <div class="row">
         <div class="col-lg-12">
+            @isset($show)
+            <div class="card">
+                <div class="card-header d-flex align-items-center">
+                    <h4>Lihat Rekam Medik</h4>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <p style="color: black;font-weight: bold;">Tgl Pemeriksaan : {{$show->date}}</p>
+                    </div>
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#hs">Penjanringan Kesehatan</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#mh">Kesehatan Mental 1</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-toggle="tab" href="#mhh">Kesehatan Mental 2</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-toggle="tab" href="#lm">Modalitas Belajar</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-toggle="tab" href="#bd">Dominasi Otak</a>
+                        </li>
+                    </ul>
+                      <!-- Tab panes -->
+                      <div class="tab-content">
+                        <div class="tab-pane container active" id="hs">
+                            @isset($record)
+                            @include('admin.medical_record.health_screening',['record'=>$record])
+                            @else
+                            @include('admin.medical_record.health_screening')
+                            @endisset
+                        </div>
+                        <div class="tab-pane container fade" id="mh">
+                            @include('admin.medical_record.mental_health')
+                        </div>
+                        <div class="tab-pane container fade" id="mhh">
+                            @include('admin.medical_record.mental_health2')
+                        </div>
+                        <div class="tab-pane container fade" id="lm">
+                            @include('admin.medical_record.learning_modality')
+                        </div>
+                        <div class="tab-pane container fade" id="bd">
+                            @include('admin.medical_record.brain_domination')
+                        </div>
+                      </div>
+                </div>
+            </div>
+            @else    
             <div class="card">
                 @isset ($record)
                 <div class="card-header d-flex align-items-center">
@@ -71,7 +122,7 @@
                                     <a class="nav-link" data-toggle="tab" href="#mh">Kesehatan Mental 1</a>
                                     </li>
                                     <li class="nav-item">
-                                      <a class="nav-link" data-toggle="tab" href="#mh2">Kesehatan Mental 2</a>
+                                      <a class="nav-link" data-toggle="tab" href="#mhh">Kesehatan Mental 2</a>
                                     </li>
                                     <li class="nav-item">
                                       <a class="nav-link" data-toggle="tab" href="#lm">Modalitas Belajar</a>
@@ -79,8 +130,7 @@
                                     <li class="nav-item">
                                       <a class="nav-link" data-toggle="tab" href="#bd">Dominasi Otak</a>
                                     </li>
-                                  </ul>
-
+                                </ul>
                                   <!-- Tab panes -->
                                   <div class="tab-content">
                                     <div class="tab-pane container active" id="hs">
@@ -93,7 +143,7 @@
                                     <div class="tab-pane container fade" id="mh">
                                         @include('admin.medical_record.mental_health')
                                     </div>
-                                    <div class="tab-pane container fade" id="mh2">
+                                    <div class="tab-pane container fade" id="mhh">
                                         @include('admin.medical_record.mental_health2')
                                     </div>
                                     <div class="tab-pane container fade" id="lm">
@@ -112,6 +162,7 @@
                         </div>
                 </div>
             </div>
+            @endisset
         </div>
     </div>
 </section>
@@ -198,7 +249,7 @@ $(function () {
         parseInt($('#bd20').val());
         
         var result = "";
-
+        
         if (total<=4) {
             result="sangat otak kiri";
         }else if (total<=8) {
@@ -210,12 +261,13 @@ $(function () {
         }else if (total<=20) {
             result="sangat otak kanan";
         }
-
         $('#interpretation').html(result);
-        
-        
     });
 
 })
+$(window).on('load', function() {
+ console.log("sadas");
+});
+
 </script>
 @endsection

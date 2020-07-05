@@ -7,6 +7,9 @@
         <div class="form-group row">
             <label class="col-sm-6 form-control-label"><b>1.Memiliki masalah kesehatan</b>
                 <br><small class="text-primary"> </small></label>
+            @isset($show)
+                {{$show->healthScreening->find(1)->pivot->choice}}
+            @else
             @isset($record)
             <div class="col-sm-6">
                 <?php $x=1?>
@@ -32,10 +35,14 @@
                 </div>
             </div>
             @endisset
+            @endisset
             
         </div>
         <div class="form-group">
             <label>Sebutkan Masalahnya</label>
+            @isset($show)
+            {{$show->healthScreening->find(1)->pivot->description ?? '...'}}
+            @else
             @isset($record)
             <textarea name="ket_a[1]" placeholder="Sebutkan Masalahnya" class="form-control" id="" cols="30"
                 rows="2">{{old('ket_a[1]',$record->healthScreening->find(1)->pivot->description ?? '')}}</textarea>
@@ -43,16 +50,18 @@
             <textarea name="ket_a[1]" placeholder="Sebutkan Masalahnya" class="form-control" id="" cols="30"
                 rows="2">{{old('ket_a[1]')}}</textarea>
             @endisset
-            
+            @endisset
         </div>
     </div>
     <div class="mt-5 mb-5">
         <div class="form-group row">
             <label class="col-sm-6 form-control-label"><b>2.Alergi (tidak tahan ) makanan tertentu</b>
                 <br><small class="text-primary"> </small></label>
+            @isset($show)
+                {{$show->healthScreening->find(2)->pivot->choice}}
+            @else
             @isset($record)
             <div class="col-sm-6">
-                
                 @foreach ($choice1 as $item)
                 <div class="i-checks">
                     <input id="a{{$x}}" type="radio" @if ($record->healthScreening->find(2)->pivot->choice == $item) checked="" @endIf value="{{$item}}" name="a[2]"
@@ -77,10 +86,14 @@
                 </div>
             </div>
             @endisset
+            @endisset
             
         </div>
         <div class="form-group">
             <label>Sebutkan Makananya</label>
+            @isset($show)
+            {{$show->healthScreening->find(2)->pivot->description ?? '...'}}
+            @else
             @isset($record)
             <textarea name="ket_a[2]" placeholder="Sebutkan Makananya" class="form-control" id="" cols="30"
                 rows="2">{{old('ket_a[2]',$record->healthScreening->find(2)->pivot->description ?? '')}}</textarea>
@@ -88,25 +101,25 @@
             <textarea name="ket_a[2]" placeholder="Sebutkan Makananya" class="form-control" id="" cols="30"
                 rows="2">{{old('ket_a[2]')}}</textarea>
             @endisset
-            
+            @endisset
         </div>
     </div>
     <div class="mt-5 mb-5">
         <div class="form-group row">
             <label class="col-sm-6 form-control-label"><b>3.Alergi (tidak tahan ) obat tertentu</b>
                 <br><small class="text-primary"> </small></label>
+            @isset($show)
+                {{$show->healthScreening->find(3)->pivot->choice}}
+            @else
             @isset($record)
             <div class="col-sm-6">
-                
                 @foreach ($choice1 as $item)
                 <div class="i-checks">
                     <input id="a{{$x}}" type="radio" @if ($record->healthScreening->find(3)->pivot->choice == $item) checked="" @endIf value="{{$item}}" name="a[3]"
                         class="form-control-custom radio-custom">
                     <label for="a{{$x++}}">{{$item}}</label>
                 </div>    
-                @endforeach
-                
-                
+                @endforeach                
             </div>
             @else
             <div class="col-sm-6">
@@ -121,11 +134,15 @@
                     <label for="a3no">Tidak</label>
                 </div>
             </div>
+            @endisset   
             @endisset
             
         </div>
         <div class="form-group">
             <label>Sebutkan Nama Obatnya</label>
+            @isset($show)
+            {{$show->healthScreening->find(3)->pivot->description ?? '...'}}
+            @else
             @isset($record)
             <textarea name="ket_a[3]" placeholder="Sebutkan Nama Obatnya" class="form-control" id="" cols="30"
                 rows="2">{{old('ket_a[3]',$record->healthScreening->find(3)->pivot->description ?? '')}}</textarea>
@@ -133,16 +150,18 @@
             <textarea name="ket_a[3]" placeholder="Sebutkan Nama Obatnya" class="form-control" id="" cols="30"
                 rows="2">{{old('ket_a[3]')}}</textarea>
             @endisset
-            
+            @endisset
         </div>
     </div>
     <div class="mt-5 mb-5">
         <div class="form-group row">
             <label class="col-sm-6 form-control-label"><b>4.Asma/bengek</b>
                 <br><small class="text-primary"> </small></label>
+            @isset($show)
+                {{$show->healthScreening->find(4)->pivot->choice}}
+            @else
             @isset($record)
             <div class="col-sm-6">
-                
                 @foreach ($choice1 as $item)
                 <div class="i-checks">
                     <input id="a{{$x}}" type="radio" @if ($record->healthScreening->find(4)->pivot->choice == $item) checked="" @endIf value="{{$item}}" name="a[4]"
@@ -150,8 +169,6 @@
                     <label for="a{{$x++}}">{{$item}}</label>
                 </div>    
                 @endforeach
-                
-                
             </div>
             @else
             <div class="col-sm-6">
@@ -167,6 +184,7 @@
                 </div>
             </div>
             @endisset
+            @endisset
             
         </div>
         <input type="hidden" name="ket_a[4]" value="">
@@ -175,18 +193,18 @@
         <div class="form-group row">
             <label class="col-sm-6 form-control-label"><b>5.Saat ini minum obat</b>
                 <br><small class="text-primary"> </small></label>
+            @isset($show)
+                {{$show->healthScreening->find(5)->pivot->choice}}
+            @else
             @isset($record)
             <div class="col-sm-6">
-                
                 @foreach ($choice1 as $item)
                 <div class="i-checks">
                     <input id="a{{$x}}" type="radio" @if ($record->healthScreening->find(5)->pivot->choice == $item) checked="" @endIf value="{{$item}}" name="a[5]"
                         class="form-control-custom radio-custom">
                     <label for="a{{$x++}}">{{$item}}</label>
                 </div>    
-                @endforeach
-                
-                
+                @endforeach                
             </div>
             @else
             <div class="col-sm-6">
@@ -202,16 +220,21 @@
                 </div>
             </div>
             @endisset
+            @endisset
             
         </div>
         <div class="form-group">
             <label>Sebutkan nama obatnya</label>
+            @isset($show)
+            {{$show->healthScreening->find(5)->pivot->description ?? '...'}}
+            @else
             @isset($record)
             <textarea name="ket_a[5]" placeholder="Sebutkan nama obatnya" class="form-control" id="" cols="30"
                 rows="2">{{old('ket_a[5]',$record->healthScreening->find(5)->pivot->description ?? '')}}</textarea>
             @else    
             <textarea name="ket_a[5]" placeholder="Sebutkan nama obatnya" class="form-control" id="" cols="30"
                 rows="2">{{old('ket_a[5]')}}</textarea>
+            @endisset
             @endisset
             
         </div>
@@ -220,18 +243,18 @@
         <div class="form-group row">
             <label class="col-sm-6 form-control-label"><b>6.Pernah dirawat di rumah sakit</b>
                 <br><small class="text-primary"> </small></label>
+            @isset($show)
+                {{$show->healthScreening->find(6)->pivot->choice}}
+            @else
             @isset($record)
             <div class="col-sm-6">
-                
                 @foreach ($choice1 as $item)
                 <div class="i-checks">
                     <input id="a{{$x}}" type="radio" @if ($record->healthScreening->find(6)->pivot->choice == $item) checked="" @endIf value="{{$item}}" name="a[6]"
                         class="form-control-custom radio-custom">
                     <label for="a{{$x++}}">{{$item}}</label>
                 </div>    
-                @endforeach
-                
-                
+                @endforeach                
             </div>
             @else
             <div class="col-sm-6">
@@ -247,10 +270,14 @@
                 </div>
             </div>
             @endisset
+            @endisset
             
         </div>
         <div class="form-group">
             <label>Tuliskan Usia dan Penyakitnya</label>
+            @isset($show)
+            {{$show->healthScreening->find(6)->pivot->description ?? '...'}}
+            @else
             @isset($record)
             <textarea name="ket_a[6]" placeholder="Tuliskan Usia dan Penyakitnya" class="form-control" id="" cols="30"
                 rows="2">{{old('ket_a[6]',$record->healthScreening->find(6)->pivot->description ?? '')}}</textarea>
@@ -258,16 +285,18 @@
             <textarea name="ket_a[6]" placeholder="Tuliskan Usia dan Penyakitnya" class="form-control" id="" cols="30"
                 rows="2">{{old('ket_a[6]')}}</textarea>
             @endisset
-            
+            @endisset
         </div>
     </div>
     <div class="mt-5 mb-5">
         <div class="form-group row">
             <label class="col-sm-6 form-control-label"><b>7.Pernah mengalami cedera serius akibat kecelakaan ( geger otak / patah tulang atau lainnya )</b>
                 <br><small class="text-primary"> </small></label>
+            @isset($show)
+                {{$show->healthScreening->find(7)->pivot->choice}}
+            @else
             @isset($record)
             <div class="col-sm-6">
-                
                 @foreach ($choice1 as $item)
                 <div class="i-checks">
                     <input id="a{{$x}}" type="radio" @if ($record->healthScreening->find(7)->pivot->choice == $item) checked="" @endIf value="{{$item}}" name="a[7]"
@@ -275,8 +304,6 @@
                     <label for="a{{$x++}}">{{$item}}</label>
                 </div>    
                 @endforeach
-                
-                
             </div>
             @else
             <div class="col-sm-6">
@@ -292,10 +319,14 @@
                 </div>
             </div>
             @endisset
+            @endisset
             
         </div>
         <div class="form-group">
             <label>Tuliskan usia dan penyakitnya</label>
+            @isset($show)
+            {{$show->healthScreening->find(7)->pivot->description ?? '...'}}
+            @else
             @isset($record)
             <textarea name="ket_a[7]" placeholder="Tuliskan usia dan Penyakitnya" class="form-control" id="" cols="30"
                 rows="2">{{old('ket_a[7]',$record->healthScreening->find(7)->pivot->description ?? '')}}</textarea>
@@ -303,16 +334,18 @@
             <textarea name="ket_a[7]" placeholder="Tuliskan usia dan Penyakitnya" class="form-control" id="" cols="30"
                 rows="2">{{old('ket_a[7]')}}</textarea>
             @endisset
-            
+            @endisset
         </div>
     </div>
     <div class="mt-5 mb-5">
         <div class="form-group row">
             <label class="col-sm-6 form-control-label"><b>8.Pernah melakukan transfusi darah </b>
                 <br><small class="text-primary"> </small></label>
+            @isset($show)
+                {{$show->healthScreening->find(8)->pivot->choice}}
+            @else
             @isset($record)
             <div class="col-sm-6">
-                
                 @foreach ($choice2 as $item)
                 <div class="i-checks">
                     <input id="a{{$x}}" type="radio" @if ($record->healthScreening->find(8)->pivot->choice == $item) checked="" @endIf value="{{$item}}" name="a[8]"
@@ -345,6 +378,8 @@
                 </div>
             </div>
             @endisset
+            @endisset
+            
         </div>
         <input type="hidden" name="ket_a[8]" value="">
     </div>
@@ -352,9 +387,11 @@
         <div class="form-group row">
             <label class="col-sm-6 form-control-label"><b>9.Kejang berulang</b>
                 <br><small class="text-primary"> </small></label>
+            @isset($show)
+                {{$show->healthScreening->find(9)->pivot->choice}}
+            @else
             @isset($record)
             <div class="col-sm-6">
-                
                 @foreach ($choice1 as $item)
                 <div class="i-checks">
                     <input id="a{{$x}}" type="radio" @if ($record->healthScreening->find(9)->pivot->choice == $item) checked="" @endIf value="{{$item}}" name="a[9]"
@@ -379,6 +416,8 @@
                 </div>
             </div>
             @endisset
+            @endisset
+            
             
         </div>
         <input type="hidden" name="ket_a[9]" value="">
@@ -387,9 +426,11 @@
         <div class="form-group row">
             <label class="col-sm-6 form-control-label"><b>10.Memiliki penyakit lainnya</b>
                 <br><small class="text-primary"> </small></label>
+            @isset($show)
+                {{$show->healthScreening->find(10)->pivot->choice}}
+            @else
             @isset($record)
             <div class="col-sm-6">
-                
                 @foreach ($choice1 as $item)
                 <div class="i-checks">
                     <input id="a{{$x}}" type="radio" @if ($record->healthScreening->find(10)->pivot->choice == $item) checked="" @endIf value="{{$item}}" name="a[10]"
@@ -397,8 +438,6 @@
                     <label for="a{{$x++}}">{{$item}}</label>
                 </div>    
                 @endforeach
-                
-                
             </div>
             @else
             <div class="col-sm-6">
@@ -414,10 +453,15 @@
                 </div>
             </div>
             @endisset
+            @endisset
+            
             
         </div>
         <div class="form-group">
             <label>Jika ya sebutkan</label>
+            @isset($show)
+            {{$show->healthScreening->find(10)->pivot->description ?? '...'}}
+            @else
             @isset($record)
             <textarea name="ket_a[10]" placeholder="Sebutkan" class="form-control" id="" cols="30"
                 rows="2">{{old('ket_a[10]',$record->healthScreening->find(10)->pivot->description ?? '')}}</textarea>
@@ -425,7 +469,7 @@
             <textarea name="ket_a[10]" placeholder="Sebutkan" class="form-control" id="" cols="30"
                 rows="2">{{old('ket_a[10]')}}</textarea>
             @endisset
-            
+            @endisset
         </div>
     </div>
 
@@ -440,6 +484,9 @@
         <div class="form-group row">
             <label class="col-sm-6 form-control-label"><b>1.Apakah kamu memiliki catatan imunisasi</b>
                 <br><small class="text-primary"> </small></label>
+            @isset($show)
+                {{$show->healthScreening->find(11)->pivot->choice}}
+            @else
             @isset($record)
             <div class="col-sm-6">
                 @foreach ($choice3 as $item)
@@ -464,6 +511,8 @@
                 </div>
             </div>
             @endisset
+            @endisset
+            
         </div>
         <input type="hidden" name="ket_a[11]" value="">
     </div>
@@ -471,6 +520,9 @@
         <div class="form-group row">
             <label class="col-sm-6 form-control-label"><b>2.Apakah pada saat bayi  mendapat imunisasi DPT sebanyak 3 kali lengkap</b>
                 <br><small class="text-primary"> </small></label>
+            @isset($show)
+                {{$show->healthScreening->find(12)->pivot->choice}}
+            @else
             @isset($record)
             <div class="col-sm-6">
                 @foreach ($choice3 as $item)
@@ -495,6 +547,8 @@
                 </div>
             </div>
             @endisset
+            @endisset
+            
         </div>
         <input type="hidden" name="ket_a[12]" value="">
     </div>
@@ -509,7 +563,10 @@
         <div class="form-group row">
             <label class="col-sm-6 form-control-label"><b>1.Tuberkulosis ( TBC ) paru</b>
                 <br><small class="text-primary"> </small></label>
-            @isset($record)
+            @isset($show)
+                {{$show->healthScreening->find(13)->pivot->choice}}
+            @else
+             @isset($record)
             <div class="col-sm-6">
                 @foreach ($choice3 as $item)
                 <div class="i-checks">
@@ -538,6 +595,8 @@
                 </div>
             </div>                
             @endisset
+            @endisset
+           
         </div>
         <input type="hidden" name="ket_a[13]" value="">
     </div>
@@ -545,7 +604,10 @@
         <div class="form-group row">
             <label class="col-sm-6 form-control-label"><b>2.Diabetes melitus / kencing manis</b>
                 <br><small class="text-primary"> </small></label>
-            @isset($record)
+            @isset($show)
+                {{$show->healthScreening->find(14)->pivot->choice}}
+            @else
+             @isset($record)
             <div class="col-sm-6">
                 @foreach ($choice3 as $item)
                 <div class="i-checks">
@@ -574,6 +636,8 @@
                 </div>
             </div>                
             @endisset
+            @endisset
+           
         </div>
         <input type="hidden" name="ket_a[14]" value="">
     </div>
@@ -581,7 +645,10 @@
         <div class="form-group row">
             <label class="col-sm-6 form-control-label"><b>3.Hepatitis / sakit kuning</b>
                 <br><small class="text-primary"> </small></label>
-            @isset($record)
+            @isset($show)
+                {{$show->healthScreening->find(15)->pivot->choice}}
+            @else
+             @isset($record)
             <div class="col-sm-6">
                 @foreach ($choice3 as $item)
                 <div class="i-checks">
@@ -610,6 +677,8 @@
                 </div>
             </div>                
             @endisset
+            @endisset
+           
         </div>
         <input type="hidden" name="ket_a[15]" value="">
     </div>
@@ -617,7 +686,10 @@
         <div class="form-group row">
             <label class="col-sm-6 form-control-label"><b>4.Asma / bengek</b>
                 <br><small class="text-primary"> </small></label>
-            @isset($record)
+            @isset($show)
+                {{$show->healthScreening->find(16)->pivot->choice}}
+            @else
+             @isset($record)
             <div class="col-sm-6">
                 @foreach ($choice3 as $item)
                 <div class="i-checks">
@@ -646,6 +718,8 @@
                 </div>
             </div>                
             @endisset
+            @endisset
+           
         </div>
         <input type="hidden" name="ket_a[16]" value="">
     </div>
@@ -653,7 +727,10 @@
         <div class="form-group row">
             <label class="col-sm-6 form-control-label"><b>5.Storke / Lumpuh</b>
                 <br><small class="text-primary"> </small></label>
-            @isset($record)
+            @isset($show)
+                {{$show->healthScreening->find(17)->pivot->choice}}
+            @else
+             @isset($record)
             <div class="col-sm-6">
                 @foreach ($choice3 as $item)
                 <div class="i-checks">
@@ -682,6 +759,8 @@
                 </div>
             </div>                
             @endisset
+            @endisset
+           
         </div>
         <input type="hidden" name="ket_a[17]" value="">
     </div>
@@ -689,7 +768,10 @@
         <div class="form-group row">
             <label class="col-sm-6 form-control-label"><b>6.Penyakit Jantung</b>
                 <br><small class="text-primary"> </small></label>
-            @isset($record)
+            @isset($show)
+                {{$show->healthScreening->find(18)->pivot->choice}}
+            @else
+             @isset($record)
             <div class="col-sm-6">
                 @foreach ($choice3 as $item)
                 <div class="i-checks">
@@ -718,6 +800,8 @@
                 </div>
             </div>                
             @endisset
+            @endisset
+           
         </div>
         <input type="hidden" name="ket_a[18]" value="">
     </div>
@@ -725,7 +809,10 @@
         <div class="form-group row">
             <label class="col-sm-6 form-control-label"><b>7.Obesitas / Kegemukan</b>
                 <br><small class="text-primary"> </small></label>
-            @isset($record)
+            @isset($show)
+                {{$show->healthScreening->find(19)->pivot->choice}}
+            @else
+             @isset($record)
             <div class="col-sm-6">
                 @foreach ($choice3 as $item)
                 <div class="i-checks">
@@ -754,6 +841,8 @@
                 </div>
             </div>                
             @endisset
+            @endisset
+           
         </div>
         <input type="hidden" name="ket_a[19]" value="">
     </div>
@@ -761,7 +850,10 @@
         <div class="form-group row">
             <label class="col-sm-6 form-control-label"><b>8.Tekanan darah tinggi</b>
                 <br><small class="text-primary"> </small></label>
-            @isset($record)
+            @isset($show)
+                {{$show->healthScreening->find(20)->pivot->choice}}
+            @else
+             @isset($record)
             <div class="col-sm-6">
                 @foreach ($choice3 as $item)
                 <div class="i-checks">
@@ -790,6 +882,8 @@
                 </div>
             </div>                
             @endisset
+            @endisset
+           
         </div>
         <input type="hidden" name="ket_a[20]" value="">
     </div>
@@ -797,7 +891,10 @@
         <div class="form-group row">
             <label class="col-sm-6 form-control-label"><b>9.Kanker / Tumor ganas</b>
                 <br><small class="text-primary"> </small></label>
-            @isset($record)
+            @isset($show)
+                {{$show->healthScreening->find(21)->pivot->choice}}
+            @else
+             @isset($record)
             <div class="col-sm-6">
                 @foreach ($choice3 as $item)
                 <div class="i-checks">
@@ -826,6 +923,8 @@
                 </div>
             </div>                
             @endisset
+            @endisset
+           
         </div>
         <input type="hidden" name="ket_a[21]" value="">
     </div>
@@ -833,7 +932,10 @@
         <div class="form-group row">
             <label class="col-sm-6 form-control-label"><b>10.Thalassemia</b>
                 <br><small class="text-primary"> </small></label>
-            @isset($record)
+            @isset($show)
+                {{$show->healthScreening->find(22)->pivot->choice}}
+            @else
+             @isset($record)
             <div class="col-sm-6">
                 @foreach ($choice3 as $item)
                 <div class="i-checks">
@@ -862,6 +964,8 @@
                 </div>
             </div>                
             @endisset
+            @endisset
+           
         </div>
         <input type="hidden" name="ket_a[22]" value="">
     </div>
@@ -869,7 +973,10 @@
         <div class="form-group row">
             <label class="col-sm-6 form-control-label"><b>11.Haemofilia</b>
                 <br><small class="text-primary"> </small></label>
-            @isset($record)
+            @isset($show)
+                {{$show->healthScreening->find(23)->pivot->choice}}
+            @else
+             @isset($record)
             <div class="col-sm-6">
                 @foreach ($choice3 as $item)
                 <div class="i-checks">
@@ -898,6 +1005,8 @@
                 </div>
             </div>                
             @endisset
+            @endisset
+           
         </div>
         <input type="hidden" name="ket_a[23]" value="">
     </div>
@@ -905,7 +1014,10 @@
         <div class="form-group row">
             <label class="col-sm-6 form-control-label"><b>12.Anemia</b>
                 <br><small class="text-primary"> </small></label>
-            @isset($record)
+            @isset($show)
+                {{$show->healthScreening->find(24)->pivot->choice}}
+            @else
+             @isset($record)
             <div class="col-sm-6">
                 @foreach ($choice3 as $item)
                 <div class="i-checks">
@@ -934,6 +1046,8 @@
                 </div>
             </div>                
             @endisset
+            @endisset
+           
         </div>
         <input type="hidden" name="ket_a[24]" value="">
     </div>
@@ -949,6 +1063,9 @@
         <div class="form-group row">
             <label class="col-sm-6 form-control-label"><b>1.Apakah kamu makan pagi</b>
                 <br><small class="text-primary"> </small></label>
+            @isset($show)
+                {{$show->healthScreening->find(25)->pivot->choice}}
+            @else
             @isset($record)
             <div class="col-sm-6">
                 @foreach ($choice4 as $item)
@@ -978,16 +1095,22 @@
                 </div>
             </div>
             @endisset
+            @endisset
+            
             
         </div>
         <div class="form-group">
             <label>Bila makan pagi berupa</label>
+            @isset($show)
+            {{$show->healthScreening->find(25)->pivot->description ?? '...'}}
+            @else
             @isset($record)
             <textarea name="ket_a[25]" placeholder="Sebutkan" class="form-control" id="" cols="30"
                 rows="2">{{old('ket_a[25]',$record->healthScreening->find(25)->pivot->description ?? '')}}</textarea>
             @else    
             <textarea name="ket_a[25]" placeholder="Sebutkan" class="form-control" id="" cols="30"
                 rows="2">{{old('ket_a[25]')}}</textarea>
+            @endisset
             @endisset
             
         </div>
@@ -996,6 +1119,9 @@
         <div class="form-group row">
             <label class="col-sm-6 form-control-label"><b>2.Apakah kamu jajan di sekolah</b>
                 <br><small class="text-primary"> </small></label>
+            @isset($show)
+                {{$show->healthScreening->find(26)->pivot->choice}}
+            @else
             @isset($record)
             <div class="col-sm-6">
                 @foreach ($choice4 as $item)
@@ -1025,16 +1151,22 @@
                 </div>
             </div>
             @endisset
+            @endisset
+            
             
         </div>
         <div class="form-group">
             <label>Bila ya, berupa</label>
+            @isset($show)
+            {{$show->healthScreening->find(26)->pivot->description ?? '...'}}
+            @else
             @isset($record)
             <textarea name="ket_a[26]" placeholder="Sebutkan" class="form-control" id="" cols="30"
                 rows="2">{{old('ket_a[26]',$record->healthScreening->find(26)->pivot->description ?? '')}}</textarea>
             @else    
             <textarea name="ket_a[26]" placeholder="Sebutkan" class="form-control" id="" cols="30"
                 rows="2">{{old('ket_a[26]')}}</textarea>
+            @endisset
             @endisset
             
         </div>
@@ -1043,6 +1175,9 @@
         <div class="form-group row">
             <label class="col-sm-6 form-control-label"><b>3.Apakah orang tua /  keluarga ada yang merokok</b>
                 <br><small class="text-primary"> </small></label>
+            @isset($show)
+                {{$show->healthScreening->find(27)->pivot->choice}}
+            @else
             @isset($record)
             <div class="col-sm-6">
                 @foreach ($choice5 as $item)
@@ -1072,6 +1207,8 @@
                 </div>
             </div>
             @endisset
+            @endisset
+            
             
         </div>
         <input type="hidden" name="ket_a[27]" value="">
@@ -1080,6 +1217,9 @@
         <div class="form-group row">
             <label class="col-sm-6 form-control-label"><b>4.Apakah orang tua /  keluarga ada yang minum minuman beralkohol</b>
                 <br><small class="text-primary"> </small></label>
+            @isset($show)
+                {{$show->healthScreening->find(28)->pivot->choice}}
+            @else
             @isset($record)
             <div class="col-sm-6">
                 @foreach ($choice5 as $item)
@@ -1109,6 +1249,8 @@
                 </div>
             </div>
             @endisset
+            @endisset
+            
             
         </div>
         <input type="hidden" name="ket_a[28]" value="">

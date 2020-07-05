@@ -46,16 +46,26 @@
             <div class="col-lg-12">
                 <div class="card">
                     @isset ($record)
-                    <div class="card-header d-flex align-items-center">
-                        <h4>Ubah kesehatan</h4>
+                    <div class="card-header">
+                        <h4 style="float: left">Ubah kesehatan</h4>
+                        <div style="float: right">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                Daftar Gambar
+                                </button>
+                        </div>
                     </div>
                     <div class="card-body">
                         <form enctype="multipart/form-data" action="{{route('kesehatan.update',$record->id)}}"
                             method="POST">
                             @method('PUT')
                             @else
-                            <div class="card-header d-flex align-items-center">
-                                <h4>Tambah kesehatan</h4>
+                            <div class="card-header">
+                                <h4 style="float: left">Tambah kesehatan</h4>
+                                <div style="float: right">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                        Daftar Gambar
+                                      </button>
+                                </div>
                             </div>
                             <div class="card-body">
                                 <form enctype="multipart/form-data" action="{{route('kesehatan.store',$student->id)}}"
@@ -69,17 +79,24 @@
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-lg-6">
-                                            <label>Usia (Tahun dan Bulan)</label>
-                                            <input type="number" max="99" min="1" name="age_year" class="form-control"
-                                                value="{{old('age_year', $record->age_year ?? ' ')}}"
-                                                placeholder="Usia Tahun">
+                                            <label>Usia (total bulan/tahun dan bulan)</label>
+                                            @isset($record)
+                                            <input type="text" name="totalMonth" class="totalMonth form-control"
+                                                value="{{12 * $record->age_year + $record->age_month}} bulan / {{$record->age_year}} Tahun {{$record->age_month}} Bulan" disabled>
+                                            @else    
+                                            <input type="text" name="totalMonth" class="totalMonth form-control"
+                                                value="{{12 * $ageYear + $ageMonth}} bulan / {{$ageYear}} Tahun {{$ageMonth}} Bulan" disabled>
+                                            @endisset
+                                            
                                         </div>
-                                        <div class="form-group col-lg-6">
-                                            <label>&nbsp</label>
-                                            <input type="number" max="12" min="1" name="age_month" class="form-control"
-                                                value="{{old('age_month', $record->age_month ?? ' ')}}"
-                                                placeholder="Usia Bulan, maksimal 12 bulan">
-                                        </div>
+                                        @isset($record)
+                                        <input type="hidden" name="age_year" value="{{$record->age_year}}">
+                                        <input type="hidden" name="age_month" value="{{$record->age_month}}">
+                                        @else    
+                                        <input type="hidden" name="age_year" value="{{$ageYear}}">
+                                        <input type="hidden" name="age_month" value="{{$ageMonth}}">
+                                        @endisset
+                                        
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-lg-6">
@@ -271,6 +288,57 @@
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Daftar Gambar</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <img class="card-img-top" src="{{asset('/images/18.jpg')}}" alt="Card image">
+                    <p>&nbsp;</p>
+                    <img class="card-img-top" src="{{asset('/images/19.jpg')}}" alt="Card image">
+                    <p>&nbsp;</p>
+                    <img class="card-img-top" src="{{asset('/images/21.jpg')}}" alt="Card image">
+                    <p>&nbsp;</p>
+                    <img class="card-img-top" src="{{asset('/images/22.jpg')}}" alt="Card image">
+                    <p>&nbsp;</p>
+                    <img class="card-img-top" src="{{asset('/images/36.jpg')}}" alt="Card image">
+                    <p>&nbsp;</p>
+                    <img class="card-img-top" src="{{asset('/images/37.jpg')}}" alt="Card image">
+                    <p>&nbsp;</p>
+                    <img class="card-img-top" src="{{asset('/images/38.jpg')}}" alt="Card image">
+                    <p>&nbsp;</p>
+                    <img class="card-img-top" src="{{asset('/images/39.jpg')}}" alt="Card image">
+                    <p>&nbsp;</p>
+                    <img class="card-img-top" src="{{asset('/images/40.jpg')}}" alt="Card image">
+                    <p>&nbsp;</p>
+                    <img class="card-img-top" src="{{asset('/images/41.jpg')}}" alt="Card image">
+                    <p>&nbsp;</p>
+                    <img class="card-img-top" src="{{asset('/images/1.png')}}" alt="Card image">
+                    <p>&nbsp;</p>
+                    <img class="card-img-top" src="{{asset('/images/2.png')}}" alt="Card image">
+                    <p>&nbsp;</p>
+                    <img class="card-img-top" src="{{asset('/images/3.png')}}" alt="Card image">
+                    <p>&nbsp;</p>
+                    <img class="card-img-top" src="{{asset('/images/4.png')}}" alt="Card image">
+                    <p>&nbsp;</p>
+                    <img class="card-img-top" src="{{asset('/images/5.png')}}" alt="Card image">
+                    <p>&nbsp;</p>
+                    <img class="card-img-top" src="{{asset('/images/7.png')}}" alt="Card image">
+                    <p>&nbsp;</p>
+                    <img class="card-img-top" src="{{asset('/images/8.png')}}" alt="Card image">
+                    <p>&nbsp;</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
 </section>
 @endsection
 

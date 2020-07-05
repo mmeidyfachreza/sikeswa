@@ -16,29 +16,40 @@
         </thead>
         <tbody>
             <?php $x=1;?>
-            @isset($record)
+            @isset($show)
             @foreach ($mentalHealths as $item)
             <tr>
                 <td>{{$x}}</td>
                 <td>{{$item->question}}</td>
                 <td>{{$item->type}}</td>
-
-                <td><input type="number" name="mh[{{$x}}]" id="mh{{$x}}" style="width:50px" class="mental-health"
-                        value="{{old('mh['.$x++.']', $record->mentalHealth->find($item->id)->pivot->score ?? ' ')}}" min="0" max="2"></td>
+                <td class="mental-health" id="mh{{$x++}}">{{$show->mentalHealth->find($item->id)->pivot->score ?? 0}}</td>
             </tr>
             @endforeach
             @else
-            @foreach ($mentalHealths as $item)
-            <tr>
-                <td>{{$x}}</td>
-                <td>{{$item->question}}</td>
-                <td>{{$item->type}}</td>
+                <?php $x=1;?>
+                @isset($record)
+                @foreach ($mentalHealths as $item)
+                <tr>
+                    <td>{{$x}}</td>
+                    <td>{{$item->question}}</td>
+                    <td>{{$item->type}}</td>
 
-                <td><input class="mental-health" type="number" id="mh{{$x++}}" value="0" name="mh[{{$x}}]" style="width:50px" min="0" max="2"></td>
-            </tr>
-            @endforeach
+                    <td><input type="number" name="mh[{{$x}}]" id="mh{{$x}}" style="width:50px" class="mental-health"
+                            value="{{old('mh['.$x++.']', $record->mentalHealth->find($item->id)->pivot->score ?? ' ')}}" min="0" max="2"></td>
+                </tr>
+                @endforeach
+                @else
+                @foreach ($mentalHealths as $item)
+                <tr>
+                    <td>{{$x}}</td>
+                    <td>{{$item->question}}</td>
+                    <td>{{$item->type}}</td>
+
+                    <td><input class="mental-health" type="number" id="mh{{$x++}}" value="0" name="mh[{{$x}}]" style="width:50px" min="0" max="2"></td>
+                </tr>
+                @endforeach
+                @endisset
             @endisset
-
         </tbody>
     </table>
 </div>

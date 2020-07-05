@@ -16,29 +16,40 @@
         </thead>
         <tbody>
             <?php $x=1;?>
-            @isset($record)
+            @isset($show)
             @foreach ($mentalHealths2 as $item)
             <tr>
                 <td>{{$x}}</td>
                 <td>{{$item->question}}</td>
                 <td>{{$item->type}}</td>
-
-                <td><input type="number" name="mh2[{{$x}}]" id="mh2[{{$x}}]" style="width:50px"
-                        value="{{old('mh2['.$x++.']', $record->mentalHealth2->find($item->id)->pivot->score ?? ' ')}}"></td>
+                <td class="mental-health2" id="mh2{{$x++}}">{{$show->mentalHealth2->find($item->id)->pivot->score ?? 0}}</td>
             </tr>
             @endforeach
             @else
-            @foreach ($mentalHealths2 as $item)
-            <tr>
-                <td>{{$x++}}</td>
-                <td>{{$item->question}}</td>
-                <td>{{$item->type}}</td>
+                <?php $x=1;?>
+                @isset($record)
+                @foreach ($mentalHealths2 as $item)
+                <tr>
+                    <td>{{$x}}</td>
+                    <td>{{$item->question}}</td>
+                    <td>{{$item->type}}</td>
 
-                <td><input type="number" name="mh2[{{$x}}]" style="width:50px"></td>
-            </tr>
-            @endforeach
+                    <td><input type="number" name="mh2[{{$x}}]" id="mh2[{{$x}}]" style="width:50px"
+                            value="{{old('mh2['.$x++.']', $record->mentalHealth2->find($item->id)->pivot->score ?? ' ')}}"></td>
+                </tr>
+                @endforeach
+                @else
+                @foreach ($mentalHealths2 as $item)
+                <tr>
+                    <td>{{$x++}}</td>
+                    <td>{{$item->question}}</td>
+                    <td>{{$item->type}}</td>
+
+                    <td><input type="number" name="mh2[{{$x}}]" style="width:50px"></td>
+                </tr>
+                @endforeach
+                @endisset
             @endisset
-
         </tbody>
     </table>
 </div>

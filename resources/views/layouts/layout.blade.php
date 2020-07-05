@@ -69,7 +69,7 @@
             <div class="main-menu">
                 <h5 class="sidenav-heading">Main</h5>
                 <ul id="side-main-menu" class="side-menu list-unstyled">
-                    <li><a href="{{url('/')}}"> <i class="fas fa-home"></i>Beranda </a></li>
+                    <li><a href="{{url('/admin')}}"> <i class="fas fa-home"></i>Beranda </a></li>
                     <li><a href="{{route('kesehatan.index')}}"> <i class="fas fa-file-medical-alt"></i>Kesehatan </a>
                     </li>
                     <li><a href="{{route('imunisasi.index')}}"> <i class="fas fa-syringe"></i>Imunisasi </a></li>
@@ -114,7 +114,7 @@
                 <div class="container-fluid">
                     <div class="navbar-holder d-flex align-items-center justify-content-between">
                         <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars">
-                                </i></a><a href="index.html" class="navbar-brand">
+                                </i></a><a href="{{url('/')}}" class="navbar-brand">
                                 <div class="brand-text d-none d-md-inline-block"><span> </span><strong
                                         class="text-primary">SIKESWA</strong></div>
                             </a></div>

@@ -10,27 +10,38 @@
         </thead>
         <tbody>
             <?php $x=1;?>
-            @isset($record)
-            @foreach ($learningModalities as $item)
-            <tr>
-                <td>{{$x}}</td>
-                <td>{{$item->question}}</td>
-                <td>{{$item->type}}{{$item->id}}</td>
-                <td><input class="learning-modality" type="number" name="lm[{{$x}}]" id="lm{{$x}}" style="width:50px"
-                    value="{{old('lm['.$x++.']', $record->learningModality->find($item->id)->pivot->score ?? 0)}}" min="0" max="3"></td>
-            </tr>
-            @endforeach
-            @else
+            @isset($show)
             @foreach ($learningModalities as $item)
             <tr>
                 <td>{{$x}}</td>
                 <td>{{$item->question}}</td>
                 <td>{{$item->type}}</td>
-                <td><input class="learning-modality" type="number" name="lm[{{$x}}]" id="lm{{$x++}}" style="width:50px" value="0" min="0" max="3"></td>
+                <td class="learning-modality" id="lm{{$x++}}">{{$show->learningModality->find($item->id)->pivot->score ?? 0}}</td>
             </tr>
             @endforeach
+            @else
+                <?php $x=1;?>
+                @isset($record)
+                @foreach ($learningModalities as $item)
+                <tr>
+                    <td>{{$x}}</td>
+                    <td>{{$item->question}}</td>
+                    <td>{{$item->type}}</td>
+                    <td><input class="learning-modality" type="number" name="lm[{{$x}}]" id="lm{{$x}}" style="width:50px"
+                        value="{{old('lm['.$x++.']', $record->learningModality->find($item->id)->pivot->score ?? 0)}}" min="0" max="3"></td>
+                </tr>
+                @endforeach
+                @else
+                @foreach ($learningModalities as $item)
+                <tr>
+                    <td>{{$x}}</td>
+                    <td>{{$item->question}}</td>
+                    <td>{{$item->type}}</td>
+                    <td><input class="learning-modality" type="number" name="lm[{{$x}}]" id="lm{{$x++}}" style="width:50px" value="0" min="0" max="3"></td>
+                </tr>
+                @endforeach
+                @endisset
             @endisset
-
         </tbody>
     </table>
 </div>

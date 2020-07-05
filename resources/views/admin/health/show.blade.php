@@ -16,12 +16,25 @@
         <header>
             <h1 class="h3 display">Detail Data kesehatan </h1>
         </header>
+        <div class="card">
+            <div class="card-body">
+                <div class="media align-items-center"><span
+                        style="background-image: url({{asset('uploads/avatars/'.$student->avatar)}})"
+                        class="avatar avatar-xl mr-3"></span>
+                    <div class="media-body overflow-hidden">
+                        <h5 class="card-text mb-0">{{$student->name}}</h5>
+                        <p class="card-text text-uppercase">Kelas {{$student->classroom->name ?? ''}}</p>
+                        <p class="card-text">NIS: {{$student->nis ?? "belum diatur"}}<br></p>
+                    </div>
+                </div><a href="#" class="tile-link"></a>
+            </div>
+        </div>
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
                         <h4 style="float:left">
-                            {{$student->name}}
+                  
                         </h4>
                         <div style="float:right">
                             <a href="{{URL::previous()}}" class="btn btn-primary btn-sm">Kembali</a>

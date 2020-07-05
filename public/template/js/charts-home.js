@@ -12,8 +12,8 @@ $(document).ready(function () {
     // ------------------------------------------------------ //
     var LINECHART = $('#lineCahrt');
     $.ajax({
-        // url: "http://localhost:8000/",
-        url: "https://sikeswav2.herokuapp.com/admin",
+        url: "http://localhost:8000/",
+        //url: "https://sikeswav2.herokuapp.com/admin",
         method: "GET",
         success: function(data) {
             console.log(data);

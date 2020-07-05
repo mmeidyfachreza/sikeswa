@@ -8,6 +8,7 @@ use App\Student;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use DateTime;
 
 class ImmunizationHistoryController extends Controller
 {
@@ -38,7 +39,13 @@ class ImmunizationHistoryController extends Controller
     {
         $immunizations = Immunization::all();
         $student = Student::findOrFail($id);
-        return view('admin.immunization.form',compact('immunizations','student'));
+        $currentDateTime = new DateTime;
+            $dateTimeInTheFuture = new DateTime($student->born_date);
+            $dateInterval = $dateTimeInTheFuture->diff($currentDateTime);
+            $ageYear = $dateInterval->y;
+            $ageMonth = $dateInterval->m;
+            $totalbulan = 12 * $dateInterval->y + $dateInterval->m;
+        return view('admin.immunization.form',compact('immunizations','student','ageYear','ageMonth'));
     }
 
     /**

@@ -96,9 +96,12 @@ class DashboardController extends Controller
             $health->bmi = round($bmi,2);
             $health->save();
         }
-        echo "done!! ".$date;
+        echo "done!! ".$date;        
+    }
 
-        
-        
+    public function tes3()
+    {
+        $tes = shell_exec('C:\Users\4SUS\AppData\Local\Programs\Python\Python38-32\python.exe D:\Website\backend\python\hello\hello.py');
+        echo $tes;
     }
 }

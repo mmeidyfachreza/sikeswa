@@ -16,22 +16,22 @@
         <header>
             <h1 class="h3 display">Siswa </h1>
         </header>
-        {{-- <div class="card">
+        <div class="card">
             <div class="card-body">
                 <div class="media align-items-center"><span
                         style="background-image: url({{asset('uploads/avatars/'.$student->avatar)}})"
-        class="avatar avatar-xl mr-3"></span>
-        <div class="media-body overflow-hidden">
-            <h5 class="card-text mb-0">{{$student->name}}</h5>
-            <p class="card-text text-uppercase">Kelas {{$student->classroom->name ?? ''}}</p>
-            <p class="card-text">
+                        class="avatar avatar-xl mr-3"></span>
+                    <div class="media-body overflow-hidden">
+                        <h5 class="card-text mb-0">{{$student->name}}</h5>
+                        <p class="card-text text-uppercase">Kelas {{$student->classroom->name ?? ''}}</p>
+                        <p class="card-text">
 
-                blabla<br>bla
-            </p>
+                            NIS: {{$student->nis}}<br>bla
+                        </p>
+                    </div>
+                </div><a href="#" class="tile-link"></a>
+            </div>
         </div>
-    </div><a href="#" class="tile-link"></a>
-    </div>
-    </div> --}}
     @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -68,13 +68,23 @@
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-lg-6">
-                                        <label>Usia (Tahun dan Bulan)</label>
-                                        <input type="number" max="99" min="1" name="age_year" class="form-control" value="{{old('age_year', $record->age_year ?? ' ')}}" placeholder="Usia Tahun">
+                                        <label>Usia (total bulan/tahun dan bulan)</label>
+                                        @isset($record)
+                                        <input type="text" name="totalMonth" class="totalMonth form-control"
+                                            value="{{12 * $record->age_year + $record->age_month}} bulan / {{$record->age_year}} Tahun {{$record->age_month}} Bulan" disabled>
+                                        @else    
+                                        <input type="text" name="totalMonth" class="totalMonth form-control"
+                                            value="{{12 * $ageYear + $ageMonth}} bulan / {{$ageYear}} Tahun {{$ageMonth}} Bulan" disabled>
+                                        @endisset
+                                        
                                     </div>
-                                    <div class="form-group col-lg-6">
-                                        <label>&nbsp</label>
-                                        <input type="number" max="12" min="1" name="age_month" class="form-control" value="{{old('age_month', $record->age_month ?? ' ')}}" placeholder="Usia Bulan, maksimal 12 bulan">
-                                    </div>
+                                    @isset($record)
+                                    <input type="hidden" name="age_year" value="{{$record->age_year}}">
+                                    <input type="hidden" name="age_month" value="{{$record->age_month}}">
+                                    @else    
+                                    <input type="hidden" name="age_year" value="{{$ageYear}}">
+                                    <input type="hidden" name="age_month" value="{{$ageMonth}}">
+                                    @endisset
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-3 form-control-label">Imunisasi <br><small
