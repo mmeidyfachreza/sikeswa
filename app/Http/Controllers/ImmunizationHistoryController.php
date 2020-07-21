@@ -19,11 +19,23 @@ class ImmunizationHistoryController extends Controller
      */
     public function index()
     {
-        $students = Student::all();
-        return view('admin.immunization.index_student',compact('students'));
+        if(request()->ajax()){
+            $data = Student::with('classroom')->get();
+            return datatables()->of($data)
+                    ->editColumn('name', function($data){
+                        $name = '<a href="'.route("student.find.immune", $data->id).'">'.$data->name.'</a>';
+                        return $name;
+                    })
+                    ->addColumn('classroom', function($data){
+                        return empty($data->classroom->name) ? "Belum Diatur" : $data->classroom->name;
+                    })
+                    ->rawColumns(['classroom','name'])
+                    ->make(true);
+        }
+        return view('admin.immunization.index_student');
     }
 
-    public function StudentFindImmune($id)
+    public function indexImmune($id)
     {
         $records = ImmunizationHistory::where('student_id','=',$id)->get();
         $student = Student::findOrFail($id);

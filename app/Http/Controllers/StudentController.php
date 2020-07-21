@@ -35,7 +35,7 @@ class StudentController extends Controller
                         <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$data->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteProduct"><i
                         class="fa fa-trash"></i></a>
                         <a href="'.route("siswa.show",$data->id).'"class="btn btn-primary btn-sm"><i class="fa fa-eye"></i></a>
-                                    </div';
+                                    </div>';
                         return $button;
                     })
                     ->rawColumns(['action','classroom','nis'])
