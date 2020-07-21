@@ -20,45 +20,20 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <form class="form-inline" action="{{route('student.search.record')}}" method="POST">
-                            @csrf
-                            <div class="form-group">
-                                <input id="inlineFormInput" style="width:200px" type="text" name="name" placeholder="Masukan Nama Siswa"
-                                    class="mr-3 form-control" value="{{old('search',$search ?? '')}}">
-                            </div>
-                            <div class="form-group">
-                                <input type="submit" value="Cari" class="btn btn-primary">
-                            </div>
-                            @isset($search)
-                            <div class="form-group">
-                                <a href="{{route('rekam-medik.index')}}" class="btn btn-danger">Ulang</a>
-                            </div>
-                            @endisset
-
-                        </form>
+                        
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table" id="student-table">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
                                         <th class="text-center">Nama</th>
-                                        <th>Nis</th>
-                                        <th>Kelas</th>
+                                        <th class="text-center">Nis</th>
+                                        <th class="text-center">Kelas</th>
+                                        
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <?php $x=1;?>
-                                    @foreach ($students as $item)
-                                    <tr>
-                                        <th scope="row">{{$x++}}</th>
-                                        <td><a href="{{route('student.find.record',$item->id)}}">{{$item->name}}</a></td>
-                                        <td>{{$item->nis}}</td>
-                                        <td>{{$item->classroom->name ?? ''}}</td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
+                                <tbody></tbody>
                             </table>
                         </div>
                     </div>
@@ -67,4 +42,22 @@
         </div>
     </div>
 </section>
+@endsection
+
+@section('custom-script')
+<script>
+    $(document).ready(function() {
+        $('#student-table').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax:"{{ route('rekam-medik.index') }}",
+            columns:[
+                
+            {data: 'name', name: 'name'},
+            {data: 'nis', name: 'nis'},
+            {data: 'classroom', name: 'classroom'},
+            ]
+        });
+    })
+</script>
 @endsection

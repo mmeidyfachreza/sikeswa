@@ -19,7 +19,6 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
-                    
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table" id="student-table">
@@ -31,8 +30,7 @@
                                         
                                     </tr>
                                 </thead>
-                                <tbody>
-                                </tbody>
+                                <tbody></tbody>
                             </table>
                         </div>
                     </div>

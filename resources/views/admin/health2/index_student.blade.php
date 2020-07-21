@@ -20,22 +20,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <form class="form-inline" action="{{route('student.search.health')}}" method="POST">
-                            @csrf
-                            <div class="form-group">
-                                <input id="inlineFormInput" style="width:200px" type="text" name="name" placeholder="Masukan Nama Siswa"
-                                    class="mr-3 form-control" value="{{old('search',$search ?? '')}}">
-                            </div>
-                            <div class="form-group">
-                                <input type="submit" value="Cari" class="btn btn-primary">
-                            </div>
-                            @isset($search)
-                            <div class="form-group">
-                                <a href="{{route('kesehatan.index')}}" class="btn btn-danger">Ulang</a>
-                            </div>
-                            @endisset
-
-                        </form>
+                        
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
