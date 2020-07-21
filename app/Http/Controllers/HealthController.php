@@ -61,7 +61,7 @@ class HealthController extends Controller
         return view('admin.health.index_student');
     }
 
-    public function StudentFindHealth($id)
+    public function indexHealth($id)
     {
         $records = Health::where('student_id','=',$id)->get();
         $student = Student::findOrFail($id);
@@ -162,7 +162,6 @@ class HealthController extends Controller
     public function show($id)
     {
         $record = Health::with('condition')->with('measurement')->findOrFail($id);
-        
         $student = Student::select('name')->findOrFail($record->student_id);
         return view('admin.health.show',compact('record','student'));
     }
