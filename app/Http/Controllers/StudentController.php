@@ -9,6 +9,7 @@ use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
+use Rap2hpoutre\FastExcel\FastExcel;
 
 class StudentController extends Controller
 {
@@ -143,8 +144,25 @@ class StudentController extends Controller
         return response()->json(['success'=>'Siswa deleted successfully.']);
     }
 
-    // public function search(Request $request)
-    // {
-    //     return view('admin.health.index_student',compact('students'));
-    // }
+    public function export()
+    {
+        return (new FastExcel(Student::with('classroom')->get()))->download('users.xlsx', function ($data) {
+            return [
+                'NIS' => ($data->nis? $data->nis : " "),
+                'Kelas' => ($data->classroom? $data->classroom->name : " "),
+                'Nama' => $data->name,
+                'Tanggal Lahir' => $data->born_date,
+                'Tempat Lahir' => $data->born_city,
+                'Alamat' => $data->address,
+                'Jenis Kelamin' => $data->gender,
+                'Golongan Darah' => $data->blood_type,
+                'Asal Sekolah' => $data->school_from,
+                'Nama Ayah' => $data->father_name,
+                'Nama Ibu' => $data->mother_name,
+                'Wali' => $data->guardian,
+                'No BPJS' => $data->no_bpjs,
+                'FASKES BPJS' => $data->faskes_bpjs,
+            ];
+        });
+    }
 }

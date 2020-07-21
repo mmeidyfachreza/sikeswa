@@ -36,7 +36,10 @@
                     <div class="card-header">
                         <h4 style="float:left"></h4>
                         <div style="float:right">
-                            <a href="{{route('siswa.create')}}" class="btn btn-primary btn-sm">Tambah</a>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <a href="{{route('siswa.export')}}" class="btn btn-warning btn-sm">Cetak Excel</a>
+                                <a href="{{route('siswa.create')}}" class="btn btn-primary btn-sm">Tambah</a>
+                            </div>
                         </div>
                     </div>
                     <div class="card-body">
