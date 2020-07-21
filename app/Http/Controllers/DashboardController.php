@@ -75,7 +75,7 @@ class DashboardController extends Controller
         //     ->get()->toArray();       
                 $data = array_merge($laki,$perempuan);
                 
-        dd($perempuan);
+        dd($laki);
     }
 
     public function tes2()
@@ -103,5 +103,56 @@ class DashboardController extends Controller
     {
         $tes = shell_exec('C:\Users\4SUS\AppData\Local\Programs\Python\Python38-32\python.exe D:\Website\backend\python\hello\hello.py');
         echo $tes;
+    }
+
+    public function indexkk()
+    {
+        if(request()->ajax()){
+            $data = Student::with('classroom')->get();
+            return datatables()->of($data)
+                    ->addIndexColumn()
+                    ->editColumn('nis', function($data){
+                        return empty($data->nis) ? "Belum Diatur" : $data->nis;
+                    })
+                    ->addColumn('classroom', function($data){
+                        return empty($data->classroom->name) ? "Belum Diatur" : $data->classroom->name;
+                    })
+                    ->addColumn('action', function($data){
+                        // $button = '<div class="btn-group" role="group" aria-label="Basic example">
+                        // <a href="'.route("letter.print.srkas",$data->id).'"class="btn btn-primary btn-sm"><i class="fas fa-print"></i></a>';
+                        $button = '<div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="select-student btn btn-primary" id="'.$data->id.'" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-print"></i></button>';
+                        return $button;
+                    })
+                    ->rawColumns(['action','classroom','nis'])
+                    ->make(true);
+        }
+        $tahun = Health::all()->groupBy(function($d) {
+            return (int)\Carbon\Carbon::parse($d->date)->format('Y');
+        });
+        return view('admin.kartu_kontrol.index',compact('tahun'));
+    }
+
+    public function cetak(Request $request)
+    {
+        $month = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+        //dd($month[0]);
+        $siswa = Student::find($request->siswa);
+        // $bulan = $student->pengukuran->groupBy(function($d) {
+            //     return (int)\Carbon\Carbon::parse($d->tgl_pengukuran)->format('m');
+            //     })->toArray();
+        $tahun = $request->tahun;
+        // $bulan = $siswa->pengukuranYear((int)$request->tahun)->groupBy(function($d) {
+        //     return (int)\Carbon\Carbon::parse($d->date)->format('m');
+        // });
+        $bulan = Health::with('condition')->where('student_id','=',$siswa->id)->get()->groupBy(function($d) {
+            return (int)\Carbon\Carbon::parse($d->date)->format('m');
+        });
+        // dd($bulan[1][0]->date);
+        foreach ($bulan as $key => $value) {
+            
+            echo (int)\Carbon\Carbon::parse($value->first()->date)->format('m');
+        }
+        return view('admin.kartu_kontrol.cetak',compact('siswa','bulan','tahun','month'));
     }
 }
