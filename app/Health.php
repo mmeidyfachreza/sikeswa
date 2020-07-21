@@ -32,4 +32,9 @@ class Health extends Model
     {
         return $this->belongsTo('App\Student','student_id');
     }
+
+    public function tes($id)
+    {
+        return $this->where('student_id', '=', $id)->get();
+    }
 }
