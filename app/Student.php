@@ -41,4 +41,9 @@ class Student extends Model
     {
         return $query->where('name','LIKE','%'.$name.'%');
     }
+
+    public function pengukuranYear($year)
+    {
+        return $this->hasMany('App\Health')->whereYear('date', '=', $year)->get();
+    }
 }
