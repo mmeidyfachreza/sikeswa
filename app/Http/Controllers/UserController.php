@@ -137,6 +137,8 @@ class UserController extends Controller
             return back()->withErrors(['Tidak Bisa Menghapus Akun yang sedang digunakan']);
         }
         $user=User::find($id);
+        $pathToFile = public_path('uploads/avatars/' . $user->avatar);
+        File::delete($pathToFile);
         $user->delete();
         return redirect()->route('user.index')->with('success','Berhasil menghapus data');
     }
