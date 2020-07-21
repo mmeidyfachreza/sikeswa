@@ -1,23 +1,31 @@
-@extends('admin.layout')
+@extends('layouts.layout')
+
 @section('content')
-<section class="forms">
+<!-- Breadcrumb-->
+<div class="breadcrumb-holder">
+    <div class="container-fluid">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active">Kartu Kontrol </li>
+        </ul>
+    </div>
+</div>
+<section>
     <div class="container-fluid">
         <!-- Page Header-->
         <header>
             <h1 class="h3 display"></h1>
         </header>
-
         <div class="row">
-
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
                         <h4 style="float:left">Kartu Kontrol Tahun {{$tahun}}</h4>
                     </div>
                     <div class="card-body">
-                        <p style="color: black;font-weight: bold;">Nama : {{$siswa->nama}} </p>
-                        <p style="color: black;font-weight: bold;">Kelas : {{$siswa->kelas}}</p>
-                        <p style="color: black;font-weight: bold;">Sekolah : {{$siswa->asal_sekolah}}</p>
+                        <p style="color: black;font-weight: bold;">Nama : {{$siswa->name}} </p>
+                        <p style="color: black;font-weight: bold;">Kelas : {{$siswa->classroom->name}}</p>
+                        <p style="color: black;font-weight: bold;">Sekolah : {{$siswa->school_from}}</p>
                         <div class="table-responsive">
                             <table class="table table-bordered table-sm karkon">
                                 <thead>
@@ -39,11 +47,44 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php 
+                                        $x=1 
+                                    ?>
+                                    @foreach ($month as $item)
+                                    <tr>
+                                        <td class="text-center">{{$x}}</td>
+                                        <td>{{$item}}</td>
+                                        <td class="text-center">
+                                            @isset($bulan[$x])
+                                                {{$bulan[$x][0]->date}}
+                                            @endisset
+                                        </td>
+                                        <td class="text-center">
+                                            @isset($bulan[$x])
+                                                {{$bulan[$x][0]->weight}}
+                                            @endisset
+                                        </td>
+                                        <td class="text-center">
+                                            @isset($bulan[$x])
+                                                {{$bulan[$x][0]->height}}
+                                            @endisset
+                                        </td>
+                                        <td class="text-center"></td>
+                                        <td class="text-center"></td>
+                                        <td class="text-center"></td>
+                                        <td class="text-center"></td>
+                                        <td class="text-center"></td>
+                                        <td></td>
+                                    </tr>        
+                                    <?php 
+                                        $x+=1
+                                    ?>
+                                    @endforeach
                                     <tr>
                                         <td class="text-center">1</td>
                                         <td>Januari</td>
                                         <td class="text-center">@if (isset($bulan[1]))
-                                            {{$bulan[1][0]["tgl_pengukuran"]}}@endif</td>
+                                            {{$bulan[1][0]["date"]}}@endif</td>
                                         <td class="text-center">@if (isset($bulan[1])) {{$bulan[1][0]["berat_b"]}}@endif
                                         </td>
                                         <td class="text-center">@if (isset($bulan[1]))
@@ -64,7 +105,7 @@
                                         <td class="text-center">2</td>
                                         <td>Februari</td>
                                         <td class="text-center">@if (isset($bulan[2]))
-                                            {{$bulan[2][0]["tgl_pengukuran"]}}@endif</td>
+                                            {{$bulan[2][0]["date"]}}@endif</td>
                                         <td class="text-center">@if (isset($bulan[2])) {{$bulan[2][0]["berat_b"]}}@endif
                                         </td>
                                         <td class="text-center">@if (isset($bulan[2]))
@@ -85,7 +126,7 @@
                                         <td class="text-center">3</td>
                                         <td>Maret</td>
                                         <td class="text-center">@if (isset($bulan[3]))
-                                            {{$bulan[3][0]["tgl_pengukuran"]}}@endif</td>
+                                            {{$bulan[3][0]["date"]}}@endif</td>
                                         <td class="text-center">@if (isset($bulan[3])) {{$bulan[3][0]["berat_b"]}}@endif
                                         </td>
                                         <td class="text-center">@if (isset($bulan[3]))
@@ -106,7 +147,7 @@
                                         <td class="text-center">4</td>
                                         <td>April</td>
                                         <td class="text-center">@if (isset($bulan[4]))
-                                            {{$bulan[4][0]["tgl_pengukuran"]}}@endif</td>
+                                            {{$bulan[4][0]["date"]}}@endif</td>
                                         <td class="text-center">@if (isset($bulan[4])) {{$bulan[4][0]["berat_b"]}}@endif
                                         </td>
                                         <td class="text-center">@if (isset($bulan[4]))
@@ -127,7 +168,7 @@
                                         <td class="text-center">5</td>
                                         <td>Mei</td>
                                         <td class="text-center">@if (isset($bulan[5]))
-                                            {{$bulan[5][0]["tgl_pengukuran"]}}@endif</td>
+                                            {{$bulan[5][0]["date"]}}@endif</td>
                                         <td class="text-center">@if (isset($bulan[5])) {{$bulan[5][0]["berat_b"]}}@endif
                                         </td>
                                         <td class="text-center">@if (isset($bulan[5]))
@@ -148,7 +189,7 @@
                                         <td class="text-center">6</td>
                                         <td>Juni</td>
                                         <td class="text-center">@if (isset($bulan[6]))
-                                            {{$bulan[6][0]["tgl_pengukuran"]}}@endif</td>
+                                            {{$bulan[6][0]["date"]}}@endif</td>
                                         <td class="text-center">@if (isset($bulan[6])) {{$bulan[6][0]["berat_b"]}}@endif
                                         </td>
                                         <td class="text-center">@if (isset($bulan[6]))
@@ -169,7 +210,7 @@
                                         <td class="text-center">7</td>
                                         <td>Juli</td>
                                         <td class="text-center">@if (isset($bulan[7]))
-                                            {{$bulan[7][0]["tgl_pengukuran"]}}@endif</td>
+                                            {{$bulan[7][0]["date"]}}@endif</td>
                                         <td class="text-center">@if (isset($bulan[7])) {{$bulan[7][0]["berat_b"]}}@endif
                                         </td>
                                         <td class="text-center">@if (isset($bulan[7]))
@@ -190,7 +231,7 @@
                                         <td class="text-center">8</td>
                                         <td>Agustus</td>
                                         <td class="text-center">@if (isset($bulan[8]))
-                                            {{$bulan[8][0]["tgl_pengukuran"]}}@endif</td>
+                                            {{$bulan[8][0]["date"]}}@endif</td>
                                         <td class="text-center">@if (isset($bulan[8])) {{$bulan[8][0]["berat_b"]}}@endif
                                         </td>
                                         <td class="text-center">@if (isset($bulan[8]))
@@ -211,7 +252,7 @@
                                         <td class="text-center">9</td>
                                         <td>September</td>
                                         <td class="text-center">@if (isset($bulan[9]))
-                                            {{$bulan[9][0]["tgl_pengukuran"]}}@endif</td>
+                                            {{$bulan[9][0]["date"]}}@endif</td>
                                         <td class="text-center">@if (isset($bulan[9])) {{$bulan[9][0]["berat_b"]}}@endif
                                         </td>
                                         <td class="text-center">@if (isset($bulan[9]))
@@ -232,7 +273,7 @@
                                         <td class="text-center">10</td>
                                         <td>Oktober</td>
                                         <td class="text-center">@if (isset($bulan[10]))
-                                            {{$bulan[10][0]["tgl_pengukuran"]}}@endif</td>
+                                            {{$bulan[10][0]["date"]}}@endif</td>
                                         <td class="text-center">@if (isset($bulan[10]))
                                             {{$bulan[10][0]["berat_b"]}}@endif</td>
                                         <td class="text-center">@if (isset($bulan[10]))
@@ -254,7 +295,7 @@
                                         <td>November</td>
                                         <td id="tgl11"></td>
                                         <td class="text-center">@if (isset($bulan[11]))
-                                            {{$bulan[11][0]["tgl_pengukuran"]}}@endif</td>
+                                            {{$bulan[11][0]["date"]}}@endif</td>
                                         <td class="text-center">@if (isset($bulan[11]))
                                             {{$bulan[11][0]["berat_b"]}}@endif</td>
                                         <td class="text-center">@if (isset($bulan[11]))
@@ -276,7 +317,7 @@
                                         <td>Desember</td>
                                         <td id="tgl12"></td>
                                         <td class="text-center">@if (isset($bulan[12]))
-                                            {{$bulan[12][0]["tgl_pengukuran"]}}@endif</td>
+                                            {{$bulan[12][0]["date"]}}@endif</td>
                                         <td class="text-center">@if (isset($bulan[12]))
                                             {{$bulan[12][0]["berat_b"]}}@endif</td>
                                         <td class="text-center">@if (isset($bulan[12]))

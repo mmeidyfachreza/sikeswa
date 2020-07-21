@@ -14,7 +14,7 @@
     <div class="container-fluid">
         <!-- Page Header-->
         <header>
-            <h1 class="h3 display">Surat Rujukan Balik</h1>
+            <h1 class="h3 display">Kartu Kontrol</h1>
         </header>
         <div class="row">
             <div class="col-lg-12">
@@ -49,7 +49,7 @@
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <form action="{{route('letter.print.rujukblk')}}" method="POST" target="_blank">
+                <form action="{{route('karkon.cetak')}}" method="POST" target="_blank">
                     @csrf
                 <div class="modal-body">
                     
@@ -58,15 +58,14 @@
                         <input class="form-control" disabled id="studentName" value="silahkan dipilih terlebih dahulu">
                     </div>
                     <div class="form-group">
-                        <label>Dokter Pengirim:</label>
-                        <input class="form-control" placeholder="Masukan nama Dokter" required name="petugas">
+                        <label>Tahun</label>
+                        <select name="tahun" class="custom-select">
+                            @foreach ($tahun as $key => $value)
+                            <option value="{{$key}}">{{$key}}</option>
+                            @endforeach
+                        </select>
                     </div>
-                    <div class="form-group">
-                        <label>Telah kami lakukan pengobatan/ tindakan media</label>
-                        <textarea name="deskripsi" class="form-control" id="" cols="30"
-                            rows="3">{{old('deskripsi')}}</textarea>
-                    </div>
-                        <input id="studentId" type="hidden" name="studentId" value="">
+                        <input id="studentId" type="hidden" name="siswa" value="">
                     
                 </div>
                 <div class="modal-footer">
@@ -76,7 +75,7 @@
             </form>
               </div>
             </div>
-        </div>
+          </div>
     </div>
 </section>
 @endsection
@@ -93,7 +92,7 @@
         var table = $('#student-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax:"{{ route('letter.index.srkas') }}",
+            ajax:"{{ route('karkon.index') }}",
             columns:[
             {data: 'DT_RowIndex', name: 'DT_RowIndex', searchable:false, orderable:false},
             {data: 'name', name: 'name'},

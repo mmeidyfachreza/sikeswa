@@ -84,6 +84,8 @@
                             </li>
                             <li><a href="{{route('letter.index.rujukuks')}}"><i class="far fa-envelope"></i>Surat Rujuk UKS</a>
                             </li>
+                            <li><a href="{{route('karkon.index')}}"><i class="far fa-envelope"></i>Kartu Kontrol</a>
+                            </li>
                         </ul>
                     </li>
                     <li><a href="#formsDropdown" aria-expanded="false" data-toggle="collapse"> <i
