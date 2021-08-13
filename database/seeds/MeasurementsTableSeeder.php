@@ -13,19 +13,19 @@ class MeasurementsTableSeeder extends Seeder
     public function run()
     {
         $lists = [
-            'tinggi badan'=>[
+            'TB'=>[
                 ['Sangat Pendek',1,2],
                 ['Pendek',3,4],
                 ['Normal',5,6],
                 ['Tinggi',7,8],
             ],
-            'berat badan'=>[
+            'BB'=>[
                 ['Gizi Buruk',1,2],
                 ['Gizi Kurang',3,4],
                 ['Gizi Baik',5,6],
                 ['Gizi Lebih',7,8],
             ],
-            'bmi'=>[
+            'IMT'=>[
                 ['Sangat Kurus',1,2],
                 ['Kurus',3,4],
                 ['Normal',5,6],
