@@ -9,7 +9,9 @@ use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
+use Maatwebsite\Excel\Facades\Excel;
 use Rap2hpoutre\FastExcel\FastExcel;
+use App\Imports\StudentsImport;
 
 class StudentController extends Controller
 {
@@ -164,5 +166,12 @@ class StudentController extends Controller
                 'FASKES BPJS' => $data->faskes_bpjs,
             ];
         });
+    }
+
+    public function import(Request $request)
+    {
+        Excel::import(new StudentsImport(), $request->file('studentImport'));
+
+        echo "success";
     }
 }

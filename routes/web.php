@@ -44,8 +44,9 @@ Route::group(['middleware'=>'admin', 'prefix' => 'admin'], function () {
     Route::resource('status-gizi', 'MeasurementController');
     Route::resource('rekam-medik', 'MedicalRecordController');
     Route::resource('kelas', 'ClassroomController');
-    
+
     Route::get('siswa-export','StudentController@export')->name('siswa.export');
+    Route::post('siswa-import','StudentController@import')->name('siswa.import');
 
     Route::get('kesehatan/student/{id}', 'HealthController@indexHealth')->name('student.find.health');
     Route::get('kesehatan/create/{id}', 'HealthController@create')->name('kesehatan2.create');
