@@ -277,7 +277,7 @@
                                         @endisset
                                     </select>
                                 </div>
-                                <input type="hidden" name="student_id" value="{{$student->id}}">
+                                <input type="hidden" name="student_nis" value="{{$student->nis}}">
                                 <br>
                                 <div class="form-group">
                                     <input type="submit" value="Simpan" class="btn btn-primary">

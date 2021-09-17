@@ -83,20 +83,20 @@
                                             @isset($record)
                                             <input type="text" name="totalMonth" class="totalMonth form-control"
                                                 value="{{12 * $record->age_year + $record->age_month}} bulan / {{$record->age_year}} Tahun {{$record->age_month}} Bulan" disabled>
-                                            @else    
+                                            @else
                                             <input type="text" name="totalMonth" class="totalMonth form-control"
                                                 value="{{12 * $ageYear + $ageMonth}} bulan / {{$ageYear}} Tahun {{$ageMonth}} Bulan" disabled>
                                             @endisset
-                                            
+
                                         </div>
                                         @isset($record)
                                         <input type="hidden" name="age_year" value="{{$record->age_year}}">
                                         <input type="hidden" name="age_month" value="{{$record->age_month}}">
-                                        @else    
+                                        @else
                                         <input type="hidden" name="age_year" value="{{$ageYear}}">
                                         <input type="hidden" name="age_month" value="{{$ageMonth}}">
                                         @endisset
-                                        
+
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-lg-6">
@@ -276,7 +276,7 @@
                                         </select>
                                     </div>
 
-                                    <input type="hidden" name="student_id" value="{{$student->id}}">
+                                    <input type="hidden" name="student_nis" value="{{$student->nis}}">
                                     <br>
                                     <div class="form-group">
                                         <input type="submit" value="Simpan" class="btn btn-primary">

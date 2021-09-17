@@ -57,7 +57,7 @@
                 <div class="sidenav-header-inner text-center"><a href="pages-profile.html"><img
                             src="{{asset('/uploads/avatars/'.Auth::user()->avatar)}}" alt="person"
                             class="img-fluid rounded-circle"></a>
-                    <h2 class="h5">{{Auth::user()->name}}</h2><span>{{Auth::user()->category_user->name}}</span>
+                    <h2 class="h5">{{Auth::user()->name}}</h2><span>{{Auth::user()->user_type}}</span>
                 </div>
                 @endguest
 
@@ -93,9 +93,6 @@
                         <ul id="formsDropdown" class="collapse list-unstyled ">
                             <li><a href="{{route('user.index')}}"><i class="fas fa-users"></i>Pengguna</a></li>
                             <li><a href="{{route('siswa.index')}}"><i class="fas fa-user-graduate"></i>Siswa</a></li>
-                            <li><a href="{{route('kelas.index')}}"><i class="fas fa-sign"></i>Kelas Siswa</a></li>
-                            <li><a href="{{route('user.index')}}"><i class="fas fa-cogs"></i>Kategori Pengguna</a>
-                            </li>
                             {{-- <li><a href="{{route('user.index')}}"><i class="far fa-envelope"></i>Kondisi Kesehatan</a>
                             </li>
                             <li><a href="{{route('status-gizi.index')}}"><i class="far fa-envelope"></i>Status Gizi</a>

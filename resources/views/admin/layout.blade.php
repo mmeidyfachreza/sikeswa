@@ -5,7 +5,7 @@
     <p> </p>
 </div>
 @endsection
-@if (Auth::user()->category_user->name=="admin")
+@if (Auth::user()->user_type=="admin")
 @section('sidebar')
 <div class="main-menu">
     <h5 class="sidenav-heading">Menu</h5>
