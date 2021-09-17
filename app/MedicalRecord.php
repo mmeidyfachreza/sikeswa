@@ -8,7 +8,7 @@ class MedicalRecord extends Model
 {
     protected $fillable = [
         'date',
-        'student_id',
+        'student_nis',
     ];
 
     public function learningModality()
@@ -49,6 +49,6 @@ class MedicalRecord extends Model
 
     public function student()
     {
-        return $this->belongsTo('App\Student','student_id');
+        return $this->belongsTo('App\Student','student_nis');
     }
 }

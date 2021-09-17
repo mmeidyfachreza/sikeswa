@@ -38,7 +38,7 @@ class MedicalRecordController extends Controller
 
     public function indexMedRec($id)
     {
-        $records = MedicalRecord::where('student_id','=',$id)->get();
+        $records = MedicalRecord::where('student_nis','=',$id)->get();
         $student = Student::findOrFail($id);
         return view('admin.medical_record.index3',compact('records','student'));
     }
@@ -67,7 +67,7 @@ class MedicalRecordController extends Controller
      */
     public function store(Request $request)
     {
-        $student = Student::findOrFail($request->student_id);
+        $student = Student::findOrFail($request->student_nis);
         $medicalRecord = MedicalRecord::create($request->all());
         $a = HealthScreening::all();
         $mh = MentalHealth::all();
@@ -109,7 +109,7 @@ class MedicalRecordController extends Controller
         $medicalRecord->brainDomination()->attach($bd_id_array);
         $medicalRecord->healthScreening()->attach($a_id_array);
 
-        return redirect()->route('student.find.record',$request->student_id)->with(['success'=>'Berhasil menambah data','data'=>$student]);
+        return redirect()->route('student.find.record',$request->student_nis)->with(['success'=>'Berhasil menambah data','data'=>$student]);
     }
 
     /**
@@ -121,7 +121,7 @@ class MedicalRecordController extends Controller
     public function show($id)
     {
         $show = MedicalRecord::with('mentalHealth')->with('mentalHealth2')->with('brainDomination')->with('learningModality')->with('healthScreening')->findOrFail($id);
-        $student = Student::findOrFail($show->student_id);
+        $student = Student::findOrFail($show->student_nis);
 
         $mentalHealths = MentalHealth::all();
         $mentalHealths2 = MentalHealth2::all();
@@ -158,7 +158,7 @@ class MedicalRecordController extends Controller
     public function edit($id)
     {
         $record = MedicalRecord::with('mentalHealth')->with('mentalHealth2')->with('brainDomination')->with('learningModality')->with('healthScreening')->findOrFail($id);
-        $student = Student::findOrFail($record->student_id);
+        $student = Student::findOrFail($record->student_nis);
 
         $mentalHealths = MentalHealth::all();
         $mentalHealths2 = MentalHealth2::all();
@@ -196,7 +196,7 @@ class MedicalRecordController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $student = Student::findOrFail($request->student_id);
+        $student = Student::findOrFail($request->student_nis);
         $medicalRecord = MedicalRecord::findOrFail($id);
         $medicalRecord->update($request->all());
         $a = HealthScreening::all();
@@ -238,7 +238,7 @@ class MedicalRecordController extends Controller
         $medicalRecord->learningModality()->syncWithoutDetaching($lm_id_array);
         $medicalRecord->brainDomination()->syncWithoutDetaching($bd_id_array);
         $medicalRecord->healthScreening()->syncWithoutDetaching($a_id_array);
-        return redirect()->route('student.find.record',$request->student_id)->with(['success'=>'Berhasil merubah data','data'=>$student]);
+        return redirect()->route('student.find.record',$request->student_nis)->with(['success'=>'Berhasil merubah data','data'=>$student]);
     }
 
     /**

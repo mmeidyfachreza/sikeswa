@@ -9,7 +9,7 @@ class ImmunizationHistory extends Model
 {
     protected $fillable = [
         'date',
-        'student_id',
+        'student_nis',
         'age_year',
         'age_month',
     ];
@@ -23,7 +23,7 @@ class ImmunizationHistory extends Model
 
     public function student()
     {
-        return $this->belongsTo('App\Student','student_id');
+        return $this->belongsTo('App\Student','student_nis');
     }
 
 //     public function setDateAttribute($value)

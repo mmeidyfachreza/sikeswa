@@ -23,25 +23,22 @@ class StudentController extends Controller
     public function index()
     {
         if(request()->ajax()){
-            $data = Student::with('classroom')->get();
+            $data = Student::get();
             return datatables()->of($data)
                     ->addIndexColumn()
                     ->editColumn('nis', function($data){
                         return empty($data->nis) ? "Belum Diatur" : $data->nis;
                     })
-                    ->addColumn('classroom', function($data){
-                        return empty($data->classroom->name) ? "Belum Diatur" : $data->classroom->name;
-                    })
                     ->addColumn('action', function($data){
                         $button = '<div class="btn-group" role="group" aria-label="Basic example">
-                        <a href="'.route("siswa.edit",$data->id).'"class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                        <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$data->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteProduct"><i
+                        <a href="'.route("siswa.edit",$data->nis).'"class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                        <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$data->nis.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteProduct"><i
                         class="fa fa-trash"></i></a>
-                        <a href="'.route("siswa.show",$data->id).'"class="btn btn-primary btn-sm"><i class="fa fa-eye"></i></a>
+                        <a href="'.route("siswa.show",$data->nis).'"class="btn btn-primary btn-sm"><i class="fa fa-eye"></i></a>
                                     </div>';
                         return $button;
                     })
-                    ->rawColumns(['action','classroom','nis'])
+                    ->rawColumns(['action','nis'])
                     ->make(true);
         }
         return view('admin.student.index');
@@ -54,10 +51,9 @@ class StudentController extends Controller
      */
     public function create()
     {
-        $classrooms = Classroom::all();
         $blood_type = ['Tidak Tahu','A','B','AB','O'];
         $gender = ['Laki-laki','Perempuan'];
-        return view('admin.student.form',compact('classrooms','blood_type','gender'));
+        return view('admin.student.form',compact('blood_type','gender'));
     }
 
     /**
@@ -91,7 +87,7 @@ class StudentController extends Controller
     {
         $student = Student::findOrFail($id);
         $currentDateTime = new DateTime;
-        $dateTimeInTheFuture = new DateTime($student->born_date);
+        $dateTimeInTheFuture = new DateTime($student->birth_date);
         $dateInterval = $dateTimeInTheFuture->diff($currentDateTime);
         $age = $dateInterval->y." Tahun ".$dateInterval->m." Bulan";
         return view('admin.student.show',compact('student','age'));
@@ -106,10 +102,9 @@ class StudentController extends Controller
     public function edit($id)
     {
         $student = Student::findOrFail($id);
-        $classrooms = Classroom::all();
         $blood_type = ['Tidak Tahu','A','B','AB','O'];
         $gender = ['Laki-laki','Perempuan'];
-        return view('admin.student.form',compact('student','classrooms','blood_type','gender'));
+        return view('admin.student.form',compact('student','blood_type','gender'));
     }
 
     /**
@@ -151,10 +146,9 @@ class StudentController extends Controller
         return (new FastExcel(Student::with('classroom')->get()))->download('users.xlsx', function ($data) {
             return [
                 'NIS' => ($data->nis? $data->nis : " "),
-                'Kelas' => ($data->classroom? $data->classroom->name : " "),
                 'Nama' => $data->name,
-                'Tanggal Lahir' => $data->born_date,
-                'Tempat Lahir' => $data->born_city,
+                'Tanggal Lahir' => $data->birth_date,
+                'Tempat Lahir' => $data->birth_place,
                 'Alamat' => $data->address,
                 'Jenis Kelamin' => $data->gender,
                 'Golongan Darah' => $data->blood_type,
@@ -172,6 +166,6 @@ class StudentController extends Controller
     {
         Excel::import(new StudentsImport(), $request->file('studentImport'));
 
-        echo "success";
+        return redirect()->route('siswa.index')->with('success','Berhasil melakukan import data');
     }
 }
