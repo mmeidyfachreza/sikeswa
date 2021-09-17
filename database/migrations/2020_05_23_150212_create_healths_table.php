@@ -16,8 +16,8 @@ class CreateHealthsTable extends Migration
         Schema::create('healths', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->date('date');
-            $table->bigInteger('student_id')->unsigned()->nullable();
-            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
+            $table->string('student_nis')->nullable();
+            $table->foreign('student_nis')->references('nis')->on('students')->onDelete('cascade');
             $table->integer('age_year')->nullable();
             $table->integer('age_month');
             $table->double('height');
@@ -34,6 +34,9 @@ class CreateHealthsTable extends Migration
      */
     public function down()
     {
+        Schema::table('healths', function (Blueprint $table) {
+            $table->dropForeign(['student_nis']);
+        });
         Schema::dropIfExists('healths');
     }
 }

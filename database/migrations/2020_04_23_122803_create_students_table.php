@@ -14,20 +14,20 @@ class CreateStudentsTable extends Migration
     public function up()
     {
         Schema::create('students', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('nis',50);
+            $table->string('nis',50)->primary();
             $table->string('name',50);
-            $table->string('born_city',50);
+            $table->string('birth_place',50);
+            $table->date('birth_date');
             $table->string('address',150);
-            $table->date('born_date');
             $table->enum('gender',['Laki-laki','Perempuan']);
-            $table->string('blood_type',10);
             $table->string('school_from',150);
-            $table->bigInteger('classroom_id')->unsigned()->nullable();
-            $table->foreign('classroom_id')->references('id')->on('classrooms')->onDelete('cascade');
+            $table->string('class_year',4);
+            $table->string('classroom',20);
             $table->string('father_name',50);
             $table->string('mother_name',50);
             $table->string('guardian',50)->nullable();
+            $table->string('phone_number',50)->nullable();
+            $table->string('blood_type',10)->nullable();
             $table->string('no_bpjs',50)->nullable();
             $table->string('faskes_bpjs',100)->nullable();
             $table->string('avatar')->default('default.jpg');
@@ -42,9 +42,6 @@ class CreateStudentsTable extends Migration
      */
     public function down()
     {
-        Schema::table('students', function (Blueprint $table) {
-            $table->dropForeign(['classroom_id']);
-        });
         Schema::dropIfExists('students');
     }
 }
