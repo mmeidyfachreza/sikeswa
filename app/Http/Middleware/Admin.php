@@ -15,8 +15,7 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-
-        if(auth()->check() && auth()->user()->category_user->name == 'admin'){
+        if(auth()->check() && auth()->user()->user_type == 'admin'){
             return $next($request);
         }
 

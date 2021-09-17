@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
@@ -16,11 +17,14 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        'no_identity',
         'name',
         'email',
         'phone_number',
-        'category_user_id',
+        'position',
+        'user_type',
         'password',
+        'avatar',
     ];
 
     /**
@@ -41,15 +45,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function category_user()
-    {
-        return $this->belongsTo('App\CategoryUser','category_user_id');
-    }
-
     public function setPasswordAttribute($value)
     {
         if($value != ""){
-            $this->attributes['password'] = bcrypt($value);
+            $this->attributes['password'] = Hash::make($value);
         }
     }
 }
