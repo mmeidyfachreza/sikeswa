@@ -16,8 +16,8 @@ class CreateImmunizationHistoriesTable extends Migration
         Schema::create('immunization_histories', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->date('date');
-            $table->bigInteger('student_id')->unsigned();
-            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
+            $table->string('student_nis');
+            $table->foreign('student_nis')->references('nis')->on('students')->onDelete('cascade');
             $table->integer('age_year');
             $table->integer('age_month');
             $table->timestamps();
@@ -32,7 +32,7 @@ class CreateImmunizationHistoriesTable extends Migration
     public function down()
     {
         Schema::table('immunization_histories', function (Blueprint $table) {
-            $table->dropForeign(['student_id']);
+            $table->dropForeign(['student_nis']);
         });
         Schema::dropIfExists('immunization_histories');
     }

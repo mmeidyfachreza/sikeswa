@@ -18,52 +18,49 @@ class HealthController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {       
+    {
         if(request()->ajax()){
-            $data = Student::with('classroom')->get();
+            $data = Student::all();
             return datatables()->of($data)
                     ->editColumn('name', function($data){
-                        $name = '<a href="'.route("student.find.health", $data->id).'">'.$data->name.'</a>';
+                        $name = '<a href="'.route("student.find.health", $data->nis).'">'.$data->name.'</a>';
                         return $name;
                     })
-                    ->addColumn('classroom', function($data){
-                        return empty($data->classroom->name) ? "Belum Diatur" : $data->classroom->name;
-                    })
-                    ->rawColumns(['classroom','name'])
+                    ->rawColumns(['name'])
                     ->make(true);
         }
         return view('admin.health.index_student');
     }
 
-    public function yajra(Request $request)
-    {
-        if(request()->ajax()){
-            $data = Student::with('classroom');
-            return datatables()->of($data)
-                    ->editColumn('name', function($data){
-                        $name = '<a href="'.route("student.find.health", $data->id).'">'.$data->name.'</a>';
-                        return $name;
-                    })
-                    ->addColumn('action', function($data){
-                        $button = '<button type="button"
-                        name="edit" id="'.$data->id.'"
-                        class="edit btn btn-primary btn-sm">Edit</button>';
-                        $button .= '&nbsp;&nbsp;';
-                        $button .= '<button type="button"
-                        name="delete" id="'.$data->id.'"
-                        class="delete btn btn-danger btn-sm">Delete</button>';
-                        return $button;
-                    })
-                    ->rawColumns(['action','name'])
-                    ->make(true);
-            
-        }
-        return view('admin.health.index_student');
-    }
+    // public function yajra(Request $request)
+    // {
+    //     if(request()->ajax()){
+    //         $data = Student::all();
+    //         return datatables()->of($data)
+    //                 ->editColumn('name', function($data){
+    //                     $name = '<a href="'.route("student.find.health", $data->id).'">'.$data->name.'</a>';
+    //                     return $name;
+    //                 })
+    //                 ->addColumn('action', function($data){
+    //                     $button = '<button type="button"
+    //                     name="edit" id="'.$data->id.'"
+    //                     class="edit btn btn-primary btn-sm">Edit</button>';
+    //                     $button .= '&nbsp;&nbsp;';
+    //                     $button .= '<button type="button"
+    //                     name="delete" id="'.$data->id.'"
+    //                     class="delete btn btn-danger btn-sm">Delete</button>';
+    //                     return $button;
+    //                 })
+    //                 ->rawColumns(['action','name'])
+    //                 ->make(true);
+
+    //     }
+    //     return view('admin.health.index_student');
+    // }
 
     public function indexHealth($id)
     {
-        $records = Health::where('student_id','=',$id)->get();
+        $records = Health::where('student_nis','=',$id)->get();
         $student = Student::findOrFail($id);
         if(request()->ajax()){
             return datatables()->of($records)
@@ -83,7 +80,7 @@ class HealthController extends Controller
                     })
                     ->rawColumns(['action','name'])
                     ->make(true);
-            
+
         }
         return view('admin.health.index3',compact('records','student'));
     }
@@ -106,7 +103,7 @@ class HealthController extends Controller
         $conditions = Condition::all();
         $student = Student::findOrFail($id);
         $currentDateTime = new DateTime;
-            $dateTimeInTheFuture = new DateTime($student->born_date);
+            $dateTimeInTheFuture = new DateTime($student->birth_date);
             $dateInterval = $dateTimeInTheFuture->diff($currentDateTime);
             $ageYear = $dateInterval->y;
             $ageMonth = $dateInterval->m;
@@ -135,8 +132,7 @@ class HealthController extends Controller
      */
     public function store(Request $request)
     {
-
-        $student = Student::findOrFail($request->student_id);
+        $student = Student::findOrFail($request->student_nis);
         $health = Health::create($request->all());
         $health->measurement()->attach([
             $request->s_height,
@@ -150,7 +146,7 @@ class HealthController extends Controller
             $request->hair,
             $request->ear,
             ]);
-        return redirect()->route('student.find.health',$request->student_id)->with(['success'=>'Berhasil menambah data','data'=>$student]);
+        return redirect()->route('student.find.health',$request->student_nis)->with(['success'=>'Berhasil menambah data','data'=>$student]);
     }
 
     /**
@@ -162,7 +158,7 @@ class HealthController extends Controller
     public function show($id)
     {
         $record = Health::with('condition')->with('measurement')->findOrFail($id);
-        $student = Student::select('name')->findOrFail($record->student_id);
+        $student = Student::select('name')->findOrFail($record->student_nis);
         return view('admin.health.show',compact('record','student'));
     }
 
@@ -175,7 +171,7 @@ class HealthController extends Controller
     public function edit($id)
     {
         $record = Health::with('condition')->with('measurement')->findOrFail($id);
-        $student = Student::findOrFail($record->student_id);
+        $student = Student::findOrFail($record->student_nis);
 
         $skin = Condition::where('type','=','kulit')->get();
         $tooth = Condition::where('type','=','gigi')->get();
@@ -208,7 +204,7 @@ class HealthController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $student = Student::findOrFail($request->student_id);
+        $student = Student::findOrFail($request->student_nis);
         $health = Health::findOrFail($id);
         $health->update($request->all());
         $health->measurement()->sync([
@@ -223,7 +219,7 @@ class HealthController extends Controller
             $request->hair,
             $request->ear,
             ]);
-        return redirect()->route('student.find.health',$request->student_id)->with(['success'=>'Berhasil merubah data','data'=>$student]);
+        return redirect()->route('student.find.health',$request->student_nis)->with(['success'=>'Berhasil merubah data','data'=>$student]);
     }
 
     /**
@@ -235,10 +231,10 @@ class HealthController extends Controller
     public function destroy($id)
     {
         $health =  Health::findOrFail($id);
-        $student = Student::findOrFail($health->student_id);
-        $health->delete(); 
+        $student = Student::findOrFail($health->student_nis);
+        $health->delete();
         return redirect()->route('student.find.health',$student->id)->with(['success'=>'Berhasil menghapus data','data'=>$student]);
-    } 
+    }
 
     public function searchStudent(Request $request)
     {

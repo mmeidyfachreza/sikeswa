@@ -16,8 +16,8 @@ class CreateMedicalRecordsTable extends Migration
         Schema::create('medical_records', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->date('date');
-            $table->bigInteger('student_id')->unsigned();
-            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
+            $table->string('student_nis');
+            $table->foreign('student_nis')->references('nis')->on('students')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -29,6 +29,9 @@ class CreateMedicalRecordsTable extends Migration
      */
     public function down()
     {
+        Schema::table('medical_records', function (Blueprint $table) {
+            $table->dropForeign(['student_nis']);
+        });
         Schema::dropIfExists('medical_records');
     }
 }

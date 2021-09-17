@@ -31,7 +31,7 @@
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
-                                
+
                             </table>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                 <form action="{{route('letter.print.rujukuks')}}" method="POST" target="_blank">
                     @csrf
                 <div class="modal-body">
-                    
+
                     <div class="form-group">
                         <label>Nama Siswa:</label>
                         <input class="form-control" disabled id="studentName" value="silahkan dipilih terlebih dahulu">
@@ -89,7 +89,7 @@
                         <input class="form-control" placeholder="Masukan NIP" required name="nip">
                     </div>
                         <input id="studentId" type="hidden" name="studentId" value="">
-                    
+
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -131,8 +131,8 @@
         //     console.log("asdasd");
         // });
 
-        $('body').on('click', '.select-student', function () { 
-            var student_id = $(this).data("id");
+        $('body').on('click', '.select-student', function () {
+            var student_nis = $(this).data("id");
             var data = table.row($(this).closest('tr')).data();
             $('#studentId').val(data[Object.keys(data)[0]]); //id from datatables
             $('#studentName').val(data[Object.keys(data)[2]]); //name from datatables

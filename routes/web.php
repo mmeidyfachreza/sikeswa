@@ -36,7 +36,7 @@ Route::group(['middleware' => ['admin'], 'prefix' => 'admin/surat'], function ()
 });
 
 Route::group(['middleware'=>'admin', 'prefix' => 'admin'], function () {
-    Route::get('/','DashboardController@index');
+    Route::get('/','DashboardController@index')->name('admin.home');
     Route::resource('user', 'UserController');
     Route::resource('siswa', 'StudentController');
     Route::resource('kesehatan', 'HealthController');

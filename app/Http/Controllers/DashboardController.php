@@ -15,18 +15,18 @@ class DashboardController extends Controller
     {
         if (request()->ajax()) {
             $laki = array('laki' => DB::table('students')
-        ->join('healths', 'students.id', '=', 'healths.student_id')
+        ->join('healths', 'students.id', '=', 'healths.student_nis')
         ->select(DB::raw('avg(healths.height) as avg'))
         ->where('students.gender','=','Laki-laki')
         ->groupBy(DB::raw("MONTH(healths.date)"))
         ->get()->toArray()) ;
         $perempuan = array('perempuan' => DB::table('students')
-        ->join('healths', 'students.id', '=', 'healths.student_id')
+        ->join('healths', 'students.id', '=', 'healths.student_nis')
         ->select(DB::raw('avg(healths.height) as avg'))
         ->where('students.gender','=','Perempuan')
         ->groupBy(DB::raw("MONTH(healths.date)"))
         ->get()->toArray());
-        $data = array_merge($laki,$perempuan);    
+        $data = array_merge($laki,$perempuan);
             return response($data);
         }
         $total_student = Student::count();
@@ -52,13 +52,13 @@ class DashboardController extends Controller
         //     echo '</br>';
         // }
         $laki = array('laki' => DB::table('students')
-        ->join('healths', 'students.id', '=', 'healths.student_id')
+        ->join('healths', 'students.id', '=', 'healths.student_nis')
     ->select(DB::raw('avg(healths.height) as avg'))
         ->where('students.gender','=','Laki-laki')
         ->groupBy(DB::raw("MONTH(healths.date)"))
         ->get()->toArray()) ;
         $perempuan = array('perempuan' => DB::table('students')
-        ->join('healths', 'students.id', '=', 'healths.student_id')
+        ->join('healths', 'students.id', '=', 'healths.student_nis')
         ->select(DB::raw('avg(healths.height) as avg'))
         ->where('students.gender','=','Perempuan')
         ->groupBy(DB::raw("MONTH(healths.date)"))
@@ -72,9 +72,9 @@ class DashboardController extends Controller
         //     ->where('gender','=','Perempuan')
         //     ->select(DB::raw('avg(height) as perempuan, DATE(date) month'))
         //     ->groupBy('month')
-        //     ->get()->toArray();       
+        //     ->get()->toArray();
                 $data = array_merge($laki,$perempuan);
-                
+
         dd($laki);
     }
 
@@ -86,7 +86,7 @@ class DashboardController extends Controller
         foreach ($students as $value) {
             $health = new Health;
             $health->date = $date;
-            $health->student_id = $value['id'];
+            $health->student_nis = $value['id'];
             $health->age_year = $faker->numberBetween($min = 6, $max = 10);
             $health->age_month = $faker->numberBetween($min = 0, $max = 12);
             $health->height = $faker->numberBetween($min = 90, $max = 120);
@@ -96,7 +96,7 @@ class DashboardController extends Controller
             $health->bmi = round($bmi,2);
             $health->save();
         }
-        echo "done!! ".$date;        
+        echo "done!! ".$date;
     }
 
     public function tes3()
@@ -145,12 +145,12 @@ class DashboardController extends Controller
         // $bulan = $siswa->pengukuranYear((int)$request->tahun)->groupBy(function($d) {
         //     return (int)\Carbon\Carbon::parse($d->date)->format('m');
         // });
-        $bulan = Health::with('condition')->where('student_id','=',$siswa->id)->get()->groupBy(function($d) {
+        $bulan = Health::with('condition')->where('student_nis','=',$siswa->id)->get()->groupBy(function($d) {
             return (int)\Carbon\Carbon::parse($d->date)->format('m');
         });
         // dd($bulan[1][0]->date);
         foreach ($bulan as $key => $value) {
-            
+
             echo (int)\Carbon\Carbon::parse($value->first()->date)->format('m');
         }
         return view('admin.kartu_kontrol.cetak',compact('siswa','bulan','tahun','month'));

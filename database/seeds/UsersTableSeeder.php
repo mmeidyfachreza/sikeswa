@@ -12,6 +12,13 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        User::create(['name'=>'admin', 'email'=>'admin@admin.com', 'phone_number'=>'085391082420', 'category_user_id'=>'1', 'password'=>'admin']);
+        User::create([
+            'no_identity'=>'6653625335',
+            'name'=>'admin',
+            'email'=>'admin@admin.com',
+            'phone_number'=>'085391082420',
+            'position'=>'admin',
+            'user_type'=>'admin',
+            'password'=>'admin']);
     }
 }

@@ -57,12 +57,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Tempat lahir</label>
-                                    <input type="text" name="born_city" placeholder="Masukan Tempat Lahir"
-                                        class="form-control" value="{{old('born_city', $student->born_city ?? ' ')}}" required>
+                                    <input type="text" name="birth_place" placeholder="Masukan Tempat Lahir"
+                                        class="form-control" value="{{old('birth_place', $student->birth_place ?? ' ')}}" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Tanggal Lahir</label>
-                                    <input type="date" name="born_date" class="form-control" value="{{old('born_date', $student->born_date ?? ' ')}}"
+                                    <input type="date" name="birth_date" class="form-control" value="{{old('birth_date', $student->birth_date ?? ' ')}}"
                                         required>
                                 </div>
                                 <div class="form-group">
@@ -76,35 +76,34 @@
                                         class="form-control" value="{{old('school_from', $student->school_from ?? ' ')}}" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Kelas Siswa</label>
-                                    <select name="classroom_id" class="custom-select">
-                                        @isset($student)
-                                        @foreach ($classrooms as $item)
-                                        <option value={{$item->id}} @if($item->id==$student->classroom_id)
-                                            selected @endif>{{$item->name}}</option>
-                                        @endforeach
-                                        @else
-                                        <option value='' selected disabled>--Pilih--</option>
-                                        @foreach ($classrooms as $item)
-                                        <option value={{$item->id}}>{{$item->name}}</option>
-                                        @endforeach
-                                        @endisset
-                                    </select>
+                                    <label>Tahun Masuk/Angkatan</label>
+                                    <input type="date" name="class_year" class="form-control" value="{{old('class_year', $student->class_year ?? ' ')}}"
+                                        required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Ayah</label>
+                                    <label>Kelas</label>
+                                    <input type="text" name="classroom" placeholder="Masukan Asal Sekolah"
+                                        class="form-control" value="{{old('classroom', $student->classroom ?? ' ')}}" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Nama Ayah</label>
                                     <input type="text" name='father_name' placeholder="Masukan Nama Ayah" class="form-control"
                                         value="{{old('father_name', $student->father_name ?? ' ')}}">
                                 </div>
                                 <div class="form-group">
-                                    <label>Ibu</label>
+                                    <label>Nama Ibu</label>
                                     <input type="text" name='mother_name' placeholder="Masukan Nama Ibu" class="form-control"
                                         value="{{old('mother_name', $student->mother_name ?? ' ')}}">
                                 </div>
                                 <div class="form-group">
-                                    <label>Wali</label>
+                                    <label>Nama Wali (jika ada)</label>
                                     <input type="text" name='guardian' placeholder="Masukan Nama Wali (Jika ada)"
                                         class="form-control" value="{{old('guardian', $student->guardian ?? ' ')}}">
+                                </div>
+                                <div class="form-group">
+                                    <label>No telepon Aktif</label>
+                                    <input type="text" name="phone_number" placeholder="Masukan Tempat Lahir"
+                                        class="form-control" value="{{old('phone_number', $student->phone_number ?? ' ')}}" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Nomor BPJS</label>

@@ -8,7 +8,7 @@ class Health extends Model
 {
     protected $fillable = [
         'date',
-        'student_id',
+        'student_nis',
         'height',
         'weight',
         'bmi',
@@ -30,11 +30,11 @@ class Health extends Model
 
     public function student()
     {
-        return $this->belongsTo('App\Student','student_id');
+        return $this->belongsTo('App\Student','student_nis');
     }
 
     public function tes($id)
     {
-        return $this->where('student_id', '=', $id)->get();
+        return $this->where('student_nis', '=', $id)->get();
     }
 }

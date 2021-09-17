@@ -6,26 +6,32 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
+    protected $primaryKey = 'nis';
+
+    public $incrementing = false;
+
+    // In Laravel 6.0+ make sure to also set $keyType
+    protected $keyType = 'string';
+
     protected $fillable = [
         'nis',
         'name',
-        'born_city',
+        'birth_place',
+        'birth_date',
         'address',
-        'born_date',
         'gender',
-        'blood_type',
         'school_from',
-        'classroom_id',
+        'class_year',
+        'classroom',
         'father_name',
         'mother_name',
         'guardian',
+        'phone_number',
+        'blood_type',
         'no_bpjs',
         'faskes_bpjs',
+        'avatar'
     ];
-    public function classroom()
-    {
-        return $this->belongsTo('App\Classroom','classroom_id');
-    }
 
     public function health()
     {

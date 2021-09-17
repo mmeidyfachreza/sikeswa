@@ -20,16 +20,13 @@ class ImmunizationHistoryController extends Controller
     public function index()
     {
         if(request()->ajax()){
-            $data = Student::with('classroom')->get();
+            $data = Student::all();
             return datatables()->of($data)
                     ->editColumn('name', function($data){
-                        $name = '<a href="'.route("student.find.immune", $data->id).'">'.$data->name.'</a>';
+                        $name = '<a href="'.route("student.find.immune", $data->nis).'">'.$data->name.'</a>';
                         return $name;
                     })
-                    ->addColumn('classroom', function($data){
-                        return empty($data->classroom->name) ? "Belum Diatur" : $data->classroom->name;
-                    })
-                    ->rawColumns(['classroom','name'])
+                    ->rawColumns(['name'])
                     ->make(true);
         }
         return view('admin.immunization.index_student');
@@ -37,7 +34,7 @@ class ImmunizationHistoryController extends Controller
 
     public function indexImmune($id)
     {
-        $records = ImmunizationHistory::where('student_id','=',$id)->get();
+        $records = ImmunizationHistory::where('student_nis','=',$id)->get();
         $student = Student::findOrFail($id);
         return view('admin.immunization.index3',compact('records','student'));
     }
@@ -52,7 +49,7 @@ class ImmunizationHistoryController extends Controller
         $immunizations = Immunization::all();
         $student = Student::findOrFail($id);
         $currentDateTime = new DateTime;
-            $dateTimeInTheFuture = new DateTime($student->born_date);
+            $dateTimeInTheFuture = new DateTime($student->birth_date);
             $dateInterval = $dateTimeInTheFuture->diff($currentDateTime);
             $ageYear = $dateInterval->y;
             $ageMonth = $dateInterval->m;
@@ -68,7 +65,7 @@ class ImmunizationHistoryController extends Controller
      */
     public function store(Request $request)
     {
-        $student = Student::findOrFail($request->student_id);
+        $student = Student::findOrFail($request->student_nis);
         DB::transaction(function () use ($request,$student) {
 
 
@@ -76,7 +73,7 @@ class ImmunizationHistoryController extends Controller
                 'date' => $request->date,
                 'age_month' => $request->age_year,
                 'age_year' => $request->age_month,
-                'student_id' => $student->id
+                'student_nis' => $student->nis
             ]);
 
             $immunizations = Immunization::all();
@@ -86,7 +83,7 @@ class ImmunizationHistoryController extends Controller
             }
 
         });
-        return redirect()->route('student.find.immune',$request->student_id)->with(['success'=>'Berhasil menambah data','data'=>$student]);
+        return redirect()->route('student.find.immune',$request->student_nis)->with(['success'=>'Berhasil menambah data','data'=>$student]);
 
     }
 
@@ -110,7 +107,7 @@ class ImmunizationHistoryController extends Controller
     public function edit($id)
     {
         $record = ImmunizationHistory::findOrFail($id);
-        $student = Student::findOrFail($record->student_id);
+        $student = Student::findOrFail($record->student_nis);
         return view('admin.immunization.form',compact('record','student'));
     }
 
@@ -133,8 +130,8 @@ class ImmunizationHistoryController extends Controller
             // }
             $immune_hists->immunization()->syncWithoutDetaching([$value->id => ['status' => $request->$name]]);
         }
-        $student = Student::findOrFail($immune_hists->student_id);
-        return redirect()->route('student.find.immune',$immune_hists->student_id)->with(['success'=>'Berhasil merubah data','data'=>$student]);
+        $student = Student::findOrFail($immune_hists->student_nis);
+        return redirect()->route('student.find.immune',$immune_hists->student_nis)->with(['success'=>'Berhasil merubah data','data'=>$student]);
     }
 
     /**
@@ -146,7 +143,7 @@ class ImmunizationHistoryController extends Controller
     public function destroy($id)
     {
         $history = ImmunizationHistory::findOrFail($id);
-        $student = Student::findOrFail($history->student_id);
+        $student = Student::findOrFail($history->student_nis);
         $history->delete();
         return redirect()->route('student.find.immune',$student->id)->with(['success'=>'Berhasil menghapus data','data'=>$student]);
     }

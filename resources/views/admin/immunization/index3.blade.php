@@ -38,7 +38,7 @@
                             {{$student->name}}
                         </h4>
                         <div style="float:right">
-                            <a href="{{route('imunisasi2.create',$student->id)}}" class="btn btn-primary btn-sm">Tambah</a>
+                            <a href="{{route('imunisasi2.create',$student->nis)}}" class="btn btn-primary btn-sm">Tambah</a>
                         </div>
                     </div>
                     <div class="card-body">
