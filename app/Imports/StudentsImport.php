@@ -9,8 +9,9 @@ use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithValidation;
 use PhpOffice\PhpSpreadsheet\Shared\Date;
 use Maatwebsite\Excel\Concerns\Importable;
+use Maatwebsite\Excel\Concerns\SkipsEmptyRows;
 
-class StudentsImport implements ToModel, WithHeadingRow, WithValidation
+class StudentsImport implements ToModel, WithHeadingRow, WithValidation, SkipsEmptyRows
 {
 
     use Importable;
@@ -27,7 +28,7 @@ class StudentsImport implements ToModel, WithHeadingRow, WithValidation
                 'nis' => intval($row["nis"]),
                 'name' => $row["nama"],
                 'birth_place' => $row["tempat_lahir"],
-                'birth_date' => Date::excelToDateTimeObject(intval($row["tanggal_lahir"]))->format("Y-d-m"),
+                'birth_date' => Date::excelToDateTimeObject(intval($row["tanggal_lahir"]))->format("Y-m-d"),
                 'address' => $row["alamat"],
                 'gender' => $row["jk"],
                 'school_from' => $row["asal_sekolah"],
@@ -48,7 +49,7 @@ class StudentsImport implements ToModel, WithHeadingRow, WithValidation
     public function rules(): array
     {
         //$schoolId = School::select("id")->get()->pluck("id")->toArray();
-        $gender = array('Laki-laki','Perempuan');
+        $gender = array('laki-laki','perempuan');
         return [
             'nis'=> 'required|unique:students,nis',
             'nama' => 'required|string',
@@ -77,5 +78,12 @@ class StudentsImport implements ToModel, WithHeadingRow, WithValidation
 
             // 'date_format' => ':attribute tidak boleh menggunakan angka',
         ];
+    }
+
+    public function prepareForValidation($data, $index)
+    {
+        $data['jk'] = strtolower($data['jk']);
+
+        return $data;
     }
 }

@@ -77,7 +77,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Tahun Masuk/Angkatan</label>
-                                    <input type="date" name="class_year" class="form-control" value="{{old('class_year', $student->class_year ?? ' ')}}"
+                                    <input type="year" name="class_year" class="form-control" value="{{old('class_year', $student->class_year ?? ' ')}}"
                                         required>
                                 </div>
                                 <div class="form-group">
