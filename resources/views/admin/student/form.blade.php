@@ -98,7 +98,7 @@
                                 <div class="form-group">
                                     <label>Nama Wali (jika ada)</label>
                                     <input type="text" name='guardian' placeholder="Masukan Nama Wali (Jika ada)"
-                                        class="form-control" value="{{old('guardian', $student->guardian ?? ' ')}}">
+                                        class="form-control" value="{{old('guardian', $student->guardian ?? '')}}">
                                 </div>
                                 <div class="form-group">
                                     <label>No telepon Aktif</label>
