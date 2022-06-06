@@ -35,7 +35,7 @@
                             <h4>Ubah Siswa</h4>
                         </div>
                         <div class="card-body">
-                        <form enctype="multipart/form-data" action="{{route('status-gizi.update',$student->id)}}" method="POST">
+                        <form enctype="multipart/form-data" action="{{route('status-gizi.update',$student->nis)}}" method="POST">
                             @method('PUT')
                             @else
                             <div class="card-header d-flex align-items-center">

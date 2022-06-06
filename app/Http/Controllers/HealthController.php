@@ -233,7 +233,7 @@ class HealthController extends Controller
         $health =  Health::findOrFail($id);
         $student = Student::findOrFail($health->student_nis);
         $health->delete();
-        return redirect()->route('student.find.health',$student->id)->with(['success'=>'Berhasil menghapus data','data'=>$student]);
+        return redirect()->route('student.find.health',$student->nis)->with(['success'=>'Berhasil menghapus data','data'=>$student]);
     }
 
     public function searchStudent(Request $request)

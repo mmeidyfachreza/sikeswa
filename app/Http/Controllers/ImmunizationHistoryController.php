@@ -145,7 +145,7 @@ class ImmunizationHistoryController extends Controller
         $history = ImmunizationHistory::findOrFail($id);
         $student = Student::findOrFail($history->student_nis);
         $history->delete();
-        return redirect()->route('student.find.immune',$student->id)->with(['success'=>'Berhasil menghapus data','data'=>$student]);
+        return redirect()->route('student.find.immune',$student->nis)->with(['success'=>'Berhasil menghapus data','data'=>$student]);
     }
 
     public function searchStudent(Request $request)

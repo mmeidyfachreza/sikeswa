@@ -68,7 +68,7 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <form enctype="multipart/form-data" action="{{route('kesehatan.store',$student->id)}}"
+                                <form enctype="multipart/form-data" action="{{route('kesehatan.store',$student->nis)}}"
                                     method="POST">
                                     @endisset
                                     @csrf
