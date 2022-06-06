@@ -21,16 +21,13 @@ class MedicalRecordController extends Controller
     public function index()
     {
         if(request()->ajax()){
-            $data = Student::with('classroom')->get();
+            $data = Student::all();
             return datatables()->of($data)
                     ->editColumn('name', function($data){
-                        $name = '<a href="'.route("student.find.record", $data->id).'">'.$data->name.'</a>';
+                        $name = '<a href="'.route("student.find.record", $data->nis).'">'.$data->name.'</a>';
                         return $name;
                     })
-                    ->addColumn('classroom', function($data){
-                        return empty($data->classroom->name) ? "Belum Diatur" : $data->classroom->name;
-                    })
-                    ->rawColumns(['classroom','name'])
+                    ->rawColumns(['name'])
                     ->make(true);
         }
         return view('admin.medical_record.index_student');
