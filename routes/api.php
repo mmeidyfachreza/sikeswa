@@ -19,8 +19,6 @@ use Illuminate\Http\Request;
 
 
 Route::namespace('Api')->group(function () {
-    Route::get('/healthout', 'HealthOutController@index');
-    Route::get('/healthout2', 'HealthOutController@index2');
     Route::get('/getnames', 'StudentController@GetNames');
     Route::post('/height', 'MeasurementsController@height');
     Route::post('/weight', 'MeasurementsController@weight');
