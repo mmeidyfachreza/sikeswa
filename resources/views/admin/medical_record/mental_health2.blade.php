@@ -41,11 +41,11 @@
                 @else
                 @foreach ($mentalHealths2 as $item)
                 <tr>
-                    <td>{{$x++}}</td>
+                    <td>{{$x}}</td>
                     <td>{{$item->question}}</td>
                     <td>{{$item->type}}</td>
 
-                    <td><input type="number" name="mh2[{{$x}}]" style="width:50px"></td>
+                    <td><input type="number" name="mh2[{{$x++}}]" style="width:50px"></td>
                 </tr>
                 @endforeach
                 @endisset

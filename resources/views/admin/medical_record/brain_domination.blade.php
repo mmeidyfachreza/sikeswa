@@ -25,7 +25,7 @@
                 <tr>
                     <td>{{$x}}</td>
                     <td>{{$item->question}}</td>
-                    <td><input type="number" name="bd[{{$x}}]" id="bd{{$x++}}" style="width:50px" class="brain-domination"
+                    <td><input type="number" name="bd[{{$x}}]" id="bd{{$x}}" style="width:50px" class="brain-domination"
                         value="{{old('bd['.$x++.']', $record->brainDomination->find($item->id)->pivot->score ?? ' ')}}" min="0" max="1"></td>
                 </tr>
                 @endforeach

@@ -45,7 +45,7 @@
                     <td>{{$item->question}}</td>
                     <td>{{$item->type}}</td>
 
-                    <td><input class="mental-health" type="number" id="mh{{$x++}}" value="0" name="mh[{{$x}}]" style="width:50px" min="0" max="2"></td>
+                    <td><input class="mental-health" type="number" id="mh{{$x}}" value="0" name="mh[{{$x++}}]" style="width:50px" min="0" max="2"></td>
                 </tr>
                 @endforeach
                 @endisset
