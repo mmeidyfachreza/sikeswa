@@ -91,7 +91,7 @@
                       </div>
                 </div>
             </div>
-            @else    
+            @else
             <div class="card">
                 @isset ($record)
                 <div class="card-header d-flex align-items-center">
@@ -153,7 +153,7 @@
                                         @include('admin.medical_record.brain_domination')
                                     </div>
                                   </div>
-                                  <input type="hidden" name="student_id" value="{{$student->id}}">
+                                  <input type="hidden" name="student_nis" value="{{$student->nis}}">
                                 <div class="form-group">
                                     <input type="submit" value="Simpan" class="btn btn-primary">
                                     <a href="{{URL::previous()}}" class="btn btn-danger">Batal</a>
@@ -194,7 +194,7 @@ $(function () {
         var hasilV=parseInt($('#lm1').val())+parseInt($('#lm2').val())+parseInt($('#lm4').val())+parseInt($('#lm5').val())+parseInt($('#lm8').val())+parseInt($('#lm9').val())+parseInt($('#lm11').val())+parseInt($('#lm23').val());
         var hasilA=parseInt($('#lm2').val())+parseInt($('#lm6').val())+parseInt($('#lm112').val())+parseInt($('#lm13').val())+parseInt($('#lm14').val())+parseInt($('#lm15').val())+parseInt($('#lm16').val())+parseInt($('#lm17').val());
         var hasilK=parseInt($('#lm7').val())+parseInt($('#lm10').val())+parseInt($('#lm18').val())+parseInt($('#lm19').val())+parseInt($('#lm20').val())+parseInt($('#lm21').val())+parseInt($('#lm22').val())+parseInt($('#lm24').val());
-        
+
         $('#v').html(hasilV);
         $('#a').html(hasilA);
         $('#k').html(hasilK);
@@ -224,7 +224,7 @@ $(function () {
         $('#scorev').html(scoreV);
         $('#scorea').html(scoreA);
         $('#scorek').html(scoreK);
-        
+
     });
 
     $('.brain-domination').keyup(function () {
@@ -247,9 +247,9 @@ $(function () {
         parseInt($('#bd18').val())+
         parseInt($('#bd19').val())+
         parseInt($('#bd20').val());
-        
+
         var result = "";
-        
+
         if (total<=4) {
             result="sangat otak kiri";
         }else if (total<=8) {

@@ -58,7 +58,7 @@
                             <h4>Tambah imunisasi</h4>
                         </div>
                         <div class="card-body">
-                            <form enctype="multipart/form-data" action="{{route('imunisasi.store',$student->id)}}"
+                            <form enctype="multipart/form-data" action="{{route('imunisasi.store',$student->nis)}}"
                                 method="POST">
                                 @endisset
                                 @csrf
