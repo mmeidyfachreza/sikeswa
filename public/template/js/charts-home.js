@@ -13,7 +13,6 @@ $(document).ready(function () {
     var LINECHART = $('#lineCahrt');
     $.ajax({
         url: window.location.href,
-        //url: "https://sikeswav2.herokuapp.com/admin",
         method: "GET",
         success: function(data) {
             console.log(data);
@@ -25,7 +24,7 @@ $(document).ready(function () {
                     valueLaki.push(data.laki[i].avg);
                 }
                 if (typeof data.perempuan[i] !== 'undefined') {
-                    valuePerempuan.push(data.perempuan[i].avg);   
+                    valuePerempuan.push(data.perempuan[i].avg);
                 }
             }
             var myLineChart = new Chart(LINECHART, {
@@ -36,8 +35,8 @@ $(document).ready(function () {
                     },
                     scales: {
                         yAxes : [{
-                            ticks : {    
-                                
+                            ticks : {
+
                                 suggestedMin: 100,
                             }
                         }]
@@ -97,7 +96,7 @@ $(document).ready(function () {
             });
         }
     });
-    
+
     // ------------------------------------------------------- //
     // Pie Chart
     // ------------------------------------------------------ //
