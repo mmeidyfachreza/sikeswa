@@ -69,7 +69,7 @@
                 {{$student->school_from}}</span><span style="font-family:'Times New Roman';">&nbsp;&nbsp;</span><span
                 style="font-family:'Times New Roman';">Kelas</span><span
                 style="width:2.34pt; display:inline-block;">&nbsp;</span><span style="font-family:'Times New Roman';">:
-                {{$student->classroom->name ?? " "}}</span></p>
+                {{$student->classroom ?? " "}}</span></p>
         <p style="margin-top:0pt; margin-bottom:6pt; font-size:12pt;"><span
                 style="font-family:'Times New Roman';">Keluhan/ Diagnosa : {{$request->deskripsi}}</span></p>
         <ol style="margin:0pt; padding-left:0pt;" type="1">
