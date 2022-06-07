@@ -20,7 +20,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        
+
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -40,7 +40,7 @@
                                         <th scope="row">{{$x++}}</th>
                                         <td><a href="{{route('student.find.health',$item->id)}}">{{$item->name}}</a></td>
                                         <td>{{$item->nis}}</td>
-                                        <td>{{$item->classroom->name ?? ''}}</td>
+                                        <td>{{$item->classroom ?? ''}}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>

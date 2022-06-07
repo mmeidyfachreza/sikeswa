@@ -108,15 +108,13 @@ class DashboardController extends Controller
     public function indexkk()
     {
         if(request()->ajax()){
-            $data = Student::with('classroom')->get();
+            $data = Student::all();
             return datatables()->of($data)
                     ->addIndexColumn()
                     ->editColumn('nis', function($data){
                         return empty($data->nis) ? "Belum Diatur" : $data->nis;
                     })
-                    ->addColumn('classroom', function($data){
-                        return empty($data->classroom->name) ? "Belum Diatur" : $data->classroom->name;
-                    })
+
                     ->addColumn('action', function($data){
                         // $button = '<div class="btn-group" role="group" aria-label="Basic example">
                         // <a href="'.route("letter.print.srkas",$data->id).'"class="btn btn-primary btn-sm"><i class="fas fa-print"></i></a>';

@@ -24,7 +24,7 @@
                     </div>
                     <div class="card-body">
                         <p style="color: black;font-weight: bold;">Nama : {{$siswa->name}} </p>
-                        <p style="color: black;font-weight: bold;">Kelas : {{$siswa->classroom->name}}</p>
+                        <p style="color: black;font-weight: bold;">Kelas : {{$siswa->classroom}}</p>
                         <p style="color: black;font-weight: bold;">Sekolah : {{$siswa->school_from}}</p>
                         <div class="table-responsive">
                             <table class="table table-bordered table-sm karkon">
@@ -47,8 +47,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php 
-                                        $x=1 
+                                    <?php
+                                        $x=1
                                     ?>
                                     @foreach ($month as $item)
                                     <tr>
@@ -75,8 +75,8 @@
                                         <td class="text-center"></td>
                                         <td class="text-center"></td>
                                         <td></td>
-                                    </tr>        
-                                    <?php 
+                                    </tr>
+                                    <?php
                                         $x+=1
                                     ?>
                                     @endforeach

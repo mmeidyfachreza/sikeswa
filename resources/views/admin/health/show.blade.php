@@ -23,7 +23,7 @@
                         class="avatar avatar-xl mr-3"></span>
                     <div class="media-body overflow-hidden">
                         <h5 class="card-text mb-0">{{$student->name}}</h5>
-                        <p class="card-text text-uppercase">Kelas {{$student->classroom->name ?? ''}}</p>
+                        <p class="card-text text-uppercase">Kelas {{$student->classroom ?? ''}}</p>
                         <p class="card-text">NIS: {{$student->nis ?? "belum diatur"}}<br></p>
                     </div>
                 </div><a href="#" class="tile-link"></a>
@@ -34,7 +34,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 style="float:left">
-                  
+
                         </h4>
                         <div style="float:right">
                             <a href="{{URL::previous()}}" class="btn btn-primary btn-sm">Kembali</a>

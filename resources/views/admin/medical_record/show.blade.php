@@ -27,10 +27,10 @@
                         {{-- <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Comming Soon!!!</a> --}}
                     </div>
                 </div>
-                
+
               </div>
             </div>
-            
+
             <div class="col-lg-8">
                 <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
@@ -85,7 +85,7 @@
                                         </tr>
                                         <tr>
                                             <th class="pt-0 pb-0">kelas</th>
-                                            <td class="pt-0 pb-0">{{$student->classroom->name ?? "Tidak Diketahui"}}</td>
+                                            <td class="pt-0 pb-0">{{$student->classroom ?? "Tidak Diketahui"}}</td>
                                         </tr>
                                         <tr>
                                             <th class="pt-0 pb-0">No BPJS</th>
@@ -101,13 +101,13 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                
+
                             </div>
                             <div class="card-footer">
                                 <a href="{{route('siswa.index')}}" class="btn btn-primary">Kembali</a>
                             </div>
                             </div>
-                            
+
                           </form>
                     </div>
                     <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
@@ -121,18 +121,18 @@
                             </div>
                           </div>
                     </div>
-                    
+
                 </div>
-              
+
             </div>
           </div>
-        
+
     </div>
 </section>
 @endsection
 
 @section('custom-script')
 <script type="text/javascript">
-    
+
 </script>
 @endsection

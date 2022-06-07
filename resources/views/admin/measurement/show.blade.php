@@ -67,7 +67,7 @@
                                         </tr>
                                         <tr>
                                             <th class="pt-0 pb-0">kelas</th>
-                                            <td class="pt-0 pb-0">{{$student->classroom->name}}</td>
+                                            <td class="pt-0 pb-0">{{$student->classroom}}</td>
                                         </tr>
                                         <tr>
                                             <th class="pt-0 pb-0">No BPJS</th>
