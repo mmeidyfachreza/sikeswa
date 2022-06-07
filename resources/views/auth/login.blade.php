@@ -26,12 +26,12 @@
         <div class="container-login100">
             <div class="wrap-login100">
                 <div class="login100-pic js-tilt" data-tilt>
-                    <img src="{{asset('images/putih.jpg')}}" alt="IMG">
+                    <img src="{{asset('storage/img/logo-baru.png')}}" alt="belum diatur">
                 </div>
                 <form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
                     @csrf
                     <span class="login100-form-title">
-                        Member Login
+                        GHOSTING <br> (Gerakan Home Care Stunting)
                     </span>
                     <div class="wrap-input100 " data-validate="Valid email is required: ex@abc.xyz">
                         <input class="input100" type="text" name="email" placeholder="Email">
@@ -53,7 +53,7 @@
                             {{ __('Login') }}
                         </button>
                     </div>
-                    <div class="text-center p-t-136">
+                    <div class="text-center p-t-80">
                         <a class="txt2" href="#">
                             Buat Akun atau Lupa Password Silahkan Hubungi Admin
                             <i class="fas fa-long-arrow-right m-l-5" aria-hidden="true"></i>
@@ -77,8 +77,8 @@
 <footer class="page-footer font-small footer-bg">
 
     <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2019 Copyright:
-        <a href="#"> SIKESWA</a>
+    <div class="footer-copyright text-center py-3">© 2022 Copyright:
+        <a href="#"> GHOSTING</a>
     </div>
     <!-- Copyright -->
 
