@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
 
-    <title>SIKESWA</title>
+    <title>GHOSTING</title>
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css"
@@ -39,7 +39,7 @@
                             class="img-fluid ">
                         {{-- <div class="sidenav-header-inner text-center"><img src="{{asset('/uploads/avatars/bontang.png')}}"
                         alt="person" class="img-fluid "> --}}
-                        <h2 class="h5">SIKESWA</h2><span>BONTANG</span>
+                        <h2 class="h5">GHOSTING</h2><span>BONTANG</span>
                     </div>
                     @else
                     <div class="sidenav-header-inner text-center"><img
@@ -74,7 +74,7 @@
                             <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i
                                         class="fa fa-list"> </i></a><a href="{{url('/')}}" class="navbar-brand">
                                     <div class="brand-text d-none d-md-inline-block"><span>Website </span><strong
-                                            class="text-primary">SIKESWA</strong></div>
+                                            class="text-primary">GHOSTING</strong></div>
                                 </a></div>
                             <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
                                 <!-- Notifications dropdown-->
@@ -113,7 +113,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-6">
-                            <p>SIKESWA &copy; 2019</p>
+                            <p>GHOSTING &copy; 2022</p>
                         </div>
                         <div class="col-sm-6 text-right">
                             <p>Design by <a href="https://bootstrapious.com/p/bootstrap-4-dashboard"

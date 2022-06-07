@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SIKESWA</title>
+    <title>GHOSTING</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -569,14 +569,14 @@
         <div class="crake-nav">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container">
-                    <a class="navbar-brand" href="#">SIKESWA</a>
+                    <a class="navbar-brand" href="#">GHOSTING</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05"
                         aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarsExample05">
-                      
+
 
                     </div>
                 </div>
@@ -593,7 +593,7 @@
                         src="{{asset('/images/a.jpg')}}" alt="Bangga Mengkonsumsi Produk Petani Lokal" class="card-img">
                     <div class="card-img-overlay d-flex justify-content-center align-items-center">
                         <div class="text-center">
-                            <h1 class="display-4 text-white slider-title">Bangga Menjadi Generasi Penerus Bangsa</h1>
+                            <h1 class="display-4 text-white slider-title"><b>Bangga Menjadi Generasi Penerus Bangsa</b></h1>
                         </div>
                     </div>
                 </div>
@@ -645,12 +645,12 @@
         <!-- ======= Services Section ======= -->
     <section id="services" class="services section-bg">
         <div class="container" data-aos="fade-up">
-  
+
           <div class="section-title">
             <h2>Layanan</strong></h2>
             <p>Layanan-layanan yang dapat dinikmati pengunjung website</p>
           </div>
-  
+
           <div class="row">
             <div class="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
               <div class="icon-box iconbox-blue">
@@ -664,7 +664,7 @@
                 <p>Unduh dokumen pelajaran dengan mudah</p>
               </div>
             </div>
-            
+
             <div class="col-lg-6 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
               <div class="icon-box iconbox-orange ">
                 <div class="icon">
@@ -677,20 +677,20 @@
                 <p>Menampilkan Grafik Kesehata Siswa</p>
               </div>
             </div>
-  
+
           </div>
-  
+
         </div>
       </section><!-- End Services Section -->
 
       <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio">
         <div class="container">
-  
+
           <div class="section-title" data-aos="fade-up">
             <h2>Pojok Baca (Comming Soon)</h2>
           </div>
-  
+
           <div class="row" data-aos="fade-up">
             <div class="col-lg-12 d-flex justify-content-center">
               <ul id="portfolio-flters">
@@ -701,13 +701,13 @@
               </ul>
             </div>
           </div>
-  
+
           <div class="row portfolio-container" data-aos="fade-up">
-  
-            
-  
+
+
+
           </div>
-  
+
         </div>
       </section><!-- End Portfolio Section -->
 
@@ -720,7 +720,7 @@
                 <div class="row">
 
                     <div class="col-lg-6 col-md-6 footer-contact">
-                        <h3>SIKESWA</h3>
+                        <h3>GHOSTING</h3>
                         <p>
                             Indonesia<br>
                             Kalimantan Timur<br>
@@ -732,7 +732,7 @@
                         <h4>Kontak</h4>
                         <p>
                             <strong>Telp:</strong> 085300000000<br>
-                            <strong>Email:</strong> sikeswa@example.com<br>
+                            <strong>Email:</strong> ghosting@example.com<br>
                         </p>
                     </div>
 
@@ -744,7 +744,7 @@
 
             <div class="mr-md-auto text-center text-md-left">
                 <div class="copyright">
-                    Copyright &copy;2020 <strong><span>SIKESWA</span></strong>
+                    Copyright &copy;2022 <strong><span>GHOSTING</span></strong>
                 </div>
                 <div class="credits">
                     <!-- All the links in the footer should remain intact. -->

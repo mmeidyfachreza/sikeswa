@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SIKESWA</title>
+    <title>GHOSTING</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -115,7 +115,7 @@
                         <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars">
                                 </i></a><a href="{{url('/')}}" class="navbar-brand">
                                 <div class="brand-text d-none d-md-inline-block"><span> </span><strong
-                                        class="text-primary">SIKESWA</strong></div>
+                                        class="text-primary">GHOSTING</strong></div>
                             </a></div>
                         <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
                             <!-- Notifications dropdown-->
@@ -215,10 +215,10 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6">
-                        <p>SIKESWA&copy; 2020</p>
+                        <p>GHOSTING&copy; 2020</p>
                     </div>
                     <div class="col-sm-6 text-right">
-                        <p>Version 2</p>
+                        <p></p>
                     </div>
                 </div>
             </div>
