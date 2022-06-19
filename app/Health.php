@@ -14,6 +14,7 @@ class Health extends Model
         'bmi',
         'age_year',
         'age_month',
+        'comment',
     ];
 
     public function condition()

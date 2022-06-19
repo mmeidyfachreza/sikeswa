@@ -23,6 +23,7 @@ class CreateHealthsTable extends Migration
             $table->double('height');
             $table->double('weight');
             $table->double('bmi');
+            $table->string('comment')->nullable();
             $table->timestamps();
         });
     }

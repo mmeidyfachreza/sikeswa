@@ -268,12 +268,19 @@
                                             @else
                                             <option value='' selected disabled>--Pilih Kondisi--</option>
                                             @foreach ($ear as $item)
-
                                             <option value={{$item->id}}>{{$item->description}}</option>
-
                                             @endforeach
                                             @endisset
                                         </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Komentar</label>
+                                        @isset ($record)
+                                            <textarea name="comment" id="comment" cols="30" rows="2" class="form-control">{{$record->comment}}</textarea>
+                                        @else
+                                            <textarea name="comment" id="comment" cols="30" rows="2" class="form-control">{{old('comment','')}}</textarea>
+                                        @endisset
                                     </div>
 
                                     <input type="hidden" name="student_nis" value="{{$student->nis}}">
