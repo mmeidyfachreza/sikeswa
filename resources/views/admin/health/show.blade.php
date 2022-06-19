@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <ul class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active">kesehatan </li>
+            <li class="breadcrumb-item active">Home Care </li>
         </ul>
     </div>
 </div>
@@ -14,7 +14,7 @@
     <div class="container-fluid">
         <!-- Page Header-->
         <header>
-            <h1 class="h3 display">Detail Data kesehatan </h1>
+            <h1 class="h3 display">Detail Data Home Care </h1>
         </header>
         <div class="card">
             <div class="card-body">

@@ -70,7 +70,7 @@
                 <h5 class="sidenav-heading">Main</h5>
                 <ul id="side-main-menu" class="side-menu list-unstyled">
                     <li><a href="{{url('/admin')}}"> <i class="fas fa-home"></i>Beranda </a></li>
-                    <li><a href="{{route('kesehatan.index')}}"> <i class="fas fa-file-medical-alt"></i>Kesehatan </a>
+                    <li><a href="{{route('kesehatan.index')}}"> <i class="fas fa-file-medical-alt"></i>Home Care</a>
                     </li>
                     <li><a href="{{route('imunisasi.index')}}"> <i class="fas fa-syringe"></i>Imunisasi </a></li>
                     <li><a href="{{route('rekam-medik.index')}}"> <i class="fas fa-notes-medical"></i>Rekam Medik </a>

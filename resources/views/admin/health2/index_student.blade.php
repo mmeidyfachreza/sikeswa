@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <ul class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active">Kesehatan </li>
+            <li class="breadcrumb-item active">Home Care </li>
         </ul>
     </div>
 </div>

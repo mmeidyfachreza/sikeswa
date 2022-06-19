@@ -4,7 +4,7 @@
               <div class="container-fluid">
                 <!-- Page Header-->
                 <header>
-                  <h1 class="h3 display">Kesehatan            </h1>
+                  <h1 class="h3 display">Home Care            </h1>
             </header>
                 <div class="row">
                   <div class="col-lg-12">
@@ -72,7 +72,7 @@
                   <div class="col-lg-3">
                     <div class="card">
                       <div class="card-header d-flex align-items-center">
-                        <h4>Tambah Data Kesehatan</h4>
+                        <h4>Tambah Data Home Care</h4>
                   </div>
                       <div class="card-body">
                         <p>Setiap Merubah isi pada form ini wajib melakukan Proses sebelum disimpan</p>
@@ -272,7 +272,7 @@
                   <div class="col-lg-9">
                     <div class="card">
                       <div class="card-header d-flex align-items-center">
-                        <h4>Hasil Data Kesehatan</h4>
+                        <h4>Hasil Data Home Care</h4>
                   </div>
                       <div class="card-body">
                         @if (isset($hasil))

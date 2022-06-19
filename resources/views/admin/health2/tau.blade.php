@@ -190,7 +190,7 @@
         <div class="container-fluid">
             <ul class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item active">Kesehatan </li>
+                <li class="breadcrumb-item active">Home Care </li>
             </ul>
         </div>
     </div>
@@ -198,7 +198,7 @@
         <div class="container-fluid">
             <!-- Page Header-->
             <header>
-                <h1 class="h3 display">Kesehatan </h1>
+                <h1 class="h3 display">Home Care </h1>
             </header>
             @if ($errors->any())
             <div class="alert alert-danger">

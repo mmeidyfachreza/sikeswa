@@ -8,7 +8,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                      <h4 style="float:left">Data Kesehatan</h4>
+                      <h4 style="float:left">Data Home Care</h4>
                       <div style="float:right">
                           @if (isset($siswa))
                           <a href="{{route('kesehatan.add',$siswa->id)}}" class="btn btn-primary btn-sm">Tambah</a>

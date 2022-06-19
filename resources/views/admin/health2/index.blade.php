@@ -4,7 +4,7 @@
       <div class="container-fluid">
         <!-- Page Header-->
     <header>
-          <h1 class="h3 display">Kesehatan            </h1>
+          <h1 class="h3 display">Home Care            </h1>
     </header>
     <div class="siswa">
             @if (\Session::has('error2'))
@@ -116,7 +116,7 @@
           <div class="col-lg-12">
             <div class="card">
               <div class="card-header">
-                <h4 style="float:left">Data Kesehatan</h4>
+                <h4 style="float:left">Data Home Care</h4>
             <div style="float:right">
               @if (isset($siswa))
               <a href="{{route('kesehatan.add',$siswa->id)}}" class="btn btn-primary btn-sm">Tambah</a>
@@ -180,7 +180,7 @@
           <div class="col-lg-12">
             <div class="card">
               <div class="card-header">
-                <h4 style="float:left">Total Data Kesehatan</h4>
+                <h4 style="float:left">Total Data Home Care</h4>
             <div style="float:right">
               @if (isset($siswa))
               <a href="{{route('kesehatan.add',$siswa->id)}}" class="btn btn-primary btn-sm">Tambah</a>
