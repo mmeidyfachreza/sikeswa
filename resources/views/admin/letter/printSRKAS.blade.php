@@ -49,7 +49,7 @@
         <p style="margin-top:0pt; margin-bottom:6pt; font-size:12pt;"><span
                 style="font-family:'Times New Roman';">&nbsp;</span></p>
         <p style="margin-top:0pt; margin-bottom:6pt; font-size:12pt;"><span style="font-family:'Times New Roman';">Mohon
-                penatalaksanaan lebih lanjut siswa :</span></p>
+                penatalaksanaan lebih lanjut anak :</span></p>
         <p style="margin-top:0pt; margin-bottom:6pt; font-size:12pt;"><span
                 style="font-family:'Times New Roman';">Nama&nbsp;</span><span
                 style="width:4.35pt; display:inline-block;">&nbsp;</span><span

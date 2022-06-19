@@ -4,7 +4,7 @@
         <div class="container-fluid">
           <!-- Page Header-->
           <header>
-            <h1 class="h3 display">Siswa            </h1>
+            <h1 class="h3 display">Anak            </h1>
       </header>
           <div class="row">
             @if ($message = Session::get('success'))
@@ -14,7 +14,7 @@
             @endif
             <div class="col-lg-12">
                     <div class="card bg-light">
-                            <div class="card-header">Profil siswa</div>
+                            <div class="card-header">Profil Anak</div>
                                 <div class="card-body">
                                     <div class="row" >
                                         <div class="col-lg-2">

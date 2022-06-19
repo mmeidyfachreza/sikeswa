@@ -4,7 +4,7 @@
       <div class="container-fluid">
         <!-- Page Header-->
         <header>
-          <h1 class="h3 display">Siswa            </h1>
+          <h1 class="h3 display">Anak            </h1>
     </header>
         <div class="row">
           @if ($errors->any())
@@ -19,10 +19,10 @@
           <div class="col-lg-12">
             <div class="card">
               <div class="card-header d-flex align-items-center">
-                <h4>Ubah Siswa</h4>
+                <h4>Ubah Anak</h4>
           </div>
               <div class="card-body">
-                <p>Silahkan Tambahkan data siswa</p>
+                <p>Silahkan Tambahkan data Anak</p>
                 <form action="{{ route('modul.update',$modul->uuid) }}" method="POST" enctype="multipart/form-data">
                   @csrf
                   @method('PUT')

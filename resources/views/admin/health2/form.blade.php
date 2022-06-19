@@ -91,7 +91,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <label>Tanggal Pemeriksaan</label>
-                                    <input type="text" name="date" placeholder="Masukan Nomor Induk Siswa"
+                                    <input type="text" name="date" placeholder="Masukan NIK"
                                         class="form-control input-datepicker-autoclose"
                                         value="{{old('date', $health->date ?? '01/01/2020')}}" required>
                                 </div>
@@ -101,7 +101,7 @@
                                         class="form-control"
                                         value="{{old('age', $age ?? 0)}} / {{old('month', $month ?? 0)}} Bulan" required
                                         disabled>
-                                    <small class="form-text">Jika umur tidak sesuai silahkan atur tanggal lahir siswa
+                                    <small class="form-text">Jika umur tidak sesuai silahkan atur tanggal lahir anak
                                         terlebih dahulu.</small>
                                 </div>
                                 <div class="form-group">

@@ -9,7 +9,7 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="card bg-light">
-          <div class="card-header">Profil siswa</div>
+          <div class="card-header">Profil Anak</div>
           <div class="card-body">
             <div class="row" >
               <div class="col-lg-2">

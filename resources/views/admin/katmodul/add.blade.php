@@ -4,7 +4,7 @@
         <div class="container-fluid">
           <!-- Page Header-->
           <header>
-            <h1 class="h3 display">Siswa            </h1>
+            <h1 class="h3 display">Anak            </h1>
       </header>
           <div class="row">
               @if ($errors->any())

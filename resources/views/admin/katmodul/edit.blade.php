@@ -19,10 +19,10 @@
             <div class="col-lg-12">
               <div class="card">
                 <div class="card-header d-flex align-items-center">
-                  <h4>Ubah Siswa</h4>
+                  <h4>Ubah Anak</h4>
             </div>
                 <div class="card-body">
-                  <p>Silahkan Tambahkan data siswa</p>
+                  <p>Silahkan Tambahkan data Anak</p>
                   <form action="{{ route('katmodul.update',$katmodul->id) }}" method="POST">
                       @csrf
                       @method('PUT')

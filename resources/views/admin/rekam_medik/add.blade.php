@@ -35,7 +35,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label for="">Nama siswa : {{$siswa->nama}}</label>
+                                        <label for="">Nama Anak : {{$siswa->nama}}</label>
                                     </div>
                                 </div>
                             </div>

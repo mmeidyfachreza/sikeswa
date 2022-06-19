@@ -214,7 +214,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header d-flex align-items-center">
-                            <h4>Ubah Siswa</h4>
+                            <h4>Ubah Anak</h4>
                         </div>
                         <div class="card-body">
                             @isset ($health)
@@ -227,7 +227,7 @@
                             @csrf
                                     <div class="form-group">
                                         <label>Tanggal</label>
-                                        <input type="text" name="nis" placeholder="Masukan Nomor Induk Siswa" class="form-control input-datepicker-autoclose"
+                                        <input type="text" name="nis" placeholder="Masukan NIK" class="form-control input-datepicker-autoclose"
                                             value="{{old('nis', $health->date ?? '01/01/2020')}}" required>
                                     </div>
                                     <div class="form-group">
@@ -479,7 +479,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header d-flex align-items-center">
-                        <h4>Ubah Siswa</h4>
+                        <h4>Ubah Anak</h4>
                     </div>
                     <div class="card-body">
                         @isset ($health)
@@ -492,7 +492,7 @@
                         @csrf
                                 <div class="form-group">
                                     <label>Tanggal</label>
-                                    <input type="text" name="nis" placeholder="Masukan Nomor Induk Siswa" class="form-control input-datepicker-autoclose"
+                                    <input type="text" name="nis" placeholder="Masukan NIK" class="form-control input-datepicker-autoclose"
                                         value="{{old('nis', $health->date ?? '01/01/2020')}}" required>
                                 </div>
                                 <div class="form-group">

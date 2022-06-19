@@ -138,7 +138,7 @@
                                     <td colspan="2">{{$totall}}</td>
                                     <td colspan="3">Perempuan</td>
                                     <td colspan="2">{{$totalp}}</td>
-                                    <td colspan="3">Total Siswa</td>
+                                    <td colspan="3">Total Anak</td>
                                     <td colspan="2">{{$totaljk}}</td>
                                 </tr>
                               </table>

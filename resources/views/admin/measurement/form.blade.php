@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <ul class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active">Siswa </li>
+            <li class="breadcrumb-item active">Anak </li>
         </ul>
     </div>
 </div>
@@ -15,7 +15,7 @@
     <div class="container-fluid">
         <!-- Page Header-->
         <header>
-            <h1 class="h3 display">Siswa </h1>
+            <h1 class="h3 display">Anak </h1>
         </header>
         @if ($errors->any())
         <div class="alert alert-danger">
@@ -32,14 +32,14 @@
                 <div class="card">
                         @isset ($student)
                         <div class="card-header d-flex align-items-center">
-                            <h4>Ubah Siswa</h4>
+                            <h4>Ubah Anak</h4>
                         </div>
                         <div class="card-body">
                         <form enctype="multipart/form-data" action="{{route('status-gizi.update',$student->nis)}}" method="POST">
                             @method('PUT')
                             @else
                             <div class="card-header d-flex align-items-center">
-                                <h4>Tambah Siswa</h4>
+                                <h4>Tambah Anak</h4>
                             </div>
                             <div class="card-body">
                             <form enctype="multipart/form-data" action="{{route('status-gizi.store')}}" method="POST">

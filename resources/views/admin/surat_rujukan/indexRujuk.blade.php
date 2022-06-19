@@ -21,14 +21,14 @@
               @csrf
                 <div class="card">
                         <div class="card-header">
-                          <h4 >Siswa</h4>
+                          <h4 >Anak</h4>
 
                     </div>
 
                     <div class="card-body" >
                           <div id="tes" class="form-group">
-                              <label>Pilih Siswa</label>
-                          <input list="listsiswa" class="form-control myClass" placeholder="Masukan nama siswa" autocomplete="off" name="siswa">
+                              <label>Pilih Anak</label>
+                          <input list="listsiswa" class="form-control myClass" placeholder="Masukan nama anak" autocomplete="off" name="siswa">
                           <datalist id="listsiswa">
                                   @foreach ($semuasiswa as $item)
                               <option data-value="{{$item->id}}" value="{{$item->nama}}"></option>

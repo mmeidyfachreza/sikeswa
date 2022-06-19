@@ -20,7 +20,7 @@
               @csrf
               <div class="card">
                     <div class="card-header">
-                      <h4 style="float:left">Siswa</h4>
+                      <h4 style="float:left">Anak</h4>
                   <div style="float:right">
                     <button id="submit" type="submit" class="btn btn-primary btn-sm">Cek Data</button>
                   </div>
@@ -32,7 +32,7 @@
                 }?>
                 <div class="card-body" >
                       <div id="tes" class="form-group">
-                        <label>Pilih Siswa</label>
+                        <label>Pilih Anak</label>
                     <input list="listsiswa" class="form-control myClass" autocomplete="off" name="siswa">
                     <datalist id="listsiswa">
                           @foreach ($semuasiswa as $item)
@@ -54,7 +54,7 @@
           </div>
           <div class="col-lg-8">
                 <div class="card bg-light">
-                  <div class="card-header">Profil siswa</div>
+                  <div class="card-header">Profil Anak</div>
               <div class="card-body">
                     <div class="row" >
                       <div class="col-lg-2">

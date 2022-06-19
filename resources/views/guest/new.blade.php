@@ -674,7 +674,7 @@
                   <i class="bx bx-stats"></i>
                 </div>
                 <h4><a href="">Grafik Kesehatan (Comming Soon)</a></h4>
-                <p>Menampilkan Grafik Kesehata Siswa</p>
+                <p>Menampilkan Grafik Kesehata Anak</p>
               </div>
             </div>
 

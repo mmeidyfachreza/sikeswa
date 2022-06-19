@@ -8,7 +8,7 @@
         <div class="col-xl-2 col-md-4 col-6">
           <div class="wrapper count-title d-flex">
             <div class="icon"><i class="icon-user"></i></div>
-            <div class="name"><strong class="text-uppercase">Total Siswa</strong><span>Semua kelas</span>
+            <div class="name"><strong class="text-uppercase">Total Anak</strong><span>Semua kelas</span>
               <div class="count-number">{{$total_student}}</div>
             </div>
           </div>
@@ -17,7 +17,7 @@
         <div class="col-xl-2 col-md-4 col-6">
             <div class="wrapper count-title d-flex">
               <div class="icon"><i class="icon-user"></i></div>
-              <div class="name"><strong class="text-uppercase">Siswa Laki-laki</strong><span>Semua kelas</span>
+              <div class="name"><strong class="text-uppercase">Anak Laki-laki</strong><span>Semua kelas</span>
                 <div class="count-number">{{$total_boy}}</div>
               </div>
             </div>
@@ -26,7 +26,7 @@
         <div class="col-xl-2 col-md-4 col-6">
             <div class="wrapper count-title d-flex">
               <div class="icon"><i class="icon-user"></i></div>
-              <div class="name"><strong class="text-uppercase">Siswa Perempuan</strong><span>Semua kelas</span>
+              <div class="name"><strong class="text-uppercase">Anak Perempuan</strong><span>Semua kelas</span>
                 <div class="count-number">{{$total_girl}}</div>
               </div>
             </div>
@@ -51,7 +51,7 @@
         <!-- Line Chart -->
         <div class="col-lg-6 col-md-12 flex-lg-last flex-md-first align-self-baseline">
             <div class="card sales-report">
-              <h2 class="display h4">Grafik Tinggi Badan Siswa</h2>
+              <h2 class="display h4">Grafik Tinggi Badan Anak</h2>
               <p>Laki-laki dan Perempuan</p>
               <div class="line-chart">
                 <canvas id="lineCahrt"></canvas>

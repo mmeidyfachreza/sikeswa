@@ -14,7 +14,7 @@
     <div class="container-fluid">
         <!-- Page Header-->
         <header>
-            <h1 class="h3 display">List Siswa </h1>
+            <h1 class="h3 display">List Anak </h1>
         </header>
         <div class="row">
             <div class="col-lg-12">
@@ -27,7 +27,7 @@
                                         <th class="text-center">Nama</th>
                                         <th class="text-center">Nis</th>
                                         <th class="text-center">Kelas</th>
-                                        
+
                                     </tr>
                                 </thead>
                                 <tbody></tbody>
@@ -49,7 +49,7 @@
             serverSide: true,
             ajax:"{{ route('kesehatan.index') }}",
             columns:[
-                
+
             {data: 'name', name: 'name'},
             {data: 'nis', name: 'nis'},
             {data: 'classroom', name: 'classroom'},

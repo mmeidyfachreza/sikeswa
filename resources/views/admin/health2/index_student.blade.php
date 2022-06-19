@@ -14,7 +14,7 @@
     <div class="container-fluid">
         <!-- Page Header-->
         <header>
-            <h1 class="h3 display">List Siswa </h1>
+            <h1 class="h3 display">List Anak </h1>
         </header>
         <div class="row">
             <div class="col-lg-12">

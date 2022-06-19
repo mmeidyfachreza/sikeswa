@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <ul class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active">Siswa </li>
+            <li class="breadcrumb-item active">Anak </li>
         </ul>
     </div>
 </div>
@@ -15,7 +15,7 @@
     <div class="container-fluid">
         <!-- Page Header-->
         <header>
-            <h1 class="h3 display">Siswa </h1>
+            <h1 class="h3 display">Anak </h1>
         </header>
         @if ($errors->any())
         <div class="alert alert-danger">
@@ -32,34 +32,34 @@
                 <div class="card">
                         @isset ($student)
                         <div class="card-header d-flex align-items-center">
-                            <h4>Ubah Siswa</h4>
+                            <h4>Ubah Anak</h4>
                         </div>
                         <div class="card-body">
                         <form enctype="multipart/form-data" action="{{route('siswa.update',$student->nis)}}" method="POST">
                             @method('PUT')
                             @else
                             <div class="card-header d-flex align-items-center">
-                                <h4>Tambah Siswa</h4>
+                                <h4>Tambah Anak</h4>
                             </div>
                             <div class="card-body">
                             <form enctype="multipart/form-data" action="{{route('siswa.store')}}" method="POST">
                                 @endisset
                                 @csrf
                                 <div class="form-group">
-                                    <label>Nomor Induk Siswa</label>
-                                    <input type="text" name="nis" placeholder="Masukan Nomor Induk Siswa" class="form-control"
+                                    <label>Nomor Induk Anak</label>
+                                    <input type="text" name="nis" placeholder="Masukan Nomor Induk Anak" class="form-control"
                                         value="{{old('nis', $student->nis ?? '')}}" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Nama Lengkap</label>
-                                    <input type="text" name="name" placeholder="Masukan Nama Lengkap Siswa" class="form-control"
+                                    <input type="text" name="name" placeholder="Masukan Nama Lengkap Anak" class="form-control"
                                         value="{{old('name', $student->name ?? '')}}" required>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Tempat lahir</label>
-                                            <input type="text" name="birth_place" placeholder="Masukan Tempat Lahir Siswa"
+                                            <input type="text" name="birth_place" placeholder="Masukan Tempat Lahir Anak"
                                                 class="form-control" value="{{old('birth_place', $student->birth_place ?? '')}}" required>
                                         </div>
                                     </div>
@@ -89,7 +89,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Alamat</label>
-                                    <textarea name="address" id="" cols="30" rows="5" class="form-control" placeholder="Masukan Alamat Tempat Tinggal Siswa Saat Ini"
+                                    <textarea name="address" id="" cols="30" rows="5" class="form-control" placeholder="Masukan Alamat Tempat Tinggal Anak Saat Ini"
                                         required>{{old('address', $student->address ?? '')}}</textarea>
                                 </div>
                                 <div class="form-group">
@@ -108,7 +108,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Kelas</label>
-                                            <input type="text" name="classroom" placeholder="Masukan Kelas Siswa Saat Ini"
+                                            <input type="text" name="classroom" placeholder="Masukan Kelas Anak Saat Ini"
                                                 class="form-control" value="{{old('classroom', $student->classroom ?? '')}}" required>
                                         </div>
                                     </div>
@@ -172,7 +172,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Foto Siswa</label>
+                                    <label>Foto Anak</label>
                                     <input type="file" class="form-control-file" name="avatar">
                                 </div>
                                 <br>

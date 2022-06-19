@@ -54,7 +54,7 @@
                 <div class="modal-body">
 
                     <div class="form-group">
-                        <label>Nama Siswa:</label>
+                        <label>Nama Anak:</label>
                         <input class="form-control" disabled id="studentName" value="silahkan dipilih terlebih dahulu">
                     </div>
                     <div class="form-group">

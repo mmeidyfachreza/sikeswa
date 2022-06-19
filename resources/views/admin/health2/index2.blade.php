@@ -31,7 +31,7 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Siswa</th>
+                                        <th>Anak</th>
                                     </tr>
                                 </thead>
                                 <tbody>

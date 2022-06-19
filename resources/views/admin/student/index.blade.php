@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <ul class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active">Siswa </li>
+            <li class="breadcrumb-item active">Anak </li>
         </ul>
     </div>
 </div>
@@ -14,7 +14,7 @@
     <div class="container-fluid">
         <!-- Page Header-->
         <header>
-            <h1 class="h3 display">Siswa </h1>
+            <h1 class="h3 display">Anak </h1>
         </header>
         @if ($errors->any())
         <div class="alert alert-danger">
@@ -39,7 +39,7 @@
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 <button type="button" class="btn btn-default btn-sm" data-toggle="modal"
                                     data-target="#modal-sm">
-                                    Import Data Siswa
+                                    Import Data Anak
                                 </button>
                                 <a href="{{route('siswa.export')}}" class="btn btn-warning btn-sm">Cetak Excel</a>
                                 <a href="{{route('siswa.create')}}" class="btn btn-primary btn-sm">Tambah</a>
@@ -69,7 +69,7 @@
             <div class="modal-dialog modal-md">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Import Data Siswa</h4>
+                        <h4 class="modal-title">Import Data Anak</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

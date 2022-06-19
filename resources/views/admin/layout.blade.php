@@ -20,8 +20,8 @@
             </a>
             <ul id="Dropdown1" class="collapse list-unstyled ">
                 <li><a href="{{route('user.index')}}"><i class="far fa-envelope"></i>Pengguna</a></li>
-                <li><a href="{{route('siswa.index')}}"><i class="far fa-envelope"></i>Siswa</a></li>
-                <li><a href="{{route('user.index')}}"><i class="far fa-envelope"></i>Kelas Siswa</a></li>
+                <li><a href="{{route('siswa.index')}}"><i class="far fa-envelope"></i>Anak</a></li>
+                <li><a href="{{route('user.index')}}"><i class="far fa-envelope"></i>Kelas Anak</a></li>
                 <li><a href="{{route('user.index')}}"><i class="far fa-envelope"></i>Kategori Pengguna</a></li>
                 <li><a href="{{route('user.index')}}"><i class="far fa-envelope"></i>Kondisi Kesehatan</a></li>
                 <li><a href="{{route('user.index')}}"><i class="far fa-envelope"></i>Hasil Kesehatan</a></li>
