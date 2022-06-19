@@ -52,6 +52,7 @@
                                         <th>Tinggi Badan</th>
                                         <th>Berat Badan</th>
                                         <th>IMT</th>
+                                        <th>Komentar</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -65,6 +66,7 @@
                                         <td>{{$item->height}}</td>
                                         <td>{{$item->weight}}</td>
                                         <td>{{$item->bmi}}</td>
+                                        <td>{{$item->comment}}</td>
                                         <td>
                                             <form action="{{ route('kesehatan.destroy',$item->id) }}" method="POST">
                                                 @csrf

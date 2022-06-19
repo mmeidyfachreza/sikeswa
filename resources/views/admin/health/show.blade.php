@@ -58,6 +58,7 @@
                                         <th>Kondisi Kuku</th>
                                         <th>Kondisi Rambut</th>
                                         <th>Kondisi Telinga</th>
+                                        <th>Komentar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -72,6 +73,7 @@
                                     @foreach ($record->condition as $item)
                                     <td>{{$item->description ?? "Tidak Diketahui"}}</td>
                                     @endforeach
+                                    <td>{{$record->comment ?? '-'}}</td>
                                 </tbody>
                             </table>
                         </div>

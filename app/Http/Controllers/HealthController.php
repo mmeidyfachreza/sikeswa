@@ -80,7 +80,6 @@ class HealthController extends Controller
                     })
                     ->rawColumns(['action','name'])
                     ->make(true);
-
         }
         return view('admin.health.index3',compact('records','student'));
     }
