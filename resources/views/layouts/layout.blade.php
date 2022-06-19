@@ -92,7 +92,7 @@
                                 class="fas fa-database"></i>Data Master </a>
                         <ul id="formsDropdown" class="collapse list-unstyled ">
                             <li><a href="{{route('user.index')}}"><i class="fas fa-users"></i>Pengguna</a></li>
-                            <li><a href="{{route('siswa.index')}}"><i class="fas fa-user-graduate"></i>Siswa</a></li>
+                            <li><a href="{{route('siswa.index')}}"><i class="fas fa-user-graduate"></i>Anak</a></li>
                             {{-- <li><a href="{{route('user.index')}}"><i class="far fa-envelope"></i>Kondisi Kesehatan</a>
                             </li>
                             <li><a href="{{route('status-gizi.index')}}"><i class="far fa-envelope"></i>Status Gizi</a>
