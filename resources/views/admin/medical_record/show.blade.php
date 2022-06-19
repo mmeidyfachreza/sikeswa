@@ -44,7 +44,7 @@
                                             <td class="pt-0 pb-0">{{$student->name ?? "Tidak Diketahui"}}</td>
                                         </tr>
                                         <tr>
-                                            <th class="pt-0 pb-0">NIS</th>
+                                            <th class="pt-0 pb-0">NIK</th>
                                             <td class="pt-0 pb-0">{{$student->nis ?? "Tidak Diketahui"}}</td>
                                         </tr>
                                         <tr>

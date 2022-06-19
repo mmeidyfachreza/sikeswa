@@ -25,7 +25,7 @@
                                 <thead>
                                     <tr>
                                         <th class="text-center">Nama</th>
-                                        <th class="text-center">Nis</th>
+                                        <th class="text-center">NIK</th>
                                         <th class="text-center">Kelas</th>
 
                                     </tr>

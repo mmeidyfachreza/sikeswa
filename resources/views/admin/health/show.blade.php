@@ -24,7 +24,7 @@
                     <div class="media-body overflow-hidden">
                         <h5 class="card-text mb-0">{{$student->name}}</h5>
                         <p class="card-text text-uppercase">Kelas {{$student->classroom ?? ''}}</p>
-                        <p class="card-text">NIS: {{$student->nis ?? "belum diatur"}}<br></p>
+                        <p class="card-text">NIK: {{$student->nis ?? "belum diatur"}}<br></p>
                     </div>
                 </div><a href="#" class="tile-link"></a>
             </div>

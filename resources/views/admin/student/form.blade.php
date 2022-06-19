@@ -46,8 +46,8 @@
                                 @endisset
                                 @csrf
                                 <div class="form-group">
-                                    <label>Nomor Induk Anak</label>
-                                    <input type="text" name="nis" placeholder="Masukan Nomor Induk Anak" class="form-control"
+                                    <label>NIK</label>
+                                    <input type="text" name="nis" placeholder="Masukan NIK" class="form-control"
                                         value="{{old('nis', $student->nis ?? '')}}" required>
                                 </div>
                                 <div class="form-group">

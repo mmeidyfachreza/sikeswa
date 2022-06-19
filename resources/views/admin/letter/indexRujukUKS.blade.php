@@ -26,7 +26,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Nama</th>
-                                        <th>NIS</th>
+                                        <th>NIK</th>
                                         <th>Kelas</th>
                                         <th>Aksi</th>
                                     </tr>

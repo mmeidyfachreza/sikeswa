@@ -29,7 +29,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th class="text-center">Nama</th>
-                                        <th>Nis</th>
+                                        <th>NIK</th>
                                         <th>Kelas</th>
                                     </tr>
                                 </thead>
