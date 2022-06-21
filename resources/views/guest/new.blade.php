@@ -590,10 +590,10 @@
             <div>
                 <div class="card text-white" style="width: 100%; display: inline-block;">
                     <img style="background-size:cover!important;object-fit:cover!important;"
-                        src="{{asset('/images/a.jpg')}}" alt="Bangga Mengkonsumsi Produk Petani Lokal" class="card-img">
+                        src="{{asset('storage/img/background.jpg')}}" alt="Bangga Mengkonsumsi Produk Petani Lokal" class="card-img">
                     <div class="card-img-overlay d-flex justify-content-center align-items-center">
                         <div class="text-center">
-                            <h1 class="display-4 text-white slider-title"><b>Bangga Menjadi Generasi Penerus Bangsa</b></h1>
+                            {{-- <h1 class="display-4 text-white slider-title"><b>Bangga Menjadi Generasi Penerus Bangsa</b></h1> --}}
                         </div>
                     </div>
                 </div>
@@ -606,17 +606,16 @@
             <div class="container" data-aos="fade-up">
 
                 <div class="section-title">
-                    <h2>Visi Misi</strong></h2>
+                    <h2>Visi Tata Nilai</strong></h2>
                 </div>
 
                 <div class="row content">
                     <div class="col-lg-6" data-aos="fade-right">
-                        <h2>Eum ipsam laborum deleniti velitena</h2>
-                        <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assum perenda sruen jonee
-                            trave</h3>
+                        <h2>Visi</h2>
+                        <h3>Terwujudkan Masyarakat Kota Bontang Lebih Sehat, Hebat, dan Beradab</h3>
                     </div>
                     <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left">
-                        <p>
+                        {{-- <p>
                             Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
                             reprehenderit in voluptate
                             velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
@@ -635,7 +634,9 @@
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                             labore et dolore
                             magna aliqua.
-                        </p>
+                        </p> --}}
+                        <h2>Tata Nilai</h2>
+                        <h3>I CARE “Integritas, Collaboratif, Activ dan Inovatif, Respek, Empati”</h3>
                     </div>
                 </div>
 
@@ -695,9 +696,7 @@
             <div class="col-lg-12 d-flex justify-content-center">
               <ul id="portfolio-flters">
                 <li data-filter="*" class="filter-active">Semua</li>
-                <li data-filter=".filter-app">Matematika</li>
                 <li data-filter=".filter-card">Kesehatan</li>
-                <li data-filter=".filter-web">Biologi</li>
               </ul>
             </div>
           </div>
