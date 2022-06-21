@@ -53,7 +53,8 @@ class StudentController extends Controller
     {
         $blood_type = ['Tidak Tahu','A','B','AB','O'];
         $gender = ['Laki-laki','Perempuan'];
-        return view('admin.student.form',compact('blood_type','gender'));
+        $school_from = ['Sekolah','Posyandu','Keluarga'];
+        return view('admin.student.form',compact('blood_type','gender','school_from'));
     }
 
     /**
@@ -104,7 +105,8 @@ class StudentController extends Controller
         $student = Student::findOrFail($id);
         $blood_type = ['Tidak Tahu','A','B','AB','O'];
         $gender = ['Laki-laki','Perempuan'];
-        return view('admin.student.form',compact('student','blood_type','gender'));
+        $school_from = ['Sekolah','Posyandu','Keluarga'];
+        return view('admin.student.form',compact('student','blood_type','gender','school_from'));
     }
 
     /**

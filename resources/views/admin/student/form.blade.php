@@ -93,9 +93,19 @@
                                         required>{{old('address', $student->address ?? '')}}</textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label>Asal Sekolah</label>
-                                    <input type="text" name="school_from" placeholder="Masukan Asal Sekolah"
-                                        class="form-control" value="{{old('school_from', $student->school_from ?? '')}}" required>
+                                    <label>Penemuan Kasus</label>
+                                    <select name="school_from" class="custom-select">
+                                        @isset($student)
+                                        @foreach ($school_from as $item)
+                                        <option value={{$item}} @if($item==$student->school_from)
+                                            selected @endif>{{$item}}</option>
+                                        @endforeach
+                                        @else
+                                        @foreach ($school_from as $item)
+                                        <option value={{$item}}>{{$item}}</option>
+                                        @endforeach
+                                        @endisset
+                                    </select>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-6">
