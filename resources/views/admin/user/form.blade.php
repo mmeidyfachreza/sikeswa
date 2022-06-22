@@ -45,6 +45,11 @@
                                 @endisset
                                 @csrf
                                 <div class="form-group">
+                                    <label>No Identitas</label>
+                                    <input type="text" name="no_identity" placeholder="Masukan Nomor Identitas"
+                                        class="form-control" value="{{old('no_identity',$user->no_identity ?? ' ')}}" required>
+                                </div>
+                                <div class="form-group">
                                     <label>Nama Lengkap</label>
                                     <input type="text" name="name" placeholder="Masukan Nama Lengkap"
                                         class="form-control" value="{{old('name',$user->name ?? ' ')}}" required>
@@ -59,6 +64,11 @@
                                     <label>Email</label>
                                     <input type="email" name="email" class="form-control"
                                         value="{{old('email',$user->email ?? ' ')}}" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Jabatan</label>
+                                    <input type="text" name="position" placeholder="Masukan Jabatan"
+                                        class="form-control" value="{{old('position',$user->position ?? ' ')}}" required>
                                 </div>
                                 @isset ($user)
                                 <div class="form-group">
@@ -85,17 +95,17 @@
                                 @endisset
 
                                 <div class="form-group">
-                                    <label>Status</label>
-                                    <select name="category_user_id" class="custom-select">
+                                    <label>Jenis Akun</label>
+                                    <select name="user_type" class="custom-select">
                                         @isset ($user)
-                                        @foreach ($categories as $item)
-                                        <option value={{$item->id}} @if ($item->id == $user->category_user_id) selected
-                                            @endif>{{$item->name}}</option>
+                                        @foreach ($userTypes as $item)
+                                        <option value={{$item}} @if ($item == $user->user_type) selected
+                                            @endif>{{$item}}</option>
                                         @endforeach
                                         @else
                                         <option value='' selected disabled>--Pilih--</option>
-                                        @foreach ($categories as $item)
-                                        <option value={{$item->id}}>{{$item->name}}</option>
+                                        @foreach ($userTypes as $item)
+                                        <option value={{$item}}>{{$item}}</option>
                                         @endforeach
                                         @endisset
                                     </select>

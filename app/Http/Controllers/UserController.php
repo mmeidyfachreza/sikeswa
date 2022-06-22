@@ -50,8 +50,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        $categories = CategoryUser::all();
-        return view('admin.user.form',compact('categories'));
+        $userTypes = ['staff','admin'];
+        return view('admin.user.form',compact('userTypes'));
     }
 
     /**
@@ -65,7 +65,7 @@ class UserController extends Controller
         if ($request->hasFile('avatar') && $request->has('avatar')) {
             $avatar = $request->file('avatar');
             $filename = time() . '.' . $avatar->getClientOriginalExtension();
-            
+
             Image::make($avatar)->resize(354,472)->save(public_path('/uploads/avatars/' . $filename));
             $user = User::create($request->all());
             $user->avatar = $filename;
@@ -97,8 +97,8 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
-        $categories = CategoryUser::all();
-        return view('admin.user.form',compact('user','categories'));
+        $userTypes = ['staff','admin'];
+        return view('admin.user.form',compact('user','userTypes'));
     }
 
     /**
@@ -112,7 +112,7 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         if ($request->hasFile('avatar')) {
-            # code...   
+            # code...
             $pathToFile = public_path('uploads/avatars/' . $user->avatar);
             File::delete($pathToFile);
             $avatar = $request->file('avatar');
