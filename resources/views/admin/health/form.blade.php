@@ -26,7 +26,7 @@
                         <p class="card-text text-uppercase">Kelas {{$student->classroom ?? ''}}</p>
                         <p class="card-text">
 
-                            NIS: {{$student->nis}}<br>bla
+                            NIK: {{$student->nis}}<br>bla
                         </p>
                     </div>
                 </div><a href="#" class="tile-link"></a>
