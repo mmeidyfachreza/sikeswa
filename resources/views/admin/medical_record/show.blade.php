@@ -80,7 +80,7 @@
                                             <td class="pt-0 pb-0">{{$student->blood_type ?? "Tidak Diketahui"}}</td>
                                         </tr>
                                         <tr>
-                                            <th class="pt-0 pb-0">Asal Sekolah</th>
+                                            <th class="pt-0 pb-0">Penemuan Kasus</th>
                                             <td class="pt-0 pb-0">{{$student->school_from ?? "Tidak Diketahui"}}</td>
                                         </tr>
                                         <tr>

@@ -32,7 +32,7 @@
                                                         Alamat<br>
                                                         Jenis Kelamin <br>
                                                         Golongan Darah<br>
-                                                        Asal Sekolah<br>
+                                                        Penemuan Kasus<br>
                                                         kelas<br>
                                                         No BPJS<br>
                                                 </th>

@@ -250,8 +250,8 @@
                                             required>{{old('address', $health->address ?? ' ')}}</textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label>Asal Sekolah</label>
-                                        <input type="text" name="school_from" placeholder="Masukan Asal Sekolah"
+                                        <label>Penemuan Kasus</label>
+                                        <input type="text" name="school_from" placeholder="Masukan Penemuan Kasus"
                                             class="form-control" value="{{old('school_from', $health->school_from ?? ' ')}}" required>
                                     </div>
 
@@ -515,8 +515,8 @@
                                         required>{{old('address', $health->address ?? ' ')}}</textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label>Asal Sekolah</label>
-                                    <input type="text" name="school_from" placeholder="Masukan Asal Sekolah"
+                                    <label>Penemuan Kasus</label>
+                                    <input type="text" name="school_from" placeholder="Masukan Penemuan Kasus"
                                         class="form-control" value="{{old('school_from', $health->school_from ?? ' ')}}" required>
                                 </div>
 

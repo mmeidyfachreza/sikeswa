@@ -55,7 +55,7 @@
                                                 <td class="pt-0 pb-0">{{$rekammedik->siswa->gol_darah}}</td>
                                         </tr>
                                             <tr>
-                                                <th class="pt-0 pb-0">Asal Sekolah</th>
+                                                <th class="pt-0 pb-0">Penemuan Kasus</th>
                                                 <td class="pt-0 pb-0">{{$rekammedik->siswa->asal_sekolah}}</td>
                                         </tr>
                                             <tr>
