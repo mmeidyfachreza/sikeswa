@@ -101,14 +101,14 @@
                                     <div class="row">
                                         <div class="form-group col-lg-6">
                                             <label>Tinggi Badan (Cm)</label>
-                                            <input id="height" type="number" name="height" class="form-control"
-                                                value="{{old('height', $record->height ?? ' ')}}"
+                                            <input id="height" type="text" name="height" class="form-control"
+                                                value="{{old('height', $record->height ?? '')}}"
                                                 placeholder="Masukan Tinggi Badan">
                                         </div>
                                         <div class="form-group col-lg-6">
                                             <label>Berat Badan(Cm)</label>
-                                            <input id="weight" type="number" name="weight" class="form-control"
-                                                value="{{old('weight', $record->weight ?? ' ')}}"
+                                            <input id="weight" type="text" name="weight" class="form-control"
+                                                value="{{old('weight', $record->weight ?? '')}}"
                                                 placeholder="Masukan Berat Badan">
                                         </div>
                                     </div>
