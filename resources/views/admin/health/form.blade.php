@@ -339,6 +339,16 @@
                     <p>&nbsp;</p>
                     <img class="card-img-top" src="{{asset('/images/8.png')}}" alt="Card image">
                     <p>&nbsp;</p>
+                    <img class="card-img-top" src="{{asset('/images/9.png')}}" alt="Card image">
+                    <p>&nbsp;</p>
+                    <img class="card-img-top" src="{{asset('/images/10.png')}}" alt="Card image">
+                    <p>&nbsp;</p>
+                    <img class="card-img-top" src="{{asset('/images/11.png')}}" alt="Card image">
+                    <p>&nbsp;</p>
+                    <img class="card-img-top" src="{{asset('/images/12.png')}}" alt="Card image">
+                    <p>&nbsp;</p>
+                    <img class="card-img-top" src="{{asset('/images/13.png')}}" alt="Card image">
+                    <p>&nbsp;</p>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
