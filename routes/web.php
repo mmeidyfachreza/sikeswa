@@ -15,10 +15,9 @@
 //     return view('admin.health.tau');
 // });
 Route::get('/tes','DashboardController@tes');
-Route::get('/python','DashboardController@tes3');
 
 Route::get('/', function () {
-    return view('guest.new');
+    return view('welcome');
 });
 
 Auth::routes();
@@ -59,3 +58,11 @@ Route::group(['middleware'=>'admin', 'prefix' => 'admin'], function () {
 
     Route::post('users/update', 'HomeController@tested');
 });
+
+
+// for testing
+if (app()->environment(['local', 'staging'])) {
+    Route::get('tes',function (){
+        return view('welcome');
+    });
+}

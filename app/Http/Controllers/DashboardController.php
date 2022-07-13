@@ -99,12 +99,6 @@ class DashboardController extends Controller
         echo "done!! ".$date;
     }
 
-    public function tes3()
-    {
-        $tes = shell_exec('C:\Users\4SUS\AppData\Local\Programs\Python\Python38-32\python.exe D:\Website\backend\python\hello\hello.py');
-        echo $tes;
-    }
-
     public function indexkk()
     {
         if(request()->ajax()){
