@@ -53,9 +53,4 @@ class Student extends Model
     {
         return $this->hasMany('App\Health')->whereYear('date', '=', $year)->get();
     }
-
-    public function getBirthDateAttribute()
-    {
-        return Carbon::parse($this->attributes['birth_date'])->format('d/m/Y');
-    }
 }
