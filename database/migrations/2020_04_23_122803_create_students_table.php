@@ -20,9 +20,9 @@ class CreateStudentsTable extends Migration
             $table->date('birth_date');
             $table->string('address',150);
             $table->enum('gender',['laki-laki','perempuan']);
-            $table->string('school_from',150);
-            $table->string('class_year',4);
-            $table->string('classroom',20);
+            $table->string('school_from',150)->nullable();
+            $table->string('class_year',4)->nullable();
+            $table->string('classroom',20)->nullable();
             $table->string('father_name',50)->nullable();
             $table->string('mother_name',50)->nullable();
             $table->string('guardian',50)->nullable();
