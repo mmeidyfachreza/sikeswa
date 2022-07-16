@@ -37,13 +37,6 @@
                         <div class="card-body">
                         <form enctype="multipart/form-data" action="{{route('siswa.update',$student->nis)}}" method="POST">
                             @method('PUT')
-                            @else
-                            <div class="card-header d-flex align-items-center">
-                                <h4>Tambah Anak</h4>
-                            </div>
-                            <div class="card-body">
-                            <form enctype="multipart/form-data" action="{{route('siswa.store')}}" method="POST">
-                                @endisset
                                 @csrf
                                 <div class="form-group">
                                     <label>NIK</label>
@@ -75,16 +68,10 @@
                                     <label>Jenis Kelamin</label>
                                     <select name="gender" class="custom-select">
                                         <option value='' selected disabled>Pilih</option>
-                                        @isset($student)
                                         @foreach ($gender as $item)
                                         <option value={{$item}} @if($item==$student->gender)
                                             selected @endif>{{$item}}</option>
                                         @endforeach
-                                        @else
-                                        @foreach ($gender as $item)
-                                        <option value={{$item}}>{{$item}}</option>
-                                        @endforeach
-                                        @endisset
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -95,16 +82,10 @@
                                 <div class="form-group">
                                     <label>Penemuan Kasus</label>
                                     <select name="school_from" class="custom-select">
-                                        @isset($student)
                                         @foreach ($school_from as $item)
                                         <option value={{$item}} @if($item==$student->school_from)
                                             selected @endif>{{$item}}</option>
                                         @endforeach
-                                        @else
-                                        @foreach ($school_from as $item)
-                                        <option value={{$item}}>{{$item}}</option>
-                                        @endforeach
-                                        @endisset
                                     </select>
                                 </div>
                                 <div class="row">
@@ -168,17 +149,10 @@
                                 <div class="form-group">
                                     <label>Golongan Darah</label>
                                     <select name="blood_type" class="custom-select">
-                                        @isset($student)
                                         @foreach ($blood_type as $item)
                                         <option value={{$item}} @if($item==$student->blood_type)
                                             selected @endif>{{$item}}</option>
                                         @endforeach
-                                        @else
-                                        <option value='' selected disabled>--Pilih--</option>
-                                        @foreach ($blood_type as $item)
-                                        <option value={{$item}}>{{$item}}</option>
-                                        @endforeach
-                                        @endisset
                                     </select>
                                 </div>
                                 <div class="form-group">
