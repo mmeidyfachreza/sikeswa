@@ -49,11 +49,11 @@
                                         </tr>
                                         <tr>
                                             <th class="pt-0 pb-0">Tempat Lahir</th>
-                                            <td class="pt-0 pb-0">{{$student->born_city ?? "Tidak Diketahui"}}</td>
+                                            <td class="pt-0 pb-0">{{$student->birth_place ?? "Tidak Diketahui"}}</td>
                                         </tr>
                                         <tr>
                                             <th class="pt-0 pb-0">Tanggal Lahir</th>
-                                            <td class="pt-0 pb-0">{{date("d-m-Y", strtotime($student->born_date))}}</td>
+                                            <td class="pt-0 pb-0">{{$student->birth_date ?? "Tidak Diketahui"}}</td>
                                         </tr>
                                         <tr>
                                             <th class="pt-0 pb-0">Alamat</th>

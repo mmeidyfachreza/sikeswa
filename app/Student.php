@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
@@ -51,5 +52,10 @@ class Student extends Model
     public function pengukuranYear($year)
     {
         return $this->hasMany('App\Health')->whereYear('date', '=', $year)->get();
+    }
+
+    public function getBirthDateAttribute()
+    {
+        return Carbon::parse($this->date)->format('d-m-Y');
     }
 }
