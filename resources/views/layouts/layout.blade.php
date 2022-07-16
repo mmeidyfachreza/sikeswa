@@ -119,7 +119,7 @@
                             </a></div>
                         <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
                             <!-- Notifications dropdown-->
-                            <li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#" href="#"
+                            {{-- <li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#" href="#"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                     class="nav-link"><i class="fa fa-bell"></i><span
                                         class="badge badge-warning">12</span></a>
@@ -155,9 +155,9 @@
                                     <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center">
                                             <strong> <i class="fa fa-bell"></i>view all notifications </strong></a></li>
                                 </ul>
-                            </li>
+                            </li> --}}
                             <!-- Messages dropdown-->
-                            <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#"
+                            {{-- <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                     class="nav-link"><i class="fa fa-envelope"></i><span
                                         class="badge badge-info">10</span></a>
@@ -192,7 +192,7 @@
                                     <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center">
                                             <strong> <i class="fa fa-envelope"></i>Read all messages </strong></a></li>
                                 </ul>
-                            </li>
+                            </li> --}}
                             <!-- Log out-->
                             <li class="nav-item">
                                 <a href="{{ route('logout') }}" class="nav-link logout" onclick="event.preventDefault();
