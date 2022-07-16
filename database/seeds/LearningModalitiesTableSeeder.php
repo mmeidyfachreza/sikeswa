@@ -118,6 +118,6 @@ class LearningModalitiesTableSeeder extends Seeder
                 'type'=>$value['type']
             ]);
         }
-        error_log('Pengisian Data Berhasil');
+
     }
 }

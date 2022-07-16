@@ -53,7 +53,7 @@ class HealthScreeningTableSeeder extends Seeder
                 'question'=>'Memiliki penyakit lainnya',
                 'type'=>'Riwayat Kesehatan'
             ],
-            
+
             [
                 'question'=>'Apakah kamu memiliki catatan imunisasi',
                 'type'=>'Riwayat Imunisasi'
@@ -62,7 +62,7 @@ class HealthScreeningTableSeeder extends Seeder
                 'question'=>'Apakah pada saat bayi  mendapat imunisasi DPT sebanyak 3 kali lengkap',
                 'type'=>'Riwayat Imunisasi'
             ],
-            
+
             [
                 'question'=>'Tuberkulosis ( TBC ) paru',
                 'type'=>'Informasi Kesehatan Keluarga'
@@ -111,7 +111,7 @@ class HealthScreeningTableSeeder extends Seeder
                 'question'=>'Anemia',
                 'type'=>'Informasi Kesehatan Keluarga'
             ],
-            
+
             [
                 'question'=>'Apakah kamu makan pagi',
                 'type'=>'Gaya Hidup'
@@ -128,7 +128,7 @@ class HealthScreeningTableSeeder extends Seeder
                 'question'=>'Apakah orang tua /  keluarga ada yang minum minuman beralkohol',
                 'type'=>'Gaya Hidup'
             ],
-            
+
         ];
         foreach ($dataset as $value) {
             HealthScreening::create([
@@ -136,6 +136,6 @@ class HealthScreeningTableSeeder extends Seeder
                 'type'=>$value['type']
             ]);
         }
-        error_log('Pengisian Data Berhasil');
+
     }
 }
