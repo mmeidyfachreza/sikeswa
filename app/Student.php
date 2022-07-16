@@ -2,8 +2,8 @@
 
 namespace App;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 class Student extends Model
 {
@@ -56,6 +56,6 @@ class Student extends Model
 
     public function getBirthDateAttribute()
     {
-        return Carbon::parse($this->date)->format('d-m-Y');
+        return Carbon::parse($this->attributes['birth_date'])->format('d/m/Y');
     }
 }

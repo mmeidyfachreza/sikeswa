@@ -36,19 +36,19 @@
                         <form enctype="multipart/form-data" action="{{route('siswa.store')}}" method="POST">
                             @csrf
                             <div class="form-group">
-                                <label>NIK</label>
+                                <label>NIK <x-required-sign/></label>
                                 <input type="text" name="nis" placeholder="Masukan NIK" class="form-control"
                                     value="{{old('nis','')}}" required>
                             </div>
                             <div class="form-group">
-                                <label>Nama Lengkap</label>
+                                <label>Nama Lengkap <x-required-sign/></label>
                                 <input type="text" name="name" placeholder="Masukan Nama Lengkap Anak"
                                     class="form-control" value="{{old('name', $student->name ?? '')}}" required>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label>Tempat lahir</label>
+                                        <label>Tempat lahir <x-required-sign/></label>
                                         <input type="text" name="birth_place" placeholder="Masukan Tempat Lahir Anak"
                                             class="form-control"
                                             value="{{old('birth_place','')}}" required>
@@ -56,14 +56,14 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label>Tanggal Lahir</label>
+                                        <label>Tanggal Lahir <x-required-sign/></label>
                                         <input type="date" name="birth_date" class="form-control"
                                             value="{{old('birth_date','')}}" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label>Jenis Kelamin</label>
+                                <label>Jenis Kelamin <x-required-sign/></label>
                                 <select name="gender" class="custom-select">
                                     <option value='' selected disabled>Pilih</option>
                                     @foreach ($gender as $item)
@@ -72,7 +72,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Alamat</label>
+                                <label>Alamat <x-required-sign/></label>
                                 <textarea name="address" id="" cols="30" rows="5" class="form-control"
                                     placeholder="Masukan Alamat Tempat Tinggal Anak Saat Ini"
                                     required>{{old('address','')}}</textarea>
@@ -91,15 +91,14 @@
                                         <label>Tahun Masuk/Angkatan</label>
                                         <input type="number" name="class_year" class="form-control"
                                             value="{{old('class_year','')}}"
-                                            placeholder="Masukan Tahun" required>
+                                            placeholder="Masukan Tahun">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label>Kelas</label>
                                         <input type="text" name="classroom" placeholder="Masukan Kelas Anak Saat Ini"
-                                            class="form-control" value="{{old('classroom','')}}"
-                                            required>
+                                            class="form-control" value="{{old('classroom','')}}">
                                     </div>
                                 </div>
                             </div>
@@ -129,8 +128,7 @@
                             <div class="form-group">
                                 <label>No telepon Aktif</label>
                                 <input type="text" name="phone_number" placeholder="Masukan Nomor Telepon"
-                                    class="form-control" value="{{old('phone_number','')}}"
-                                    required>
+                                    class="form-control" value="{{old('phone_number','')}}">
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
