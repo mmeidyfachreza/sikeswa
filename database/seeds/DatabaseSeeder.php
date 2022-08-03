@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(MeasurementsTableSeeder::class);
 
         //medical record form seeder
+        $this->call(HealthScreeningTableSeeder::class);
         $this->call(MentalHealthTableSeeder::class);
         $this->call(MentalHealth2TableSeeder::class);
         $this->call(LearningModalitiesTableSeeder::class);
