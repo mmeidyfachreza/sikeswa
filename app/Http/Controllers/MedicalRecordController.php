@@ -10,6 +10,7 @@ use App\MentalHealth;
 use App\MentalHealth2;
 use App\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MedicalRecordController extends Controller
 {
@@ -68,7 +69,7 @@ class MedicalRecordController extends Controller
         $medicalRecord = MedicalRecord::create($request->all());
         $a = HealthScreening::all();
         $mh = MentalHealth::all();
-        $mh2 = MentalHealth2::all();
+        // $mh2 = MentalHealth2::all();
         $lm = LearningModality::all();
         $bd = BrainDomination::all();
         $x = 1;
@@ -84,11 +85,11 @@ class MedicalRecordController extends Controller
             //collect all inserted record IDs
             $mh_id_array[$item->id] = ['score' => $request->mh[$x++]];
         }
-        $x = 1;
-        foreach ($mh2 as $item) {
-            //collect all inserted record IDs
-            $mh2_id_array[$item->id] = ['score' => $request->mh2[$x++]];
-        }
+        // $x = 1;
+        // foreach ($mh2 as $item) {
+        //     //collect all inserted record IDs
+        //     $mh2_id_array[$item->id] = ['score' => $request->mh2[$x++]];
+        // }
         $x = 1;
         foreach ($lm as $item) {
             //collect all inserted record IDs
@@ -100,11 +101,18 @@ class MedicalRecordController extends Controller
             $bd_id_array[$item->id] = ['score' => $request->bd[$x++]];
         }
 
-        $medicalRecord->mentalHealth()->attach($mh_id_array);
-        $medicalRecord->mentalHealth2()->attach($mh2_id_array);
-        $medicalRecord->learningModality()->attach($lm_id_array);
-        $medicalRecord->brainDomination()->attach($bd_id_array);
-        $medicalRecord->healthScreening()->attach($a_id_array);
+        DB::beginTransaction();
+        try {
+            $medicalRecord->mentalHealth()->attach($mh_id_array);
+            // $medicalRecord->mentalHealth2()->attach($mh2_id_array);
+            $medicalRecord->learningModality()->attach($lm_id_array);
+            $medicalRecord->brainDomination()->attach($bd_id_array);
+            $medicalRecord->healthScreening()->attach($a_id_array);
+            DB::commit();
+        } catch (\Exception $e){
+            DB::rollBack();
+            return redirect()->route('rekam-medik.create')->withErrors(['message'=>$e->getMessage()]);
+        }
 
         return redirect()->route('student.find.record',$request->student_nis)->with(['success'=>'Berhasil menambah data','data'=>$student]);
     }

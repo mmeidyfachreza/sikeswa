@@ -55,10 +55,7 @@
                             <a class="nav-link active" data-toggle="tab" href="#hs">Penjanringan Kesehatan</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#mh">Kesehatan Mental 1</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" data-toggle="tab" href="#mhh">Kesehatan Mental 2</a>
+                        <a class="nav-link" data-toggle="tab" href="#mh">Kesehatan Mental</a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" data-toggle="tab" href="#lm">Modalitas Belajar</a>
@@ -78,9 +75,6 @@
                         </div>
                         <div class="tab-pane container fade" id="mh">
                             @include('admin.medical_record.mental_health')
-                        </div>
-                        <div class="tab-pane container fade" id="mhh">
-                            @include('admin.medical_record.mental_health2')
                         </div>
                         <div class="tab-pane container fade" id="lm">
                             @include('admin.medical_record.learning_modality')
@@ -119,11 +113,11 @@
                                         <a class="nav-link active" data-toggle="tab" href="#hs">Penjanringan Kesehatan</a>
                                     </li>
                                     <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#mh">Kesehatan Mental 1</a>
+                                    <a class="nav-link" data-toggle="tab" href="#mh">Kesehatan Mental</a>
                                     </li>
-                                    <li class="nav-item">
+                                    {{-- <li class="nav-item">
                                       <a class="nav-link" data-toggle="tab" href="#mhh">Kesehatan Mental 2</a>
-                                    </li>
+                                    </li> --}}
                                     <li class="nav-item">
                                       <a class="nav-link" data-toggle="tab" href="#lm">Modalitas Belajar</a>
                                     </li>
@@ -143,9 +137,9 @@
                                     <div class="tab-pane container fade" id="mh">
                                         @include('admin.medical_record.mental_health')
                                     </div>
-                                    <div class="tab-pane container fade" id="mhh">
+                                    {{-- <div class="tab-pane container fade" id="mhh">
                                         @include('admin.medical_record.mental_health2')
-                                    </div>
+                                    </div> --}}
                                     <div class="tab-pane container fade" id="lm">
                                         @include('admin.medical_record.learning_modality')
                                     </div>
